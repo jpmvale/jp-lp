@@ -286,8 +286,8 @@ const Experience = () => {
             </p>
           </motion.div>
 
-          {/* Timeline Navigation */}
-          <motion.div variants={itemVariants} className="mb-12">
+          {/* Timeline Navigation - Hidden on mobile */}
+          <motion.div variants={itemVariants} className="mb-12 hidden md:block">
             <div className="flex flex-wrap justify-center gap-4">
               {experiences.map((exp, index) => (
                 <motion.button

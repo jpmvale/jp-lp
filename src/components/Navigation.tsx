@@ -1,23 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Code, User, Briefcase, FolderOpen, MessageSquare, Zap } from "lucide-react";
+import { Menu, X, Code, User, Briefcase, MessageSquare, Zap } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: 'Início', href: 'inicio', icon: Code },
     { name: 'Sobre', href: 'sobre', icon: User },
     { name: 'Experiência', href: 'experiencia', icon: Briefcase },
     { name: 'Habilidades', href: 'habilidades', icon: Zap },
     // { name: 'Projetos', href: 'projetos', icon: FolderOpen }, // COMENTADO - Reativar quando tiver projetos
     { name: 'Contato', href: 'contato', icon: MessageSquare },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {

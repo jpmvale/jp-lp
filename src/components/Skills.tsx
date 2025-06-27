@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+
 import { 
   Code, 
   Database, 
@@ -17,7 +17,7 @@ import {
   Shield,
   Wrench
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const Skills = () => {
   const [animatedProgress, setAnimatedProgress] = useState<{ [key: string]: number }>({});
@@ -51,7 +51,7 @@ const Skills = () => {
     { left: 68, delay: 0.6, duration: 8.6 }
   ];
 
-  const skillCategories = [
+  const skillCategories = useMemo(() => [
     {
       title: "Backend",
       icon: Server,
@@ -130,7 +130,7 @@ const Skills = () => {
         { name: "Algoritmos Genéticos", level: 85, icon: Brain },
       ]
     },
-  ];
+  ], []);
 
   const softSkills = [
     { name: "Organização", icon: Brain, description: "Capacidade de se preparar com antencedência e quebrar em tarefas menores" },

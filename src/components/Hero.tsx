@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github, Linkedin, Mail, Download, Code, Zap, Cpu } from "lucide-react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -227,7 +228,7 @@ const Hero = () => {
               className="hover:bg-primary/10 px-8 py-3"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download CV
+              Baixar CV
             </Button>
           </motion.div>
 
@@ -298,9 +299,11 @@ const Hero = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
-                <img
+                <Image
                   src="/profile.jpg"
                   alt="João Pedro Vale - Foto de Perfil"
+                  width={400}
+                  height={400}
                   className="w-full h-auto rounded-2xl neon-border shadow-2xl"
                 />
                 
