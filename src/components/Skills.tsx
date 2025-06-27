@@ -18,9 +18,11 @@ import {
   Wrench
 } from "lucide-react";
 import { useState, useEffect, useMemo } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Skills = () => {
   const [animatedProgress, setAnimatedProgress] = useState<{ [key: string]: number }>({});
+  const { t } = useLanguage();
 
   // Valores determinísticos para as partículas
   const particles = [
@@ -53,7 +55,7 @@ const Skills = () => {
 
   const skillCategories = useMemo(() => [
     {
-      title: "Backend",
+      title: t('skills.backend'),
       icon: Server,
       color: "from-green-500 to-emerald-500",
       skills: [
@@ -62,11 +64,11 @@ const Skills = () => {
         { name: "Python", level: 85, icon: Code },
         { name: "PHP/Laravel", level: 81, icon: Code },
         { name: "C#/.NET", level: 79, icon: Code },
-        { name: "Arquitetura baseada em eventos", level: 88, icon: Globe },
+        { name: t('skills.eventArchitecture'), level: 88, icon: Globe },
       ]
     },
     {
-      title: "Frontend",
+      title: t('skills.frontend'),
       icon: Code,
       color: "from-blue-500 to-cyan-500",
       skills: [
@@ -79,7 +81,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Database",
+      title: t('skills.database'),
       icon: Database,
       color: "from-orange-500 to-amber-500",
       skills: [
@@ -92,7 +94,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Cloud/DevOps",
+      title: t('skills.cloudDevops'),
       icon: Cloud,
       color: "from-purple-500 to-violet-500",
       skills: [
@@ -105,7 +107,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Ferramentas",
+      title: t('skills.tools'),
       icon: Wrench,
       color: "from-teal-500 to-cyan-500",
       skills: [
@@ -118,27 +120,27 @@ const Skills = () => {
       ]
     },
     {
-      title: "Inteligência Artificial",
+      title: t('skills.ai'),
       icon: Brain,
       color: "from-pink-500 to-rose-500",
       skills: [
         { name: "TensorFlow", level: 85, icon: Code },
         { name: "PyTorch", level: 81, icon: Code },
         { name: "OpenAI API", level: 88, icon: Code },
-        { name: "Processamento de Linguagem Natural", level: 85, icon: Brain },
+        { name: t('skills.nlp'), level: 85, icon: Brain },
         { name: "GPT/Claude/Gemini", level: 85, icon: Code },
-        { name: "Algoritmos Genéticos", level: 85, icon: Brain },
+        { name: t('skills.geneticAlgorithms'), level: 85, icon: Brain },
       ]
     },
-  ], []);
+  ], [t]);
 
   const softSkills = [
-    { name: "Organização", icon: Brain, description: "Capacidade de se preparar com antencedência e quebrar em tarefas menores" },
-    { name: "Comunicação", icon: Globe, description: "Comunicação clara, empática, efetiva" },
-    { name: "Resolução de Problemas", icon: Zap, description: "Análise e solução de problemas complexos" },
-    { name: "Aprendizado Rápido", icon: Brain, description: "Adaptação rápida  e não possuo resistência a outras tecnologias" },
-    { name: "Trabalho em Equipe", icon: Globe, description: "Alta facilidade de trabalhar em equipe" },
-    { name: "Pensamento Crítico", icon: Cpu, description: "Análise crítica e tomada de decisões" }
+    { name: t('skills.organization'), icon: Brain, description: t('skills.organizationDesc') },
+    { name: t('skills.communication'), icon: Globe, description: t('skills.communicationDesc') },
+    { name: t('skills.problemSolving'), icon: Zap, description: t('skills.problemSolvingDesc') },
+    { name: t('skills.fastLearning'), icon: Brain, description: t('skills.fastLearningDesc') },
+    { name: t('skills.teamwork'), icon: Globe, description: t('skills.teamworkDesc') },
+    { name: t('skills.criticalThinking'), icon: Cpu, description: t('skills.criticalThinkingDesc') }
   ];
 
   useEffect(() => {
@@ -204,12 +206,12 @@ const Skills = () => {
             <div className="flex items-center justify-center mb-6">
               <Brain className="w-8 h-8 text-primary mr-3 animate-pulse" />
               <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="gradient-text">Habilidades Técnicas</span>
+                <span className="gradient-text">{t('skills.title')}</span>
               </h2>
             </div>
             <div className="w-32 h-1 bg-gradient-to-r from-primary via-blue-500 to-purple-500 mx-auto mb-6 progress-bar" />
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Um arsenal completo de tecnologias modernas e metodologias comprovadas
+              {t('skills.subtitle')}
             </p>
           </motion.div>
 
@@ -294,10 +296,10 @@ const Skills = () => {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-primary mr-3 animate-pulse" />
-                <h3 className="text-3xl font-bold gradient-text">Habilidades Interpessoais</h3>
+                <h3 className="text-3xl font-bold gradient-text">{t('skills.softSkillsTitle')}</h3>
               </div>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Competências essenciais para trabalho em equipe e liderança
+                {t('skills.softSkillsSubtitle')}
               </p>
             </div>
 

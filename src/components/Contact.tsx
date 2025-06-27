@@ -13,8 +13,11 @@ import {
   MessageCircle,
   Calendar
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+  
   // Partículas para o fundo animado
   const particles = [
     { left: 10, delay: 0, duration: 4 },
@@ -32,33 +35,33 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
+      title: t('contact.email'),
       value: "jpmvale@gmail.com",
-      description: "Respondo em até 24h",
+      description: t('contact.emailDesc'),
       color: "from-blue-500 to-cyan-500",
       href: "mailto:jpmvale@gmail.com"
     },
     {
       icon: Phone,
-      title: "Telefone",
+      title: t('contact.phone'),
       value: "+55 (98) 99245-1236",
-      description: "WhatsApp disponível",
+      description: t('contact.phoneDesc'),
       color: "from-green-500 to-emerald-500",
       href: "tel:+5598992451236"
     },
     {
       icon: MapPin,
-      title: "Localização",
+      title: t('contact.location'),
       value: "São Luís, MA",
-      description: "Disponível para remoto",
+      description: t('contact.locationDesc'),
       color: "from-purple-500 to-violet-500",
       href: "#"
     },
     {
       icon: Calendar,
-      title: "Disponibilidade",
-      value: "Disponível",
-      description: "Para novos projetos",
+      title: t('contact.availability'),
+      value: t('contact.available'),
+      description: t('contact.availabilityDesc'),
       color: "from-orange-500 to-amber-500",
       href: "#"
     }
@@ -144,19 +147,19 @@ const Contact = () => {
             <div className="flex items-center justify-center mb-6">
               <MessageCircle className="w-8 h-8 text-primary mr-3 animate-pulse" />
               <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="gradient-text">Vamos Conversar</span>
+                <span className="gradient-text">{t('contact.title')}</span>
               </h2>
             </div>
             <div className="w-32 h-1 bg-gradient-to-r from-primary via-blue-500 to-purple-500 mx-auto mb-6 progress-bar" />
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Tem um projeto em mente? Vamos transformar sua ideia em realidade digital
+              {t('contact.subtitle')}
             </p>
           </motion.div>
 
           {/* Contact Information - Centralizado */}
           <motion.div variants={itemVariants} className="space-y-12">
             <div className="text-center">
-              <h3 className="text-3xl font-bold mb-8 gradient-text">Informações de Contato</h3>
+              <h3 className="text-3xl font-bold mb-8 gradient-text">{t('contact.info')}</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {contactInfo.map((info, index) => (
@@ -187,7 +190,7 @@ const Contact = () => {
 
               {/* Social Links */}
               <div>
-                <h4 className="text-xl font-semibold mb-6">Conecte-se Comigo</h4>
+                <h4 className="text-xl font-semibold mb-6">{t('contact.connect')}</h4>
                 <div className="flex justify-center space-x-6">
                   {socialLinks.map((social) => (
                     <motion.a

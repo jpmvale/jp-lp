@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   const scrollToTop = () => {
     console.log('Botão de voltar ao topo clicado'); // Debug
     
@@ -62,8 +65,7 @@ const Footer = () => {
           >
             <h3 className="text-2xl font-bold mb-4">João Pedro Vale</h3>
             <p className="text-muted-foreground mb-4">
-              Desenvolvedor Full Stack apaixonado por criar soluções digitais 
-              inovadoras e experiências de usuário excepcionais.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -94,14 +96,14 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
               {[
-                { href: "#sobre", label: "Sobre" },
-                { href: "#experiencia", label: "Experiência" },
+                { href: "#sobre", label: t('nav.about') },
+                { href: "#experiencia", label: t('nav.experience') },
                 // { href: "#projetos", label: "Projetos" }, // COMENTADO - Reativar quando tiver projetos
-                { href: "#habilidades", label: "Habilidades" },
-                { href: "#contato", label: "Contato" }
+                { href: "#habilidades", label: t('nav.skills') },
+                { href: "#contato", label: t('nav.contact') }
               ].map((link, index) => (
                 <li key={index}>
                   <button
@@ -127,7 +129,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-4">Contato</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('footer.contact')}</h4>
             <div className="space-y-2 text-muted-foreground">
               <p>📧 jpmvale@gmail.com</p>
               <p>📱 +55 (98) 99245-1236</p>
@@ -135,7 +137,7 @@ const Footer = () => {
               <div className="mt-4">
                 <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-800 text-green-800">
                   <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                  Disponível para projetos
+                  {t('footer.availableProjects')}
                 </span>
               </div>
             </div>
@@ -152,7 +154,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex items-center text-muted-foreground text-sm mb-4 sm:mb-0"
           >
-            <span>Feito por João Pedro Vale © {new Date().getFullYear()}</span>
+            <span>{t('footer.madeBy')} © {new Date().getFullYear()}</span>
           </motion.div>
 
           <div className="relative z-50">
@@ -172,7 +174,7 @@ const Footer = () => {
               }}
             >
               <ArrowUp className="h-5 w-5" />
-              Voltar ao topo
+              {t('footer.backToTop')}
             </button>
             
             {/* Botão original comentado para debug

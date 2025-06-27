@@ -4,20 +4,23 @@ import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code, User, Briefcase, MessageSquare, Zap } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
+  const { t } = useLanguage();
 
   const navItems = useMemo(() => [
-    { name: 'Início', href: 'inicio', icon: Code },
-    { name: 'Sobre', href: 'sobre', icon: User },
-    { name: 'Experiência', href: 'experiencia', icon: Briefcase },
-    { name: 'Habilidades', href: 'habilidades', icon: Zap },
+    { name: t('nav.home'), href: 'inicio', icon: Code },
+    { name: t('nav.about'), href: 'sobre', icon: User },
+    { name: t('nav.experience'), href: 'experiencia', icon: Briefcase },
+    { name: t('nav.skills'), href: 'habilidades', icon: Zap },
     // { name: 'Projetos', href: 'projetos', icon: FolderOpen }, // COMENTADO - Reativar quando tiver projetos
-    { name: 'Contato', href: 'contato', icon: MessageSquare },
-  ], []);
+    { name: t('nav.contact'), href: 'contato', icon: MessageSquare },
+  ], [t]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +66,7 @@ const Navigation = () => {
       }`}
     >
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
@@ -89,6 +92,9 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
+            <div className="relative z-10">
+              <LanguageSelector />
+            </div>
             {navItems.map((item) => (
               <motion.div
                 key={item.name}
@@ -121,14 +127,17 @@ const Navigation = () => {
                   )}
                   
                   {/* Hover glow effect */}
-                  <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </Button>
               </motion.div>
             ))}
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <div className="relative z-10">
+              <LanguageSelector />
+            </div>
             <Button
               variant="ghost"
               size="sm"
@@ -206,7 +215,7 @@ const Navigation = () => {
       </AnimatePresence>
 
       {/* Scan line effect */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 pointer-events-none" />
     </motion.nav>
   );
 };

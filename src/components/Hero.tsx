@@ -6,11 +6,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github, Linkedin, Mail, Download, Code, Zap, Cpu } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isTyping, setIsTyping] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useLanguage();
 
   // Valores determinísticos para as partículas
   const particles = [
@@ -168,7 +170,7 @@ const Hero = () => {
             className="text-5xl md:text-7xl font-bold mb-4 relative"
           >
             <span className="gradient-text glitch">
-              João Pedro Vale
+              {t('hero.title')}
             </span>
           </motion.h1>
 
@@ -179,9 +181,9 @@ const Hero = () => {
           >
             <span className="font-mono">
               {isTyping ? (
-                <span className="typing">Desenvolvedor Full Stack</span>
+                <span className="typing">{t('hero.subtitle')}</span>
               ) : (
-                "Desenvolvedor Full Stack"
+                t('hero.subtitle')
               )}
             </span>
           </motion.div>
@@ -191,9 +193,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Transformo ideias em{" "}
-            <span className="text-primary font-semibold">produtos digitais.</span>{" "}
-             Especializado em tecnologias modernas e arquiteturas escaláveis.
+            {t('hero.description')}
           </motion.p>
 
           {/* CTA Buttons with glow effects */}
@@ -219,7 +219,7 @@ const Hero = () => {
               onClick={() => scrollToSection("contato")}
             >
               <Mail className="mr-2 h-5 w-5" />
-              Entrar em Contato
+              {t('hero.contact')}
             </Button>
 
             <Button 
@@ -228,7 +228,7 @@ const Hero = () => {
               className="hover:bg-primary/10 px-8 py-3"
             >
               <Download className="mr-2 h-5 w-5" />
-              Baixar CV
+              {t('hero.download')}
             </Button>
           </motion.div>
 

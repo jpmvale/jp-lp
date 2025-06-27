@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Lightbulb, Target, Zap, Brain, Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+  
   const highlights = [
     {
       icon: Code2,
@@ -68,11 +71,11 @@ const About = () => {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Sobre Mim</span>
+              <span className="gradient-text">{t('about.title')}</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-6 progress-bar" />
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Desenvolvedor apaixonado por transformar ideias complexas em soluções digitais elegantes
+              {t('about.subtitle')}
             </p>
           </motion.div>
 
@@ -196,10 +199,10 @@ const About = () => {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
           >
             {[
-              { number: "7+", label: "Anos de Experiência", color: "text-green-400" },
-              { number: "7", label: "Anos de Graduação e Mestrado", color: "text-pink-400" },
-              { number: "15+", label: "Projetos Concluídos", color: "text-blue-400" },
-              { number: "8+", label: "Tecnologias", color: "text-purple-400" },
+              { number: "7+", label: t('about.experience'), color: "text-green-400" },
+              { number: "7", label: t('about.education'), color: "text-pink-400" },
+              { number: "15+", label: t('about.projects'), color: "text-blue-400" },
+              { number: "8+", label: t('about.technologies'), color: "text-purple-400" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

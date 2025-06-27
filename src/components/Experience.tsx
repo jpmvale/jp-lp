@@ -22,9 +22,11 @@ import {
   Brain
 } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Experience = () => {
   const [activeExperience, setActiveExperience] = useState(0);
+  const { t } = useLanguage();
 
   // Partículas para o fundo animado
   const particles = [
@@ -40,15 +42,15 @@ const Experience = () => {
     { left: 95, delay: 1.5, duration: 9.5 }
   ];
 
-  const experiences = [
+  const getExperiences = () => [
     {
-      title: "Desenvolvedor Sênior",
+      title: t('experience.seniorDeveloper'),
       company: "Melhor Envio",
       location: "Pelotas, RS - Remoto",
       period: "Mai 2024 - Presente",
-      status: "Atual",
-      type: "Integral",
-      level: "Sênior",
+      status: t('experience.current'),
+      type: t('experience.fullTime'),
+      level: t('experience.senior'),
       description: [
         "Responsável por garantir o rastreamento de milhões de entregas de e-commerce diárias",
         "Atuação em arquitetura baseada em eventos para comunicação assíncrona",
@@ -65,13 +67,13 @@ const Experience = () => {
       icon: Code
     },
     {
-      title: "Desenvolvedor Back End",
+      title: t('experience.backendDeveloper'),
       company: "Tegra",
       location: "São Paulo, SP - Remoto",
       period: "Mai 2023 - Mai 2024",
-      status: "Concluído",
-      type: "Integral",
-      level: "Pleno",
+      status: t('experience.completed'),
+      type: t('experience.fullTime'),
+      level: t('experience.mid'),
       description: [
         "Desenvolvimento de projetos do zero em software house",
         "Criação de crawlers, APIs, microsserviços e monolitos",
@@ -88,13 +90,13 @@ const Experience = () => {
       icon: TrendingUp
     },
     {
-      title: "Desenvolvedor Back End",
+      title: t('experience.backendDeveloper'),
       company: "Jazida",
       location: "Brasília, DF - Remoto",
       period: "Mai 2021 - Mai 2023",
-      status: "Concluído",
-      type: "Integral",
-      level: "Pleno",
+      status: t('experience.completed'),
+      type: t('experience.fullTime'),
+      level: t('experience.mid'),
       description: [
         "Desenvolvimento em produto de centralização de dados públicos de mineração",
         "Atuação em monolito Node.js e microsserviços",
@@ -111,13 +113,13 @@ const Experience = () => {
       icon: Sparkles
     },
     {
-      title: "Desenvolvedor Full Stack",
+      title: t('experience.fullStackDeveloper'),
       company: "Vale",
       location: "São Luís, MA",
       period: "Jan 2020 - Mai 2021",
-      status: "Concluído",
-      type: "Integral",
-      level: "Júnior",
+      status: t('experience.completed'),
+      type: t('experience.fullTime'),
+      level: t('experience.junior'),
       description: [
         "Desenvolvimento de sistemas de gerenciamento para engenheiros ferroviários",
         "Análise de dados ferroviários usando Python/Pandas",
@@ -134,13 +136,13 @@ const Experience = () => {
       icon: Award
     },
     {
-      title: "Estagiário de Desenvolvimento",
+      title: t('experience.developmentIntern'),
       company: "Vale",
       location: "São Luís, MA",
       period: "Jan 2019 - Jan 2020",
-      status: "Concluído",
-      type: "Meio Período",
-      level: "Estagiário",
+      status: t('experience.completed'),
+      type: t('experience.partTime'),
+      level: t('experience.intern'),
       description: [
         "Desenvolvimento de aplicações com .NET Framework",
         "Criação de interfaces com HTML/CSS/JavaScript puro",
@@ -157,13 +159,13 @@ const Experience = () => {
       icon: Target
     },
     {
-      title: "Professor de Desenvolvimento de Jogos",
+      title: t('experience.gameDevTeacher'),
       company: "Senac Maranhão",
       location: "São Luís, MA",
       period: "Abr 2018 - Jan 2019",
-      status: "Concluído",
-      type: "Meio Período",
-      level: "Professor",
+      status: t('experience.completed'),
+      type: t('experience.partTime'),
+      level: t('experience.teacher'),
       description: [
         "Organização de aulas sobre desenvolvimento de jogos com Unity 3D",
         "Palestras em shoppings, escolas e faculdades",
@@ -180,13 +182,13 @@ const Experience = () => {
       icon: Brain
     },
     {
-      title: "Desenvolvedor de Jogos Freelance",
+      title: t('experience.freelanceGameDev'),
       company: "EducVR",
       location: "São Luís, MA - Remote",
       period: "Mar 2017 - Nov 2018",
-      status: "Concluído",
-      type: "Meio Período",
-      level: "Freelancer",
+      status: t('experience.completed'),
+      type: t('experience.partTime'),
+      level: t('experience.freelancer'),
       description: [
         "Criação de cenários de realidade virtual usando Unity 3D",
         "Desenvolvimento com Google Cardboard",
@@ -204,6 +206,8 @@ const Experience = () => {
     }
   ];
 
+  const experiences = getExperiences();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -220,26 +224,31 @@ const Experience = () => {
   };
 
   const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Atual":
-        return "bg-green-500/20 text-green-400 border-green-500/30";
-      case "Concluído":
-        return "bg-blue-500/20 text-blue-400 border-blue-500/30";
-      default:
-        return "bg-gray-500/20 text-gray-400 border-gray-500/30";
+    const currentStatuses = ["Atual", "Current", "Actual"];
+    const completedStatuses = ["Concluído", "Completed", "Completado"];
+    
+    if (currentStatuses.includes(status)) {
+      return "bg-green-500/20 text-green-400 border-green-500/30";
+    } else if (completedStatuses.includes(status)) {
+      return "bg-blue-500/20 text-blue-400 border-blue-500/30";
+    } else {
+      return "bg-gray-500/20 text-gray-400 border-gray-500/30";
     }
   };
 
   const getLevelColor = (level: string) => {
-    switch (level) {
-      case "Sênior":
-        return "bg-purple-500/20 text-purple-400 border-purple-500/30";
-      case "Pleno":
-        return "bg-blue-500/20 text-blue-400 border-blue-500/30";
-      case "Júnior":
-        return "bg-green-500/20 text-green-400 border-green-500/30";
-      default:
-        return "bg-gray-500/20 text-gray-400 border-gray-500/30";
+    const seniorLevels = ["Sênior", "Senior"];
+    const midLevels = ["Pleno", "Mid-level", "Intermedio"];
+    const juniorLevels = ["Júnior", "Junior"];
+    
+    if (seniorLevels.includes(level)) {
+      return "bg-purple-500/20 text-purple-400 border-purple-500/30";
+    } else if (midLevels.includes(level)) {
+      return "bg-blue-500/20 text-blue-400 border-blue-500/30";
+    } else if (juniorLevels.includes(level)) {
+      return "bg-green-500/20 text-green-400 border-green-500/30";
+    } else {
+      return "bg-gray-500/20 text-gray-400 border-gray-500/30";
     }
   };
 
@@ -277,12 +286,12 @@ const Experience = () => {
             <div className="flex items-center justify-center mb-6">
               <Briefcase className="w-8 h-8 text-primary mr-3 animate-pulse" />
               <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="gradient-text">Experiência Profissional</span>
+                <span className="gradient-text">{t('experience.title')}</span>
               </h2>
             </div>
             <div className="w-32 h-1 bg-gradient-to-r from-primary via-blue-500 to-purple-500 mx-auto mb-6 progress-bar" />
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Minha jornada profissional construindo soluções inovadoras e liderando equipes de tecnologia
+              {t('experience.subtitle')}
             </p>
           </motion.div>
 
@@ -301,8 +310,7 @@ const Experience = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="flex items-center space-x-2">
-                    <exp.icon className="w-4 h-4" />
+                  <div className="flex items-center justify-center">
                     <span className="font-medium">{exp.period}</span>
                   </div>
                   {activeExperience === index && (
@@ -326,7 +334,7 @@ const Experience = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <Target className="w-5 h-5 text-primary" />
-                    <span>Timeline</span>
+                    <span>{t('experience.timeline')}</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
