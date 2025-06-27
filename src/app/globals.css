@@ -286,7 +286,7 @@
   }
 }
 
-/* Matrix rain effect */
+/* Matrix rain effect - DISABLED */
 .matrix-bg {
   position: absolute;
   top: 0;
@@ -297,6 +297,7 @@
   pointer-events: none;
 }
 
+/* Matrix rain animation disabled
 .matrix-bg::before {
   content: '';
   position: absolute;
@@ -315,6 +316,7 @@
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
 }
+*/
 
 /* Particle effect */
 .particles {
@@ -331,7 +333,7 @@
   height: 2px;
   background: hsl(142 76% 36%);
   border-radius: 50%;
-  animation: particle-float 6s infinite linear;
+  animation: particle-float 2.5s infinite linear;
 }
 
 @keyframes particle-float {
@@ -441,11 +443,12 @@
   51%, 100% { opacity: 0; }
 }
 
-/* Scan line effect */
+/* Scan line effect - DISABLED */
 .scan-lines {
   position: relative;
 }
 
+/* Scan lines animation disabled
 .scan-lines::before {
   content: '';
   position: absolute;
@@ -467,3 +470,4 @@
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
+*/

@@ -14,8 +14,8 @@ const Navigation = () => {
     { name: 'Início', href: 'inicio', icon: Code },
     { name: 'Sobre', href: 'sobre', icon: User },
     { name: 'Experiência', href: 'experiencia', icon: Briefcase },
-    { name: 'Projetos', href: 'projetos', icon: FolderOpen },
     { name: 'Habilidades', href: 'habilidades', icon: Zap },
+    // { name: 'Projetos', href: 'projetos', icon: FolderOpen }, // COMENTADO - Reativar quando tiver projetos
     { name: 'Contato', href: 'contato', icon: MessageSquare },
   ];
 
@@ -82,7 +82,7 @@ const Navigation = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-500 rounded-lg blur-md opacity-50 animate-pulse" />
               </div>
               <span className="text-xl font-bold gradient-text hidden sm:block">
-                JP.dev
+                jp-vale.dev
               </span>
             </div>
           </motion.div>

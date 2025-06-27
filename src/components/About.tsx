@@ -10,7 +10,7 @@ const About = () => {
     {
       icon: Code2,
       title: "Código Limpo",
-      description: "Apaixonado por escrever código limpo, testável e bem documentado",
+      description: "Fissurado por escrever código limpo, testável e bem documentado",
       color: "from-green-400 to-blue-500"
     },
     {
@@ -28,9 +28,10 @@ const About = () => {
   ];
 
   const interests = [
-    "Inteligência Artificial", "Blockchain", "Cloud Computing", 
-    "DevOps", "UI/UX Design", "Arquitetura de Software",
-    "Machine Learning", "Microservices", "Cybersecurity"
+    "Engenharia de Software", "Back End", "Front End", "Microserviços", 
+    "Arquitetura baseada em eventos", "Observabilidade", "Monolito Modular",
+    "Crawler/Web Scraping","DevOps", "Inteligência Artificial", "BD Relacional/Não Relacional",
+    "Desenvolvimento de Jogos", 
   ];
 
   const containerVariants = {
@@ -53,7 +54,7 @@ const About = () => {
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="matrix-bg opacity-20" />
-        <div className="scan-lines opacity-30" />
+
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -87,29 +88,32 @@ const About = () => {
                   
                   <div className="space-y-4 text-muted-foreground">
                     <p className="leading-relaxed">
-                      Iniciei minha jornada na programação em <span className="text-primary font-semibold">2020</span>, 
-                      fascinado pela capacidade de criar soluções que impactam milhares de pessoas. 
-                      Desde então, venho me especializando em tecnologias modernas e metodologias ágeis.
+                      Sou um desenvolvedor de software <span className="text-primary font-semibold">autodidata</span> e 
+                      entusiasta de tecnologia. Comecei minha jornada em <span className="text-blue-400 font-semibold">2016 </span> 
+                      ingressando na graduação de Engenharia da Computação na UEMA, onde tive meu primeiro contato 
+                      com programação através de C e Java.
                     </p>
                     
                     <p className="leading-relaxed">
-                      Minha experiência abrange desde <span className="text-blue-400 font-semibold">desenvolvimento frontend</span> 
-                      com React e Next.js até <span className="text-green-400 font-semibold">arquiteturas backend</span> 
-                      robustas com Node.js e bancos de dados escaláveis.
+                      Durante a graduação, participei de <span className="text-green-400 font-semibold">laboratórios de desenvolvimento de jogos </span> 
+                      e me aproximei da comunidade local de Game Devs. Em <span className="text-purple-400 font-semibold">2019</span>, 
+                      fui aprovado no programa de estágio da <span className="text-yellow-400 font-semibold">Vale</span> e 
+                      iniciei minha carreira no mundo do Web Development, começando com C# e posteriormente 
+                      migrando para Node.js e React.
                     </p>
                     
                     <p className="leading-relaxed">
-                      Atualmente, estou focado em <span className="text-purple-400 font-semibold">cloud computing</span>, 
-                      <span className="text-yellow-400 font-semibold"> DevOps</span> e 
-                      <span className="text-pink-400 font-semibold"> inteligência artificial</span>, 
-                      sempre buscando estar na vanguarda da tecnologia.
+                      Tive diversas experiências em empresas diferentes que moldaram minha carreira. 
+                      Hoje sou um <span className="text-pink-400 font-semibold">desenvolvedor Full Stack </span> 
+                      capaz de trabalhar com múltiplas stacks tecnológicas, além de atuar em 
+                      <span className="text-cyan-400 font-semibold"> projetos freelance</span> de construção de sistemas.
                     </p>
                   </div>
 
                   <div className="mt-8 flex items-center">
                     <Heart className="w-5 h-5 text-red-400 mr-2 animate-pulse" />
                     <span className="text-sm text-muted-foreground">
-                      Apaixonado por código limpo e experiências de usuário excepcionais
+                      Focado em desenvolver código limpo e experiências de usuário excepcionais.
                     </span>
                   </div>
                 </CardContent>
@@ -192,10 +196,10 @@ const About = () => {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
           >
             {[
-              { number: "3+", label: "Anos de Experiência", color: "text-green-400" },
-              { number: "50+", label: "Projetos Concluídos", color: "text-blue-400" },
-              { number: "15+", label: "Tecnologias", color: "text-purple-400" },
-              { number: "100%", label: "Dedicação", color: "text-pink-400" }
+              { number: "7+", label: "Anos de Experiência", color: "text-green-400" },
+              { number: "7", label: "Anos de Graduação e Mestrado", color: "text-pink-400" },
+              { number: "15+", label: "Projetos Concluídos", color: "text-blue-400" },
+              { number: "8+", label: "Tecnologias", color: "text-purple-400" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

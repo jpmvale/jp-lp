@@ -7,7 +7,28 @@ import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log('Botão de voltar ao topo clicado'); // Debug
+    
+    // Múltiplas tentativas para garantir que funcione
+    try {
+      // Método 1: scrollTo com behavior smooth
+      window.scrollTo({ 
+        top: 0, 
+        left: 0,
+        behavior: "smooth" 
+      });
+    } catch (error) {
+      console.log('Erro no método 1, tentando fallback:', error);
+      // Fallback: scrollTo sem behavior (para navegadores mais antigos)
+      try {
+        window.scrollTo(0, 0);
+      } catch (fallbackError) {
+        console.log('Erro no método 2, tentando fallback final:', fallbackError);
+        // Fallback final: scroll no document element
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }
+    }
   };
 
   const socialLinks = [
@@ -24,12 +45,12 @@ const Footer = () => {
     {
       icon: <Mail className="h-5 w-5" />,
       name: "Email",
-      url: "mailto:joao@example.com"
+      url: "mailto:jpmvale@gmail.com"
     }
   ];
 
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-background border-t border-border relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand & Description */}
@@ -76,11 +97,11 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
             <ul className="space-y-2">
               {[
-                { href: "#about", label: "Sobre" },
-                { href: "#experience", label: "Experiência" },
-                { href: "#projects", label: "Projetos" },
-                { href: "#skills", label: "Habilidades" },
-                { href: "#contact", label: "Contato" }
+                { href: "#sobre", label: "Sobre" },
+                { href: "#experiencia", label: "Experiência" },
+                // { href: "#projetos", label: "Projetos" }, // COMENTADO - Reativar quando tiver projetos
+                { href: "#habilidades", label: "Habilidades" },
+                { href: "#contato", label: "Contato" }
               ].map((link, index) => (
                 <li key={index}>
                   <button
@@ -108,11 +129,11 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold mb-4">Contato</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>📧 joao@example.com</p>
-              <p>📱 +55 (11) 99999-9999</p>
-              <p>📍 São Paulo, SP - Brasil</p>
+              <p>📧 jpmvale@gmail.com</p>
+              <p>📱 +55 (98) 99245-1236</p>
+              <p>📍 São Luís, MA - Brasil</p>
               <div className="mt-4">
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-800 text-green-800">
                   <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
                   Disponível para projetos
                 </span>
@@ -131,27 +152,61 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex items-center text-muted-foreground text-sm mb-4 sm:mb-0"
           >
-            <span>Feito com</span>
-            <Heart className="h-4 w-4 mx-1 text-red-500" />
-            <span>por João Pedro Vale © {new Date().getFullYear()}</span>
+            <span>Feito por João Pedro Vale © {new Date().getFullYear()}</span>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={scrollToTop}
-              className="flex items-center gap-2"
+          <div className="relative z-50">
+            {/* Botão simples para teste */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('CLIQUE SIMPLES DETECTADO!');
+                scrollToTop();
+              }}
+              className="px-6 py-3 border border-border rounded-lg flex items-center gap-2 hover:bg-primary/10 hover:border-primary transition-all duration-300 cursor-pointer bg-background text-foreground"
+              style={{ 
+                pointerEvents: 'auto',
+                zIndex: 9999,
+                position: 'relative'
+              }}
             >
-              <ArrowUp className="h-4 w-4" />
+              <ArrowUp className="h-5 w-5" />
               Voltar ao topo
-            </Button>
-          </motion.div>
+            </button>
+            
+            {/* Botão original comentado para debug
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative z-10"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative z-10"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Clique detectado no botão!');
+                    scrollToTop();
+                  }}
+                  className="flex items-center gap-2 hover:bg-primary/10 hover:border-primary transition-all duration-300 cursor-pointer relative z-10"
+                  style={{ pointerEvents: 'auto' }}
+                >
+                  <ArrowUp className="h-5 w-5" />
+                  Voltar ao topo
+                </Button>
+              </motion.div>
+            </motion.div>
+            */}
+          </div>
         </div>
       </div>
     </footer>

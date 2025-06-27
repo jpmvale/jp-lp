@@ -53,55 +53,29 @@ const Skills = () => {
 
   const skillCategories = [
     {
+      title: "Backend",
+      icon: Server,
+      color: "from-green-500 to-emerald-500",
+      skills: [
+        { name: "Node/Nest", level: 96, icon: Code },
+        { name: "Golang", level: 88, icon: Code },
+        { name: "Python", level: 85, icon: Code },
+        { name: "PHP/Laravel", level: 81, icon: Code },
+        { name: "C#/.NET", level: 79, icon: Code },
+        { name: "Arquitetura baseada em eventos", level: 88, icon: Globe },
+      ]
+    },
+    {
       title: "Frontend",
       icon: Code,
       color: "from-blue-500 to-cyan-500",
       skills: [
         { name: "React/Next.js", level: 95, icon: Code },
-        { name: "TypeScript", level: 90, icon: Code },
-        { name: "JavaScript", level: 95, icon: Code },
+        { name: "Vue.js", level: 85, icon: Code },
         { name: "Tailwind CSS", level: 88, icon: Palette },
-        { name: "Vue.js", level: 75, icon: Code },
-        { name: "HTML/CSS", level: 98, icon: Globe }
-      ]
-    },
-    {
-      title: "Backend",
-      icon: Server,
-      color: "from-green-500 to-emerald-500",
-      skills: [
-        { name: "Node.js", level: 90, icon: Server },
-        { name: "Python", level: 85, icon: Code },
-        { name: "Express.js", level: 88, icon: Server },
-        { name: "GraphQL", level: 80, icon: Database },
-        { name: "REST APIs", level: 95, icon: Globe },
-        { name: "Microservices", level: 75, icon: Cpu }
-      ]
-    },
-    {
-      title: "Cloud/DevOps",
-      icon: Cloud,
-      color: "from-purple-500 to-violet-500",
-      skills: [
-        { name: "AWS", level: 85, icon: Cloud },
-        { name: "Docker", level: 88, icon: Wrench },
-        { name: "Kubernetes", level: 70, icon: Cloud },
-        { name: "CI/CD", level: 82, icon: Wrench },
-        { name: "Terraform", level: 75, icon: Wrench },
-        { name: "Monitoring", level: 80, icon: Shield }
-      ]
-    },
-    {
-      title: "Mobile",
-      icon: Smartphone,
-      color: "from-pink-500 to-rose-500",
-      skills: [
+        { name: "Shadcn/UI", level: 85, icon: Palette },
+        { name: "HTML/CSS", level: 90, icon: Globe },
         { name: "React Native", level: 85, icon: Smartphone },
-        { name: "Flutter", level: 70, icon: Smartphone },
-        { name: "Expo", level: 88, icon: Smartphone },
-        { name: "PWA", level: 90, icon: Globe },
-        { name: "App Store", level: 75, icon: Smartphone },
-        { name: "Firebase", level: 85, icon: Database }
       ]
     },
     {
@@ -112,9 +86,22 @@ const Skills = () => {
         { name: "PostgreSQL", level: 90, icon: Database },
         { name: "MongoDB", level: 85, icon: Database },
         { name: "Redis", level: 80, icon: Database },
-        { name: "Prisma", level: 88, icon: Database },
         { name: "MySQL", level: 85, icon: Database },
-        { name: "ElasticSearch", level: 70, icon: Database }
+        { name: "SQL Server", level: 88, icon: Database },
+        { name: "ElasticSearch", level: 78, icon: Database }
+      ]
+    },
+    {
+      title: "Cloud/DevOps",
+      icon: Cloud,
+      color: "from-purple-500 to-violet-500",
+      skills: [
+        { name: "AWS", level: 92, icon: Cloud },
+        { name: "Azure", level: 85, icon: Cloud },
+        { name: "GCP", level: 79, icon: Cloud },
+        { name: "Docker", level: 88, icon: Wrench },
+        { name: "CI/CD", level: 82, icon: Wrench },
+        { name: "Kafka", level: 80, icon: Shield }
       ]
     },
     {
@@ -123,21 +110,34 @@ const Skills = () => {
       color: "from-teal-500 to-cyan-500",
       skills: [
         { name: "Git/GitHub", level: 95, icon: Wrench },
-        { name: "VS Code", level: 98, icon: Wrench },
+        { name: "Cursor", level: 98, icon: Wrench },
         { name: "Figma", level: 85, icon: Palette },
         { name: "Postman", level: 90, icon: Wrench },
         { name: "Jira", level: 80, icon: Wrench },
         { name: "Slack", level: 95, icon: Wrench }
       ]
-    }
+    },
+    {
+      title: "Inteligência Artificial",
+      icon: Brain,
+      color: "from-pink-500 to-rose-500",
+      skills: [
+        { name: "TensorFlow", level: 85, icon: Code },
+        { name: "PyTorch", level: 81, icon: Code },
+        { name: "OpenAI API", level: 88, icon: Code },
+        { name: "Processamento de Linguagem Natural", level: 85, icon: Brain },
+        { name: "GPT/Claude/Gemini", level: 85, icon: Code },
+        { name: "Algoritmos Genéticos", level: 85, icon: Brain },
+      ]
+    },
   ];
 
   const softSkills = [
-    { name: "Liderança", icon: Brain, description: "Capacidade de liderar equipes e projetos" },
-    { name: "Comunicação", icon: Globe, description: "Comunicação clara e efetiva" },
+    { name: "Organização", icon: Brain, description: "Capacidade de se preparar com antencedência e quebrar em tarefas menores" },
+    { name: "Comunicação", icon: Globe, description: "Comunicação clara, empática, efetiva" },
     { name: "Resolução de Problemas", icon: Zap, description: "Análise e solução de problemas complexos" },
-    { name: "Aprendizado Rápido", icon: Brain, description: "Adaptação rápida a novas tecnologias" },
-    { name: "Trabalho em Equipe", icon: Globe, description: "Colaboração efetiva em equipes" },
+    { name: "Aprendizado Rápido", icon: Brain, description: "Adaptação rápida  e não possuo resistência a outras tecnologias" },
+    { name: "Trabalho em Equipe", icon: Globe, description: "Alta facilidade de trabalhar em equipe" },
     { name: "Pensamento Crítico", icon: Cpu, description: "Análise crítica e tomada de decisões" }
   ];
 
@@ -175,7 +175,7 @@ const Skills = () => {
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="matrix-bg opacity-15" />
-        <div className="scan-lines opacity-20" />
+
         <div className="particles">
           {particles.map((particle, i) => (
             <div
@@ -335,48 +335,7 @@ const Skills = () => {
             </div>
           </motion.div>
 
-          {/* Certifications & Learning */}
-          <motion.div variants={itemVariants}>
-            <Card className="tech-card">
-              <CardContent className="p-8 text-center">
-                <div className="flex items-center justify-center mb-6">
-                  <Shield className="w-8 h-8 text-primary mr-3 animate-pulse" />
-                  <h3 className="text-2xl font-bold gradient-text">Aprendizado Contínuo</h3>
-                </div>
-                
-                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Sempre em busca de novos conhecimentos e certificações para me manter atualizado 
-                  com as últimas tendências tecnológicas
-                </p>
 
-                <div className="flex flex-wrap justify-center gap-3">
-                  {[
-                    "AWS Certified", "Google Cloud", "React Expert", "Node.js Professional",
-                    "Kubernetes Certified", "Scrum Master", "DevOps Engineer", "AI/ML Basics"
-                  ].map((cert, index) => (
-                    <motion.div
-                      key={cert}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ 
-                        scale: 1.1,
-                        boxShadow: "0 0 20px hsl(142 76% 36% / 0.3)"
-                      }}
-                    >
-                      <Badge 
-                        variant="secondary" 
-                        className="px-4 py-2 neon-border hover:bg-primary/20 hover:text-primary transition-all duration-300 cursor-pointer"
-                      >
-                        {cert}
-                      </Badge>
-                    </motion.div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
         </motion.div>
       </div>
     </section>

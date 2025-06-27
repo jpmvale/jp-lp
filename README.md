@@ -44,7 +44,7 @@ npm install
 npm run dev
 ```
 
-4. Abra [http://localhost:3000](http://localhost:3000) no navegador
+4. Abra [https://www.jp-vale.dev/](https://www.jp-vale.dev/) no navegador
 
 ## 📝 Scripts Disponíveis
 

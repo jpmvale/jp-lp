@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github, Linkedin, Mail, Download, Code, Zap, Cpu } from "lucide-react";
@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isTyping, setIsTyping] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Valores determinísticos para as partículas
   const particles = [
@@ -65,9 +66,9 @@ const Hero = () => {
   };
 
   const floatingIcons = [
-    { Icon: Code, delay: 0, x: 10, y: 20 },
-    { Icon: Zap, delay: 1, x: -15, y: 10 },
-    { Icon: Cpu, delay: 2, x: 20, y: -10 },
+    { Icon: Code, delay: 0, x: 35, y: 15 },    // Direita inferior (subiu)
+    { Icon: Zap, delay: 1, x: 0, y: 35 },      // Inferior centro
+    { Icon: Cpu, delay: 2, x: -35, y: 25 },    // Esquerda inferior
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -118,8 +119,15 @@ const Hero = () => {
             className="mb-8 relative inline-block"
           >
             <div className="relative">
-              <Avatar className="w-32 h-32 mx-auto neon-border float">
-                <AvatarImage src="/avatar.jpg" alt="João Pedro Vale" />
+              <Avatar 
+                className="w-56 h-56 mx-auto neon-border float cursor-pointer transition-transform hover:scale-105"
+                onClick={() => setIsModalOpen(true)}
+              >
+                <AvatarImage 
+                  src="/profile.jpg" 
+                  alt="João Pedro Vale"
+                  className="object-cover object-bottom"
+                />
                 <AvatarFallback className="text-2xl font-bold bg-gradient-to-br from-primary to-blue-500">
                   JP
                 </AvatarFallback>
@@ -180,11 +188,11 @@ const Hero = () => {
           {/* Description with scan lines */}
           <motion.p 
             variants={itemVariants}
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed scan-lines"
+            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
           >
             Transformo ideias em{" "}
-            <span className="text-primary font-semibold">experiências digitais</span>{" "}
-            incríveis. Especializado em tecnologias modernas e arquiteturas escaláveis.
+            <span className="text-primary font-semibold">produtos digitais.</span>{" "}
+             Especializado em tecnologias modernas e arquiteturas escaláveis.
           </motion.p>
 
           {/* CTA Buttons with glow effects */}
@@ -192,6 +200,7 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
+            {/* COMENTADO - Reativar quando tiver projetos
             <Button 
               size="lg" 
               className="glow-button bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-500/90 text-primary-foreground px-8 py-3"
@@ -200,6 +209,7 @@ const Hero = () => {
               <Code className="mr-2 h-5 w-5" />
               Ver Projetos
             </Button>
+            */}
             
             <Button 
               variant="outline" 
@@ -265,78 +275,52 @@ const Hero = () => {
             ))}
           </motion.div>
 
-          {/* Scroll indicator */}
-          <motion.div 
-            variants={itemVariants}
-            className="mt-16 flex flex-col items-center"
-          >
-            <motion.button
-              onClick={() => scrollToSection("sobre")}
-              className="group flex flex-col items-center space-y-2 text-muted-foreground hover:text-primary transition-colors duration-300 cursor-pointer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-sm font-medium opacity-70 group-hover:opacity-100 transition-opacity">
-                Role para baixo
-              </span>
-              <motion.div
-                className="relative"
-                animate={{
-                  y: [0, 8, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <div className="w-6 h-10 border-2 border-primary/60 group-hover:border-primary rounded-full flex justify-center relative overflow-hidden">
-                  <motion.div 
-                    className="w-1 h-3 bg-primary rounded-full mt-2"
-                    animate={{
-                      opacity: [1, 0.3, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </motion.div>
-              
-              {/* Arrow indicator */}
-              <motion.div
-                animate={{
-                  y: [0, 4, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5
-                }}
-              >
-                <svg 
-                  className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M19 14l-7 7m0 0l-7-7m7 7V3" 
-                  />
-                </svg>
-              </motion.div>
-            </motion.button>
-          </motion.div>
+
         </motion.div>
       </div>
+
+      {/* Modal da foto de perfil */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+              className="relative max-w-md mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative">
+                <img
+                  src="/profile.jpg"
+                  alt="João Pedro Vale - Foto de Perfil"
+                  className="w-full h-auto rounded-2xl neon-border shadow-2xl"
+                />
+                
+                {/* Botão de fechar */}
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+
+                {/* Efeito de brilho */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent pointer-events-none" />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

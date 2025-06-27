@@ -185,8 +185,7 @@ const Projects = () => {
                       </Badge>
                     </div>
 
-                    {/* Scan lines effect */}
-                    <div className="absolute inset-0 scan-lines opacity-20 group-hover:opacity-40 transition-opacity" />
+
                   </div>
 
                   <CardHeader className="pb-4">
@@ -278,31 +277,7 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Call to action */}
-          <motion.div 
-            variants={itemVariants}
-            className="text-center mt-16"
-          >
-            <Card className="tech-card max-w-2xl mx-auto">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-center mb-4">
-                  <Sparkles className="w-6 h-6 text-primary mr-2 animate-pulse" />
-                  <h3 className="text-2xl font-bold gradient-text">Tem um projeto em mente?</h3>
-                </div>
-                <p className="text-muted-foreground mb-6">
-                  Vamos conversar sobre como posso ajudar a transformar sua ideia em realidade
-                </p>
-                <Button 
-                  size="lg" 
-                  className="glow-button bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-500/90"
-                  onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  <Zap className="w-5 h-5 mr-2" />
-                  Vamos Conversar
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
+
         </motion.div>
       </div>
     </section>
