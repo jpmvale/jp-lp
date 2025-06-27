@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Portfolio - João Pedro Vale
 
-## Getting Started
+Portfolio pessoal moderno desenvolvido com Next.js, apresentando um design tecnológico com animações avançadas e efeitos visuais impressionantes.
 
-First, run the development server:
+## ✨ Características
 
+- **Design Tecnológico**: Tema escuro com efeitos neon, partículas flutuantes e animações matrix
+- **Totalmente Responsivo**: Adaptado para desktop, tablet e mobile
+- **Animações Avançadas**: Framer Motion com micro-interações e transições suaves
+- **Performance Otimizada**: Next.js 15 com Turbopack para desenvolvimento rápido
+- **UI Moderna**: shadcn/ui components com Tailwind CSS
+- **Interativo**: Timeline de experiências, navegação suave e efeitos hover
+
+## 🛠️ Tecnologias
+
+- **Next.js 15** - Framework React
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Estilização
+- **Framer Motion** - Animações
+- **shadcn/ui** - Componentes UI
+- **Lucide React** - Ícones
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+- Node.js 18+ 
+- npm, yarn, pnpm ou bun
+
+### Instalação
+
+1. Clone o repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <url-do-repositorio>
+cd jp-lp
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Execute o servidor de desenvolvimento:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Abra [http://localhost:3000](http://localhost:3000) no navegador
 
-## Learn More
+## 📝 Scripts Disponíveis
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev          # Servidor de desenvolvimento
+npm run build        # Build de produção
+npm run start        # Servidor de produção
+npm run lint         # Verificação de código
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Seções
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Hero** - Apresentação com efeitos visuais
+- **Sobre** - Informações pessoais e profissionais
+- **Experiência** - Timeline interativa de experiências
+- **Projetos** - Showcase de projetos desenvolvidos
+- **Habilidades** - Skills técnicas organizadas por categoria
+- **Contato** - Formulário e informações de contato
 
-## Deploy on Vercel
+## 📱 Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O projeto está otimizado para deploy na Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+```
+
+---
+
+Desenvolvido com ❤️ por [João Pedro Vale](https://www.linkedin.com/in/joao-pedro-vale/)
