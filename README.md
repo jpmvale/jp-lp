@@ -74,4 +74,4 @@ npm run build
 
 ---
 
-Desenvolvido com ❤️ por [João Pedro Vale](https://www.linkedin.com/in/joao-pedro-vale/)
+Desenvolvido por [João Pedro Vale](https://www.linkedin.com/in/joao-pedro-vale/)

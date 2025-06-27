@@ -17,7 +17,6 @@ import {
   Award,
   Target,
   CheckCircle,
-  ExternalLink,
   ArrowRight,
   Sparkles
 } from "lucide-react";
