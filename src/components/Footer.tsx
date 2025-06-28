@@ -18,11 +18,11 @@ const Footer = () => {
         left: 0,
         behavior: "smooth" 
       });
-    } catch (error) {
+    } catch {
       // Fallback: scrollTo sem behavior (para navegadores mais antigos)
       try {
         window.scrollTo(0, 0);
-      } catch (fallbackError) {
+      } catch {
         // Fallback final: scroll no document element
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
