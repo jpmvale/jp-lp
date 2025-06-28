@@ -10,8 +10,6 @@ const Footer = () => {
   const { t } = useLanguage();
   
   const scrollToTop = () => {
-    console.log('Botão de voltar ao topo clicado'); // Debug
-    
     // Múltiplas tentativas para garantir que funcione
     try {
       // Método 1: scrollTo com behavior smooth
@@ -21,12 +19,10 @@ const Footer = () => {
         behavior: "smooth" 
       });
     } catch (error) {
-      console.log('Erro no método 1, tentando fallback:', error);
       // Fallback: scrollTo sem behavior (para navegadores mais antigos)
       try {
         window.scrollTo(0, 0);
       } catch (fallbackError) {
-        console.log('Erro no método 2, tentando fallback final:', fallbackError);
         // Fallback final: scroll no document element
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
@@ -163,7 +159,6 @@ const Footer = () => {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('CLIQUE SIMPLES DETECTADO!');
                 scrollToTop();
               }}
               className="px-6 py-3 border border-border rounded-lg flex items-center gap-2 hover:bg-primary/10 hover:border-primary transition-all duration-300 cursor-pointer bg-background text-foreground"
@@ -177,37 +172,7 @@ const Footer = () => {
               {t('footer.backToTop')}
             </button>
             
-            {/* Botão original comentado para debug
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="relative z-10"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative z-10"
-              >
-                <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    console.log('Clique detectado no botão!');
-                    scrollToTop();
-                  }}
-                  className="flex items-center gap-2 hover:bg-primary/10 hover:border-primary transition-all duration-300 cursor-pointer relative z-10"
-                  style={{ pointerEvents: 'auto' }}
-                >
-                  <ArrowUp className="h-5 w-5" />
-                  Voltar ao topo
-                </Button>
-              </motion.div>
-            </motion.div>
-            */}
+
           </div>
         </div>
       </div>

@@ -74,9 +74,9 @@ const Skills = () => {
       skills: [
         { name: "React/Next.js", level: 95, icon: Code },
         { name: "Vue.js", level: 85, icon: Code },
-        { name: "Tailwind CSS", level: 88, icon: Palette },
+        { name: "Tailwind", level: 88, icon: Palette },
         { name: "Shadcn/UI", level: 85, icon: Palette },
-        { name: "HTML/CSS", level: 90, icon: Globe },
+        { name: "HTML/CSS", level: 94, icon: Globe },
         { name: "React Native", level: 85, icon: Smartphone },
       ]
     },
@@ -85,12 +85,12 @@ const Skills = () => {
       icon: Database,
       color: "from-orange-500 to-amber-500",
       skills: [
-        { name: "PostgreSQL", level: 90, icon: Database },
-        { name: "MongoDB", level: 85, icon: Database },
-        { name: "Redis", level: 80, icon: Database },
-        { name: "MySQL", level: 85, icon: Database },
-        { name: "SQL Server", level: 88, icon: Database },
-        { name: "ElasticSearch", level: 78, icon: Database }
+        { name: "PostgreSQL", level: 93, icon: Database },
+        { name: "MongoDB", level: 90, icon: Database },
+        { name: "Redis", level: 86, icon: Database },
+        { name: "MySQL", level: 88, icon: Database },
+        { name: "SQL Server", level: 87, icon: Database },
+        { name: "ElasticSearch", level: 79, icon: Database }
       ]
     },
     {
@@ -112,10 +112,10 @@ const Skills = () => {
       color: "from-teal-500 to-cyan-500",
       skills: [
         { name: "Git/GitHub", level: 95, icon: Wrench },
-        { name: "Cursor", level: 98, icon: Wrench },
+        { name: "Cursor", level: 94, icon: Wrench },
         { name: "Figma", level: 85, icon: Palette },
         { name: "Postman", level: 90, icon: Wrench },
-        { name: "Jira", level: 80, icon: Wrench },
+        { name: "Jira", level: 86, icon: Wrench },
         { name: "Slack", level: 95, icon: Wrench }
       ]
     },

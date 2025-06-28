@@ -263,12 +263,18 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`text-muted-foreground ${color} transition-all duration-300 p-3 rounded-full hover:bg-primary/10 neon-border`}
+                initial={{ 
+                  scale: 1, 
+                  rotate: 0,
+                  boxShadow: "0 0 0px hsl(142 76% 36% / 0)"
+                }}
                 whileHover={{ 
                   scale: 1.2, 
                   rotate: 5,
                   boxShadow: "0 0 20px hsl(142 76% 36% / 0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 aria-label={label}
               >
                 <Icon className="h-6 w-6" />

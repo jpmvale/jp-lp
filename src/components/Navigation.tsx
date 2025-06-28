@@ -47,11 +47,23 @@ const Navigation = () => {
   }, [navItems]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Primeiro fecha o menu
     setIsOpen(false);
+    
+    // Pequeno delay para garantir que o menu fechou
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      
+      if (element) {
+        // Método mais robusto de scroll
+        const offsetTop = element.offsetTop - 80; // 80px para compensar o header fixo
+        
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -61,7 +73,7 @@ const Navigation = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-background/80 backdrop-blur-lg border-b border-border/50 shadow-lg shadow-primary/5' 
+          ? 'bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-lg shadow-primary/5' 
           : 'bg-transparent'
       }`}
     >
@@ -180,7 +192,7 @@ const Navigation = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border/50"
+            className="md:hidden bg-background/98 backdrop-blur-lg border-t border-border/50 relative z-50"
           >
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-2">
@@ -194,14 +206,19 @@ const Navigation = () => {
                   >
                     <Button
                       variant="ghost"
-                      onClick={() => scrollToSection(item.href)}
-                      className={`w-full justify-start px-4 py-3 text-left transition-all duration-300 ${
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        scrollToSection(item.href);
+                      }}
+                      className={`w-full justify-start px-4 py-3 text-left transition-all duration-300 cursor-pointer ${
                         activeSection === item.href
                           ? 'text-primary bg-primary/10 border-l-2 border-primary'
                           : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
                       }`}
+                      style={{ pointerEvents: 'auto' }}
                     >
-                      <div className="flex items-center space-x-3">
+                      <div className="flex items-center space-x-3 pointer-events-none">
                         <item.icon className="w-5 h-5" />
                         <span className="font-medium">{item.name}</span>
                       </div>

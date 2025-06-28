@@ -34,19 +34,46 @@ const About = () => {
     { 
       name: t('about.portuguese'), 
       level: t('about.native'), 
-      flag: '🇧🇷',
+      flag: (
+        <svg viewBox="0 0 24 16" className="w-6 h-4">
+          <rect width="24" height="16" fill="#009639"/>
+          <polygon points="12,1.5 21,8 12,14.5 3,8" fill="#FEDF00"/>
+          <circle cx="12" cy="8" r="3.2" fill="#002776"/>
+          <path d="M9,8 Q12,6.8 15,8 Q12,9.2 9,8 Z" fill="white"/>
+        </svg>
+      ),
       proficiency: 100 
     },
     { 
       name: t('about.english'), 
       level: t('about.fluent'), 
-      flag: '🇺🇸',
+      flag: (
+        <svg viewBox="0 0 24 16" className="w-6 h-4">
+          <rect width="24" height="16" fill="#B22234"/>
+          <rect width="24" height="1.23" y="1.23" fill="white"/>
+          <rect width="24" height="1.23" y="3.69" fill="white"/>
+          <rect width="24" height="1.23" y="6.15" fill="white"/>
+          <rect width="24" height="1.23" y="8.61" fill="white"/>
+          <rect width="24" height="1.23" y="11.08" fill="white"/>
+          <rect width="24" height="1.23" y="13.54" fill="white"/>
+          <rect width="9.6" height="8.61" fill="#3C3B6E"/>
+        </svg>
+      ),
       proficiency: 90 
     },
     { 
       name: t('about.spanish'), 
       level: t('about.intermediate'), 
-      flag: '🇪🇸',
+      flag: (
+        <svg viewBox="0 0 24 16" className="w-6 h-4">
+          <rect width="24" height="16" fill="#C60B1E"/>
+          <rect width="24" height="8" y="4" fill="#FFC400"/>
+          <g transform="translate(6,6)">
+            <rect width="4" height="4" fill="#C60B1E" opacity="0.8"/>
+            <rect width="2" height="2" x="1" y="1" fill="#FFC400"/>
+          </g>
+        </svg>
+      ),
       proficiency: 70 
     }
   ];
@@ -190,8 +217,8 @@ const About = () => {
                   className="group"
                 >
                   <Card className="tech-card hover:neon-border transition-all duration-300">
-                    <CardContent className="px-3 py-2">
-                      <div className="flex items-center mb-2">
+                    <CardContent className="px-3 py-3">
+                      <div className="flex items-center mb-3">
                         <div className="p-2 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 bg-opacity-20 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                           <Globe2 className="w-4 h-4 text-white" />
                         </div>
@@ -205,7 +232,7 @@ const About = () => {
                         </div>
                       </div>
                       
-                      <div className="space-y-1.5">
+                      <div className="space-y-2.5">
                         {languages.map((language, index) => (
                           <motion.div
                             key={language.name}
@@ -213,10 +240,12 @@ const About = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
                             viewport={{ once: true }}
-                            className="flex items-center justify-between"
+                            className="flex items-center justify-between py-0.5"
                           >
-                                                          <div className="flex items-center space-x-2">
-                                <span className="text-base">{language.flag}</span>
+                                                          <div className="flex items-center space-x-3">
+                                <div className="w-8 h-6 rounded-sm overflow-hidden shadow-sm flex items-center justify-center">
+                                  {language.flag}
+                                </div>
                                 <div>
                                   <div className="font-medium text-foreground text-sm">{language.name}</div>
                                   <div className="text-xs text-muted-foreground">{language.level}</div>
