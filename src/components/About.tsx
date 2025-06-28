@@ -94,11 +94,15 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -200px 0px" }}
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div 
+            variants={itemVariants} 
+            viewport={{ margin: "0px 0px -100px 0px" }}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="gradient-text">{t('about.title')}</span>
             </h2>
@@ -110,7 +114,11 @@ const About = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Story Section */}
-            <motion.div variants={itemVariants} className="space-y-6">
+            <motion.div 
+              variants={itemVariants} 
+              viewport={{ margin: "0px 0px -150px 0px" }}
+              className="space-y-6"
+            >
               <Card className="tech-card neon-border h-full">
                 <CardContent className="p-8 h-full flex flex-col">
                   <div className="flex items-center mb-6">
@@ -135,7 +143,11 @@ const About = () => {
             </motion.div>
 
             {/* Highlights and Languages Grid */}
-            <motion.div variants={itemVariants} className="h-full flex flex-col">
+            <motion.div 
+              variants={itemVariants} 
+              viewport={{ margin: "0px 0px -150px 0px" }}
+              className="h-full flex flex-col"
+            >
               <div className="space-y-3 flex-1">
                 {/* Highlights */}
                 {highlights.map((highlight, index) => (
@@ -237,6 +249,7 @@ const About = () => {
           {/* Interests Section */}
           <motion.div 
             variants={itemVariants}
+            viewport={{ margin: "0px 0px -100px 0px" }}
             className="mt-16 text-center"
           >
             <div className="flex items-center justify-center mb-8">
@@ -271,6 +284,7 @@ const About = () => {
           {/* Stats Section */}
           <motion.div
             variants={itemVariants}
+            viewport={{ margin: "0px 0px -100px 0px" }}
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
           >
             {[
