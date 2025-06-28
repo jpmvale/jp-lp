@@ -134,16 +134,19 @@ const Skills = () => {
     },
   ], [t]);
 
-  const softSkills = [
+  const softSkills = useMemo(() => [
     { name: t('skills.organization'), icon: Brain, description: t('skills.organizationDesc') },
     { name: t('skills.communication'), icon: Globe, description: t('skills.communicationDesc') },
     { name: t('skills.problemSolving'), icon: Zap, description: t('skills.problemSolvingDesc') },
     { name: t('skills.fastLearning'), icon: Brain, description: t('skills.fastLearningDesc') },
     { name: t('skills.teamwork'), icon: Globe, description: t('skills.teamworkDesc') },
     { name: t('skills.criticalThinking'), icon: Cpu, description: t('skills.criticalThinkingDesc') }
-  ];
+  ], [t]);
 
   useEffect(() => {
+    // Reset progress when language changes
+    setAnimatedProgress({});
+    
     const timer = setTimeout(() => {
       const progress: { [key: string]: number } = {};
       skillCategories.forEach(category => {
@@ -152,10 +155,27 @@ const Skills = () => {
         });
       });
       setAnimatedProgress(progress);
-    }, 500);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [skillCategories]);
+
+  // Fallback para garantir que o progresso seja definido mesmo se as animações falharem
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      if (Object.keys(animatedProgress).length === 0) {
+        const progress: { [key: string]: number } = {};
+        skillCategories.forEach(category => {
+          category.skills.forEach(skill => {
+            progress[skill.name] = skill.level;
+          });
+        });
+        setAnimatedProgress(progress);
+      }
+    }, 2000);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [skillCategories, animatedProgress]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -173,13 +193,13 @@ const Skills = () => {
   };
 
   return (
-    <section id="habilidades" className="py-20 relative overflow-hidden">
-      {/* Animated background */}
+    <section id="habilidades" className="py-20 relative overflow-hidden min-h-screen">
+      {/* Animated background - Reduzido no mobile para melhor performance */}
       <div className="absolute inset-0">
         <div className="matrix-bg opacity-15" />
 
-        <div className="particles">
-          {particles.map((particle, i) => (
+        <div className="particles hidden sm:block">
+          {particles.slice(0, 15).map((particle, i) => (
             <div
               key={i}
               className="particle"
@@ -193,12 +213,12 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 min-h-full flex flex-col justify-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
@@ -219,7 +239,7 @@ const Skills = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div
-                key={category.title}
+                key={`category-${categoryIndex}`}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -5 }}
                 transition={{ duration: 0.3 }}
@@ -240,11 +260,11 @@ const Skills = () => {
                   <CardContent className="space-y-4">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
-                        key={skill.name}
+                        key={`skill-${categoryIndex}-${skillIndex}`}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: "0px 0px -50px 0px" }}
                         className="space-y-2"
                       >
                         <div className="flex items-center justify-between">
@@ -303,10 +323,10 @@ const Skills = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
               {softSkills.map((skill, index) => (
                 <motion.div
-                  key={skill.name}
+                  key={`soft-skill-${index}`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -317,17 +337,19 @@ const Skills = () => {
                   }}
                   className="group"
                 >
-                  <Card className="tech-card hover:neon-border transition-all duration-300">
-                    <CardContent className="p-6 text-center">
-                      <div className="mb-4">
-                        <div className="inline-flex p-3 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                          <skill.icon className="w-6 h-6 text-primary" />
+                  <Card className="tech-card hover:neon-border transition-all duration-300 h-full">
+                    <CardContent className="p-6 text-center h-full flex flex-col justify-between min-h-[200px]">
+                      <div className="flex flex-col items-center flex-grow">
+                        <div className="mb-4">
+                          <div className="inline-flex p-3 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-full group-hover:scale-110 transition-transform duration-300">
+                            <skill.icon className="w-6 h-6 text-primary" />
+                          </div>
                         </div>
+                        <h4 className="font-semibold mb-3 group-hover:text-primary transition-colors">
+                          {skill.name}
+                        </h4>
                       </div>
-                      <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
-                        {skill.name}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {skill.description}
                       </p>
                     </CardContent>

@@ -28,6 +28,32 @@ const Experience = () => {
   const [activeExperience, setActiveExperience] = useState(0);
   const { t } = useLanguage();
 
+  // Function to translate periods
+  const translatePeriod = (period: string): string => {
+    const monthMap: { [key: string]: string } = {
+      'Jan': t('experience.jan'),
+      'Fev': t('experience.feb'),
+      'Mar': t('experience.mar'),
+      'Abr': t('experience.apr'),
+      'Mai': t('experience.may'),
+      'Jun': t('experience.jun'),
+      'Jul': t('experience.jul'),
+      'Ago': t('experience.aug'),
+      'Set': t('experience.sep'),
+      'Out': t('experience.oct'),
+      'Nov': t('experience.nov'),
+      'Dez': t('experience.dec'),
+      'Presente': t('experience.present')
+    };
+
+    let translatedPeriod = period;
+    Object.keys(monthMap).forEach(key => {
+      translatedPeriod = translatedPeriod.replace(new RegExp(key, 'g'), monthMap[key]);
+    });
+
+    return translatedPeriod;
+  };
+
   // Partículas para o fundo animado
   const particles = [
     { left: 5, delay: 0, duration: 8 },
@@ -47,20 +73,20 @@ const Experience = () => {
       title: t('experience.seniorDeveloper'),
       company: "Melhor Envio",
       location: "Pelotas, RS - Remoto",
-      period: "Mai 2024 - Presente",
+      period: translatePeriod("Mai 2024 - Presente"),
       status: t('experience.current'),
       type: t('experience.fullTime'),
       level: t('experience.senior'),
       description: [
-        "Responsável por garantir o rastreamento de milhões de entregas de e-commerce diárias",
-        "Atuação em arquitetura baseada em eventos para comunicação assíncrona",
-        "Desenvolvimento de serviços robustos para integração com APIs privadas das transportadoras",
-        "Manutenção e criação de novas funcionalidades em sistema altamente escalável"
+        t('experience.melhorEnvio.resp1'),
+        t('experience.melhorEnvio.resp2'),
+        t('experience.melhorEnvio.resp3'),
+        t('experience.melhorEnvio.resp4')
       ],
       achievements: [
-        "Processamento de milhões de entregas diárias com alta disponibilidade",
-        "Implementação de arquitetura baseada em eventos",
-        "Integração com múltiplas APIs de transportadoras"
+        t('experience.melhorEnvio.ach1'),
+        t('experience.melhorEnvio.ach2'),
+        t('experience.melhorEnvio.ach3')
       ],
       technologies: ["NestJS", "MongoDB", "AWS", "Golang", "Laravel", "Event Driven", "Async Programming"],
       gradient: "from-blue-500 to-blue-600",
@@ -70,20 +96,20 @@ const Experience = () => {
       title: t('experience.backendDeveloper'),
       company: "Tegra",
       location: "São Paulo, SP - Remoto",
-      period: "Mai 2023 - Mai 2024",
+      period: translatePeriod("Mai 2023 - Mai 2024"),
       status: t('experience.completed'),
       type: t('experience.fullTime'),
       level: t('experience.mid'),
       description: [
-        "Desenvolvimento de projetos do zero em software house",
-        "Criação de crawlers, APIs, microsserviços e monolitos",
-        "Desenvolvimento de aplicações serverless",
-        "Implementação de interfaces frontend quando necessário"
+        t('experience.tegra.resp1'),
+        t('experience.tegra.resp2'),
+        t('experience.tegra.resp3'),
+        t('experience.tegra.resp4')
       ],
       achievements: [
-        "Criação de múltiplos projetos do zero",
-        "Experiência diversificada em diferentes arquiteturas",
-        "Desenvolvimento full-stack quando necessário"
+        t('experience.tegra.ach1'),
+        t('experience.tegra.ach2'),
+        t('experience.tegra.ach3')
       ],
       technologies: ["NestJS", "AWS", "PostgreSQL", "MongoDB", "React.js", "Web Scraping"],
       gradient: "from-purple-500 to-purple-600",
@@ -93,20 +119,20 @@ const Experience = () => {
       title: t('experience.backendDeveloper'),
       company: "Jazida",
       location: "Brasília, DF - Remoto",
-      period: "Mai 2021 - Mai 2023",
+      period: translatePeriod("Mai 2021 - Mai 2023"),
       status: t('experience.completed'),
       type: t('experience.fullTime'),
       level: t('experience.mid'),
       description: [
-        "Desenvolvimento em produto de centralização de dados públicos de mineração",
-        "Atuação em monolito Node.js e microsserviços",
-        "Criação de scripts para coleta de dados do Diário Oficial da União",
-        "Extração de informações de processos minerários de fontes governamentais"
+        t('experience.jazida.resp1'),
+        t('experience.jazida.resp2'),
+        t('experience.jazida.resp3'),
+        t('experience.jazida.resp4')
       ],
       achievements: [
-        "Centralização de dados públicos de mineração do Brasil",
-        "Automação de coleta de dados governamentais",
-        "Processamento de grandes volumes de dados"
+        t('experience.jazida.ach1'),
+        t('experience.jazida.ach2'),
+        t('experience.jazida.ach3')
       ],
       technologies: ["Node.js", "Python", "Golang", "Azure", "Web Scraping", "Data Mining"],
       gradient: "from-green-800 to-green-900",
@@ -116,20 +142,20 @@ const Experience = () => {
       title: t('experience.fullStackDeveloper'),
       company: "Vale",
       location: "São Luís, MA",
-      period: "Jan 2020 - Mai 2021",
+      period: translatePeriod("Jan 2020 - Mai 2021"),
       status: t('experience.completed'),
       type: t('experience.fullTime'),
       level: t('experience.junior'),
       description: [
-        "Desenvolvimento de sistemas de gerenciamento para engenheiros ferroviários",
-        "Análise de dados ferroviários usando Python/Pandas",
-        "Desenvolvimento full-stack com Node.js e React",
-        "Manutenção de sistemas .NET Framework/Core"
+        t('experience.valeFullStack.resp1'),
+        t('experience.valeFullStack.resp2'),
+        t('experience.valeFullStack.resp3'),
+        t('experience.valeFullStack.resp4')
       ],
       achievements: [
-        "Sistemas críticos para operação ferroviária",
-        "Análise de dados para otimização de processos",
-        "Transição para stack moderna Node/React"
+        t('experience.valeFullStack.ach1'),
+        t('experience.valeFullStack.ach2'),
+        t('experience.valeFullStack.ach3')
       ],
       technologies: ["React.js", "Node.js", "Python", "C#", ".NET", "Pandas"],
       gradient: "from-green-400 to-green-500",
@@ -139,20 +165,20 @@ const Experience = () => {
       title: t('experience.developmentIntern'),
       company: "Vale",
       location: "São Luís, MA",
-      period: "Jan 2019 - Jan 2020",
+      period: translatePeriod("Jan 2019 - Jan 2020"),
       status: t('experience.completed'),
       type: t('experience.partTime'),
       level: t('experience.intern'),
       description: [
-        "Desenvolvimento de aplicações com .NET Framework",
-        "Criação de interfaces com HTML/CSS/JavaScript puro",
-        "Desenvolvimento de aplicações para terceiros",
-        "Análise de dados com Python"
+        t('experience.valeIntern.resp1'),
+        t('experience.valeIntern.resp2'),
+        t('experience.valeIntern.resp3'),
+        t('experience.valeIntern.resp4')
       ],
       achievements: [
-        "Primeiro contato profissional com desenvolvimento",
-        "Aprendizado de múltiplas tecnologias",
-        "Desenvolvimento para clientes externos"
+        t('experience.valeIntern.ach1'),
+        t('experience.valeIntern.ach2'),
+        t('experience.valeIntern.ach3')
       ],
       technologies: ["C#", ".NET Framework", "HTML", "CSS", "JavaScript", "jQuery", "Python"],
       gradient: "from-green-400 to-green-500",
@@ -162,20 +188,20 @@ const Experience = () => {
       title: t('experience.gameDevTeacher'),
       company: "Senac Maranhão",
       location: "São Luís, MA",
-      period: "Abr 2018 - Jan 2019",
+      period: translatePeriod("Abr 2018 - Jan 2019"),
       status: t('experience.completed'),
       type: t('experience.partTime'),
       level: t('experience.teacher'),
       description: [
-        "Organização de aulas sobre desenvolvimento de jogos com Unity 3D",
-        "Palestras em shoppings, escolas e faculdades",
-        "Ensino sobre o mercado de jogos e carreira",
-        "Turmas fixas para criação de jogos do zero"
+        t('experience.senac.resp1'),
+        t('experience.senac.resp2'),
+        t('experience.senac.resp3'),
+        t('experience.senac.resp4')
       ],
       achievements: [
-        "Palestras em múltiplos eventos e instituições",
-        "Formação de novos desenvolvedores de jogos",
-        "Disseminação de conhecimento na comunidade"
+        t('experience.senac.ach1'),
+        t('experience.senac.ach2'),
+        t('experience.senac.ach3')
       ],
       technologies: ["Unity", "C#", "Blender", "Game Development"],
       gradient: "from-yellow-400 to-yellow-500",
@@ -185,20 +211,20 @@ const Experience = () => {
       title: t('experience.freelanceGameDev'),
       company: "EducVR",
       location: "São Luís, MA - Remote",
-      period: "Mar 2017 - Nov 2018",
+      period: translatePeriod("Mar 2017 - Nov 2018"),
       status: t('experience.completed'),
       type: t('experience.partTime'),
       level: t('experience.freelancer'),
       description: [
-        "Criação de cenários de realidade virtual usando Unity 3D",
-        "Desenvolvimento com Google Cardboard",
-        "Simulações de laboratórios de Física I, II e III",
-        "Projetos educacionais em VR"
+        t('experience.educvr.resp1'),
+        t('experience.educvr.resp2'),
+        t('experience.educvr.resp3'),
+        t('experience.educvr.resp4')
       ],
       achievements: [
-        "Pioneiro em VR educacional na região",
-        "Simulações realistas de laboratórios",
-        "Inovação em educação através de tecnologia"
+        t('experience.educvr.ach1'),
+        t('experience.educvr.ach2'),
+        t('experience.educvr.ach3')
       ],
       technologies: ["Unity", "C#", "Virtual Reality", "Google Cardboard"],
       gradient: "from-orange-500 to-orange-600",
@@ -428,7 +454,7 @@ const Experience = () => {
                     <div>
                       <h4 className="font-semibold mb-3 flex items-center">
                         <Code className="w-4 h-4 mr-2 text-primary" />
-                        Responsabilidades
+                        {t('experience.responsibilities')}
                       </h4>
                       <ul className="space-y-2">
                         {experiences[activeExperience].description.map((item, index) => (
@@ -450,7 +476,7 @@ const Experience = () => {
                     <div>
                       <h4 className="font-semibold mb-3 flex items-center">
                         <Award className="w-4 h-4 mr-2 text-primary" />
-                        Principais Conquistas
+                        {t('experience.achievements')}
                       </h4>
                       <ul className="space-y-2">
                         {experiences[activeExperience].achievements.map((achievement, index) => (
@@ -472,7 +498,7 @@ const Experience = () => {
                     <div>
                       <h4 className="font-semibold mb-3 flex items-center">
                         <Building className="w-4 h-4 mr-2 text-primary" />
-                        Tecnologias Utilizadas
+                        {t('experience.technologies')}
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {experiences[activeExperience].technologies.map((tech, index) => (
@@ -511,10 +537,10 @@ const Experience = () => {
               <CardContent className="p-8">
                 <div className="flex items-center justify-center mb-4">
                   <Users className="w-6 h-6 text-primary mr-2 animate-pulse" />
-                  <h3 className="text-2xl font-bold gradient-text">Vamos trabalhar juntos?</h3>
+                  <h3 className="text-2xl font-bold gradient-text">{t('experience.workTogether')}</h3>
                 </div>
                 <p className="text-muted-foreground mb-6">
-                  Estou sempre aberto a novos desafios e oportunidades de colaboração
+                  {t('experience.workTogetherDesc')}
                 </p>
                 <Button 
                   size="lg" 
@@ -522,7 +548,7 @@ const Experience = () => {
                   onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <ArrowRight className="w-5 h-5 mr-2" />
-                  Entre em Contato
+                  {t('experience.getInTouch')}
                 </Button>
               </CardContent>
             </Card>

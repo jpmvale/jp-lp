@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Lightbulb, Target, Zap, Brain, Heart } from "lucide-react";
+import { Code2, Lightbulb, Target, Zap, Brain, Heart, Globe2, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
@@ -12,29 +12,58 @@ const About = () => {
   const highlights = [
     {
       icon: Code2,
-      title: "Código Limpo",
-      description: "Fissurado por escrever código limpo, testável e bem documentado",
+      title: t('about.cleanCode'),
+      description: t('about.cleanCodeDesc'),
       color: "from-green-400 to-blue-500"
     },
     {
       icon: Lightbulb,
-      title: "Inovação",
-      description: "Sempre em busca de novas tecnologias e soluções criativas", 
+      title: t('about.innovation'),
+      description: t('about.innovationDesc'), 
       color: "from-yellow-400 to-orange-500"
     },
     {
       icon: Target,
-      title: "Foco em Resultados",
-      description: "Orientado a entregar valor real e impacto positivo nos projetos",
+      title: t('about.results'),
+      description: t('about.resultsDesc'),
       color: "from-purple-400 to-pink-500"
     }
   ];
 
+  const languages = [
+    { 
+      name: t('about.portuguese'), 
+      level: t('about.native'), 
+      flag: '🇧🇷',
+      proficiency: 100 
+    },
+    { 
+      name: t('about.english'), 
+      level: t('about.fluent'), 
+      flag: '🇺🇸',
+      proficiency: 90 
+    },
+    { 
+      name: t('about.spanish'), 
+      level: t('about.intermediate'), 
+      flag: '🇪🇸',
+      proficiency: 70 
+    }
+  ];
+
   const interests = [
-    "Engenharia de Software", "Back End", "Front End", "Microserviços", 
-    "Arquitetura baseada em eventos", "Observabilidade", "Monolito Modular",
-    "Crawler/Web Scraping","DevOps", "Inteligência Artificial", "BD Relacional/Não Relacional",
-    "Desenvolvimento de Jogos", 
+    'about.softwareEngineering',
+    'about.backend', 
+    'about.frontend', 
+    'about.microservices',
+    'about.eventArchitecture', 
+    'about.observability', 
+    'about.modularMonolith',
+    'about.crawlerScraping',
+    'about.devops', 
+    'about.ai', 
+    'about.databases',
+    'about.gameDev'
   ];
 
   const containerVariants = {
@@ -79,53 +108,36 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Story Section */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <Card className="tech-card neon-border">
-                <CardContent className="p-8">
+              <Card className="tech-card neon-border h-full">
+                <CardContent className="p-8 h-full flex flex-col">
                   <div className="flex items-center mb-6">
                     <Brain className="w-8 h-8 text-primary mr-3 float" />
-                    <h3 className="text-2xl font-bold gradient-text">Minha Jornada</h3>
+                    <h3 className="text-2xl font-bold gradient-text">{t('about.journey')}</h3>
                   </div>
                   
-                  <div className="space-y-4 text-muted-foreground">
-                    <p className="leading-relaxed">
-                      Sou um desenvolvedor de software <span className="text-primary font-semibold">autodidata</span> e 
-                      entusiasta de tecnologia. Comecei minha jornada em <span className="text-blue-400 font-semibold">2016 </span> 
-                      ingressando na graduação de Engenharia da Computação na UEMA, onde tive meu primeiro contato 
-                      com programação através de C e Java.
-                    </p>
-                    
-                    <p className="leading-relaxed">
-                      Durante a graduação, participei de <span className="text-green-400 font-semibold">laboratórios de desenvolvimento de jogos </span> 
-                      e me aproximei da comunidade local de Game Devs. Em <span className="text-purple-400 font-semibold">2019</span>, 
-                      fui aprovado no programa de estágio da <span className="text-yellow-400 font-semibold">Vale</span> e 
-                      iniciei minha carreira no mundo do Web Development, começando com C# e posteriormente 
-                      migrando para Node.js e React.
-                    </p>
-                    
-                    <p className="leading-relaxed">
-                      Tive diversas experiências em empresas diferentes que moldaram minha carreira. 
-                      Hoje sou um <span className="text-pink-400 font-semibold">desenvolvedor Full Stack </span> 
-                      capaz de trabalhar com múltiplas stacks tecnológicas, além de atuar em 
-                      <span className="text-cyan-400 font-semibold"> projetos freelance</span> de construção de sistemas.
-                    </p>
+                  <div className="space-y-4 text-muted-foreground flex-grow">
+                    <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.journeyP1') }} />
+                    <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.journeyP2') }} />
+                    <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.journeyP3') }} />
                   </div>
 
                   <div className="mt-8 flex items-center">
                     <Heart className="w-5 h-5 text-red-400 mr-2 animate-pulse" />
                     <span className="text-sm text-muted-foreground">
-                      Focado em desenvolver código limpo e experiências de usuário excepcionais.
+                      {t('about.focusMessage')}
                     </span>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
 
-            {/* Highlights Grid */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="grid gap-6">
+            {/* Highlights and Languages Grid */}
+            <motion.div variants={itemVariants} className="h-full flex flex-col">
+              <div className="space-y-3 flex-1">
+                {/* Highlights */}
                 {highlights.map((highlight, index) => (
                   <motion.div
                     key={highlight.title}
@@ -137,16 +149,16 @@ const About = () => {
                     className="group"
                   >
                     <Card className="tech-card hover:neon-border transition-all duration-300">
-                      <CardContent className="p-6">
-                        <div className="flex items-start space-x-4">
-                          <div className={`p-3 rounded-lg bg-gradient-to-r ${highlight.color} bg-opacity-20 group-hover:scale-110 transition-transform duration-300`}>
-                            <highlight.icon className="w-6 h-6 text-white" />
+                      <CardContent className="px-3 py-2">
+                        <div className="flex items-center space-x-3">
+                          <div className={`p-2 rounded-lg bg-gradient-to-r ${highlight.color} bg-opacity-20 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                            <highlight.icon className="w-4 h-4 text-white" />
                           </div>
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-base font-semibold mb-1 text-foreground group-hover:text-primary transition-colors">
                               {highlight.title}
                             </h4>
-                            <p className="text-muted-foreground text-sm leading-relaxed">
+                            <p className="text-muted-foreground text-sm leading-tight">
                               {highlight.description}
                             </p>
                           </div>
@@ -155,6 +167,69 @@ const About = () => {
                     </Card>
                   </motion.div>
                 ))}
+
+                {/* Languages Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02, x: 10 }}
+                  className="group"
+                >
+                  <Card className="tech-card hover:neon-border transition-all duration-300">
+                    <CardContent className="px-3 py-2">
+                      <div className="flex items-center mb-2">
+                        <div className="p-2 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 bg-opacity-20 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                          <Globe2 className="w-4 h-4 text-white" />
+                        </div>
+                        <div className="ml-3 flex-1 min-w-0">
+                          <h4 className="text-base font-semibold mb-0.5 text-foreground group-hover:text-primary transition-colors">
+                            {t('about.languages')}
+                          </h4>
+                          <p className="text-muted-foreground text-sm leading-tight">
+                            {t('about.languagesDesc')}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-1.5">
+                        {languages.map((language, index) => (
+                          <motion.div
+                            key={language.name}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
+                            viewport={{ once: true }}
+                            className="flex items-center justify-between"
+                          >
+                                                          <div className="flex items-center space-x-2">
+                                <span className="text-base">{language.flag}</span>
+                                <div>
+                                  <div className="font-medium text-foreground text-sm">{language.name}</div>
+                                  <div className="text-xs text-muted-foreground">{language.level}</div>
+                                </div>
+                              </div>
+                            <div className="flex items-center space-x-1.5">
+                              <div className="w-12 h-1 bg-muted rounded-full overflow-hidden">
+                                <motion.div
+                                  className="h-full bg-gradient-to-r from-primary to-blue-500 rounded-full"
+                                  initial={{ width: 0 }}
+                                  whileInView={{ width: `${language.proficiency}%` }}
+                                  transition={{ delay: 1 + index * 0.1, duration: 1, ease: "easeOut" }}
+                                  viewport={{ once: true }}
+                                />
+                              </div>
+                              <span className="text-xs text-muted-foreground font-mono w-6">
+                                {language.proficiency}%
+                              </span>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -166,7 +241,7 @@ const About = () => {
           >
             <div className="flex items-center justify-center mb-8">
               <Zap className="w-6 h-6 text-primary mr-3 animate-pulse" />
-              <h3 className="text-2xl font-bold gradient-text">Áreas de Interesse</h3>
+              <h3 className="text-2xl font-bold gradient-text">{t('about.interests')}</h3>
             </div>
             
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
@@ -186,7 +261,7 @@ const About = () => {
                     variant="secondary" 
                     className="px-4 py-2 text-sm font-medium neon-border hover:bg-primary/20 hover:text-primary transition-all duration-300 cursor-pointer"
                   >
-                    {interest}
+                    {t(interest)}
                   </Badge>
                 </motion.div>
               ))}
@@ -211,14 +286,14 @@ const About = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="text-center"
+                className="text-center h-full"
               >
-                <Card className="tech-card hover:neon-border transition-all duration-300">
-                  <CardContent className="p-6">
+                <Card className="tech-card hover:neon-border transition-all duration-300 h-full">
+                  <CardContent className="p-6 h-full flex flex-col justify-center items-center min-h-[120px]">
                     <div className={`text-3xl font-bold mb-2 ${stat.color} glitch`}>
                       {stat.number}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-muted-foreground text-center leading-tight">
                       {stat.label}
                     </div>
                   </CardContent>

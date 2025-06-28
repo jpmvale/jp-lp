@@ -10,7 +10,6 @@ const LanguageSelector = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
   const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
@@ -24,28 +23,18 @@ const LanguageSelector = () => {
   ];
 
   const handleLanguageSelect = (langCode: Language) => {
-    console.log('Language selected:', langCode);
     setLanguage(langCode);
     setIsModalOpen(false);
   };
 
   const handleClick = () => {
-    console.log('🚀🚀🚀 BUTTON CLICKED! Count:', clickCount + 1);
-    setClickCount(prev => prev + 1);
     setClicked(true);
     setIsModalOpen(true);
     setTimeout(() => setClicked(false), 300);
   };
 
-  useEffect(() => {
-    console.log('🎯 Modal state changed:', isModalOpen);
-    console.log('🎯 Mounted:', mounted);
-    console.log('🎯 Should render modal:', mounted && isModalOpen);
-  }, [isModalOpen, mounted]);
-
   return (
     <>
-      {/* SUPER SIMPLE BUTTON FOR TESTING */}
       <button
         onClick={handleClick}
         className={`px-4 py-2 rounded border text-sm font-medium transition-all duration-200 ${
@@ -64,7 +53,6 @@ const LanguageSelector = () => {
         <div className="flex items-center space-x-2">
           <Globe className="w-4 h-4" />
           <span>{language.toUpperCase()}</span>
-          <span className="text-xs">({clickCount})</span>
         </div>
       </button>
 
