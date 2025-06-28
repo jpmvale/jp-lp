@@ -218,11 +218,15 @@ const Skills = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px -250px 0px" }}
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div 
+            variants={itemVariants} 
+            viewport={{ margin: "0px 0px -150px 0px" }}
+            className="text-center mb-16"
+          >
             <div className="flex items-center justify-center mb-6">
               <Brain className="w-8 h-8 text-primary mr-3 animate-pulse" />
               <h2 className="text-4xl md:text-5xl font-bold">
@@ -312,7 +316,11 @@ const Skills = () => {
           </div>
 
           {/* Soft Skills Section */}
-          <motion.div variants={itemVariants} className="mb-16">
+          <motion.div 
+            variants={itemVariants} 
+            viewport={{ margin: "0px 0px -150px 0px" }}
+            className="mb-16"
+          >
             <div className="text-center mb-12">
               <div className="flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-primary mr-3 animate-pulse" />

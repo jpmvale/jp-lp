@@ -61,7 +61,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
           >
             <h3 className="text-2xl font-bold mb-4">João Pedro Vale</h3>
             <p className="text-muted-foreground mb-4">
@@ -94,7 +94,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
           >
             <h4 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
@@ -127,7 +127,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
           >
             <h4 className="text-lg font-semibold mb-4">{t('footer.contact')}</h4>
             <div className="space-y-2 text-muted-foreground">
@@ -151,7 +151,7 @@ const Footer = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -50px 0px" }}
             className="flex items-center text-muted-foreground text-sm mb-4 sm:mb-0"
           >
             <span>{t('footer.madeBy')} © {new Date().getFullYear()}</span>

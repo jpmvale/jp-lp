@@ -131,7 +131,7 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px -250px 0px" }}
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}

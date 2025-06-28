@@ -139,11 +139,15 @@ const Contact = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px -250px 0px" }}
           className="max-w-5xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div 
+            variants={itemVariants} 
+            viewport={{ margin: "0px 0px -150px 0px" }}
+            className="text-center mb-16"
+          >
             <div className="flex items-center justify-center mb-6">
               <MessageCircle className="w-8 h-8 text-primary mr-3 animate-pulse" />
               <h2 className="text-4xl md:text-5xl font-bold">
@@ -157,7 +161,11 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Information - Centralizado */}
-          <motion.div variants={itemVariants} className="space-y-12">
+          <motion.div 
+            variants={itemVariants} 
+            viewport={{ margin: "0px 0px -150px 0px" }}
+            className="space-y-12"
+          >
             <div className="text-center">
               <h3 className="text-3xl font-bold mb-8 gradient-text">{t('contact.info')}</h3>
               
