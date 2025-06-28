@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Lightbulb, Target, Zap, Brain, Heart, Globe2, CheckCircle } from "lucide-react";
+import { Code2, Lightbulb, Target, Zap, Brain, Heart, Globe2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
