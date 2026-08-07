@@ -193,32 +193,52 @@ body {
   animation: trace-flow 1.8s linear infinite;
 }
 
-/* The circuit's six legs, in path order. Each lags the one before it so the
-   signal reads as travelling round the diagram rather than every edge pulsing
-   in lockstep.
-   The stagger is a fraction of 0.9s, NOT of the 1.8s animation: the dash period
-   is 12 units (4 8) and the keyframe travels 24, so one animation covers two
-   periods and a delay of 0.9s is visually indistinguishable from none. Staggering
-   by sixths of 1.8s would put legs 1 and 4 in identical phase.
-   Delays are negative so every leg is already in motion on first paint — a
-   positive delay would hold the first legs still while the last one waited. */
+/* The circuit's eight legs, in the order a request is served. Each lags the one
+   before it so the signal reads as travelling round the diagram rather than
+   every edge pulsing in lockstep.
+
+   The step is the dash period divided by the leg count — 12 units / 8 = 1.5 —
+   which puts exactly one wave on the circuit and no two legs in the same phase.
+   It is a fraction of the 0.9s PERIOD, not of the 1.8s animation: the keyframe
+   travels 24 units, so one animation covers two periods and a 0.9s delay is
+   indistinguishable from none. 1.5 units = 1.5 × 1.8 / 24 = 0.1125s.
+
+   Recompute this when a leg is added or removed. Keeping the old six-leg step of
+   0.15s across eight legs would wrap the wave 1.33 times and land legs 1 and 7
+   in identical phase — the flow would visibly break mid-circuit.
+
+   Delays are negative so every leg is already in motion on first paint; a
+   positive delay would hold the early legs still while the last one waited. */
 .trace-live:nth-child(1) {
-  animation-delay: -0.75s;
+  animation-delay: -0.7875s;
 }
 .trace-live:nth-child(2) {
-  animation-delay: -0.6s;
+  animation-delay: -0.675s;
 }
 .trace-live:nth-child(3) {
-  animation-delay: -0.45s;
+  animation-delay: -0.5625s;
 }
 .trace-live:nth-child(4) {
-  animation-delay: -0.3s;
+  animation-delay: -0.45s;
 }
 .trace-live:nth-child(5) {
-  animation-delay: -0.15s;
+  animation-delay: -0.3375s;
 }
 .trace-live:nth-child(6) {
+  animation-delay: -0.225s;
+}
+.trace-live:nth-child(7) {
+  animation-delay: -0.1125s;
+}
+.trace-live:nth-child(8) {
   animation-delay: 0s;
+}
+
+/* An endless loop has no business running behind the reader's scroll. The figure
+   carries data-onscreen only while it is in view; off view the dashes hold their
+   position rather than resetting, so scrolling back does not restart the flow. */
+figure:not([data-onscreen="true"]) .trace-live {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,33 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionHeading from "@/components/SectionHeading";
+
+/**
+ * True while the element is on screen. The diagram's dash is an endless loop and
+ * has no business running behind the reader's scroll; the CSS pauses it when this
+ * is false. Defaults to true so the flow is already moving if the observer never
+ * runs — a diagram frozen by a failed script would read as a rendering bug.
+ */
+const useOnScreen = <T extends Element>(ref: React.RefObject<T | null>) => {
+  const [onScreen, setOnScreen] = useState(true);
+
+  useEffect(() => {
+    const alvo = ref.current;
+    if (!alvo || typeof IntersectionObserver === "undefined") return;
+
+    const observador = new IntersectionObserver(
+      ([entrada]) => setOnScreen(entrada.isIntersecting),
+      { rootMargin: "120px" },
+    );
+    observador.observe(alvo);
+    return () => observador.disconnect();
+  }, [ref]);
+
+  return onScreen;
+};
 
 interface BlockProps {
   x: number;
@@ -59,6 +85,8 @@ const Block = ({ x, y, w, h, label, tone = "solid", callout }: BlockProps) => (
 
 const AgentDiagram = () => {
   const { d } = useLanguage();
+  const figura = useRef<HTMLElement>(null);
+  const naTela = useOnScreen(figura);
   const b = d.s2.blocks;
 
   return (
@@ -72,7 +100,11 @@ const AgentDiagram = () => {
           ))}
         </div>
 
-        <figure className="corner-ticks relative mt-12 border border-rule-strong">
+        <figure
+          ref={figura}
+          data-onscreen={naTela}
+          className="corner-ticks relative mt-12 border border-rule-strong"
+        >
           <div className="sheet-ground overflow-x-auto">
             <svg
               viewBox="0 0 1000 440"
@@ -123,14 +155,21 @@ const AgentDiagram = () => {
                 <path d="M364 104 V168" />
               </g>
 
-              {/* Live signal: the one authored motion on this page. The six legs are
-                  one round trip — in from the input, out to the systems, back to the
-                  output — and they must stay in this order: the stagger that makes the
-                  flow read as travelling is keyed to sibling position, not to geometry.
-                  The model exchange is left static on purpose; it is a consultation off
-                  to the side, not a leg of the circuit. */}
+              {/* Live signal: the one authored motion on this page. It mirrors the data
+                  plane above, leg for leg, so the rule the reader infers is exact — the
+                  data plane moves, the control plane does not.
+
+                  ORDER IS LOAD-BEARING. The stagger that makes the signal read as
+                  travelling is keyed to sibling position, not to geometry, and these are
+                  in the order a request is served: in from the intent, up to the model
+                  and back, out through the tools to the systems, then home to the result.
+                  Reordering these lines reorders the flow. Adding or removing one
+                  requires recomputing the stagger in globals.css — the phase step is
+                  derived from the leg count. */}
               <g fill="none" stroke="var(--diazo)" strokeWidth={2.5}>
                 <path className="trace-live" d="M164 208 H252" />
+                <path className="trace-live" d="M336 168 V104" />
+                <path className="trace-live" d="M364 104 V168" />
                 <path className="trace-live" d="M448 196 H536" />
                 <path className="trace-live" d="M732 196 H820" />
                 <path className="trace-live" d="M820 220 H732" />
