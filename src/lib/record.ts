@@ -33,6 +33,13 @@ export interface Role {
    * are the datasheet's own way of stamping a maker.
    */
   initials: string;
+  /**
+   * Organisation mark, used as a CSS mask and painted with currentColor, so it
+   * prints in the plate's own ink on both schemes. Null where no usable vector
+   * exists — Vale publishes only a 128px raster, Jazida publishes none, and
+   * EducVR's domain is gone. Those fall back to `initials`.
+   */
+  logo: { src: string; aspect: number } | null;
   from: string;
   to: string | null;
   company: string;
@@ -44,6 +51,7 @@ export const ROLES: Role[] = [
   {
     id: "melhorEnvio",
     initials: "ME",
+    logo: { src: "/logos/orgs/melhor-envio.svg", aspect: 2.17 },
     rev: "07",
     from: "2024-05",
     to: null,
@@ -54,6 +62,7 @@ export const ROLES: Role[] = [
   {
     id: "tegra",
     initials: "TG",
+    logo: { src: "/logos/orgs/tegra.svg", aspect: 1.09 },
     rev: "06",
     from: "2023-05",
     to: "2024-05",
@@ -64,6 +73,7 @@ export const ROLES: Role[] = [
   {
     id: "jazida",
     initials: "JZ",
+    logo: null,
     rev: "05",
     from: "2021-05",
     to: "2023-05",
@@ -74,6 +84,7 @@ export const ROLES: Role[] = [
   {
     id: "valeFullStack",
     initials: "VS",
+    logo: null,
     rev: "04",
     from: "2020-01",
     to: "2021-05",
@@ -84,6 +95,7 @@ export const ROLES: Role[] = [
   {
     id: "valeIntern",
     initials: "VS",
+    logo: null,
     rev: "03",
     from: "2019-01",
     to: "2020-01",
@@ -94,6 +106,7 @@ export const ROLES: Role[] = [
   {
     id: "senac",
     initials: "SN",
+    logo: { src: "/logos/orgs/senac.svg", aspect: 1.71 },
     rev: "02",
     from: "2018-04",
     to: "2019-01",
@@ -104,6 +117,7 @@ export const ROLES: Role[] = [
   {
     id: "educvr",
     initials: "EV",
+    logo: null,
     rev: "01",
     from: "2017-03",
     to: "2018-11",

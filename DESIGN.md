@@ -172,7 +172,9 @@ Every role above is re-cast, never inverted mechanically. The whole flip happens
 
 **The Marking Rule.** Diazo and Stamp mark; they never fill. No coloured panel, no coloured section background, no tinted card. If a colour is covering area rather than pointing at something, it is wrong.
 
-**The Borrowed Colour Rule.** Two things on this sheet carry colour that is not the system's: the portrait, and the product favicons at 24px. Both are borrowed identity, not decoration — they belong to something that exists outside this page. They stay small, they stay bounded, and nothing else earns the exemption. A company logo does not: those were studied and rejected, because two of the six organisations no longer publish a usable asset and a set with holes reads worse than no set at all. Organisations get initials in a hairline square instead.
+**The Borrowed Colour Rule.** Exactly two things on this sheet carry colour that is not the system's: the portrait, and the product favicons at 24px. Both are borrowed identity, not decoration — they belong to something that exists outside this page, they stay small, they stay bounded, and nothing else earns the exemption.
+
+**The Inked Mark Rule.** An organisation's logo is never borrowed colour. It ships as a CSS `mask-image` painted with `currentColor`, so it prints in whichever ink the plate is using and needs no second variant, no white knockout, and no chip behind it. That admits only real vectors: a raster cannot be masked, so an organisation with no published vector gets its initials instead, and the sheet never mixes an inked logo with a colour one.
 
 **The One Stamp Rule.** The stamp colour — red on whiteprint, amber on cyanotype — appears only on what is currently true. The moment it decorates, it stops meaning "current".
 
@@ -245,7 +247,9 @@ A bounded region with a strong hairline border, `corner-ticks`, and a mono capti
 A sticky ruled strip, not a floating bar: stock ground, strong hairline underneath, hairline dividers around the designation block and the language stamp. Items are mono uppercase; the active item carries a 2px Diazo bottom border and its section number turns Diazo. Section numbers hide below `md`; the designation block hides below `md`; the item strip scrolls horizontally under a right-edge mask so a cut item reads as scrollable rather than broken.
 
 ### Disclosure rows (`RevisionHistory`)
-Full-width hairline-divided rows that expand in place. The toggle is a drawn SVG plus/minus in hairline weight, never a glyph or an icon-font character. Expanding a row reveals a **manufacturer mark**: a 44px hairline square holding the organisation's initials in mono, with the location beneath it. On phones the row restacks to company, position, then period, each on its own line; the period never wraps mid-range.
+Full-width hairline-divided rows that expand in place. The toggle is a drawn SVG plus/minus in hairline weight, never a glyph or an icon-font character. Expanding a row reveals a **manufacturer mark**: a hairline box 44px tall, holding either the organisation's logo — inked through a CSS mask, width following the logo's own aspect — or, where no vector exists, its initials in mono in a 44px square. The location sits beneath it. Marks are revealed one at a time, which is what makes a mixed set legible: no two marks are ever compared side by side.
+
+Logo provenance (`public/logos/orgs/`): Melhor Envio and Tegra from each company's own site; Senac from Wikimedia Commons (`Senac logo.svg`, public domain as to copyright, trademark retained). Vale publishes only a 128px raster and Jazida publishes no vector at all, so both take initials, as does EducVR, whose domain no longer resolves. Use is nominative — identifying a former employer — and each file is stored verbatim minus authoring metadata. On phones the row restacks to company, position, then period, each on its own line; the period never wraps mid-range.
 
 ### Application entries (`Applications`)
 Hairline-divided rows on a 3/6/3 grid, never cards. Left holds the part-style designation (`APP-01`) in mono graphite, then the product's own favicon at 24px in **full colour** beside the project name at 1.375rem widened to 108%, and a stamp-coloured square beside the operating status. The favicons are copied verbatim from each product's repository (`public/logos/`), so the mark on this sheet is the same mark in the product's browser tab; only their internal comments are stripped. Centre holds two paragraphs: what it is, then the engineering that is actually interesting about it. Right holds the stack in mono and a small definition list of references. A reference with no address renders as a plain graphite word ("closed") instead of a dead link, and the live-URL row is omitted entirely until a real URL exists — the sheet never shows a link it cannot honour.
@@ -268,6 +272,7 @@ An inline SVG on a 5mm drafting grid, in two planes. The **data plane** is `1.5p
 - **Do** give any new wide element its own `overflow-x: auto` container with a `min-width`.
 - **Do** reach the dark scheme only by redefining the root custom properties, and re-measure contrast on the blue ground whenever one changes.
 - **Do** ship photographs in their original colour on both plates, framed by a hairline and a mono caption.
+- **Do** ink an organisation's logo through a CSS mask with `currentColor`, and fall back to initials the moment only a raster exists.
 
 ### Don't:
 - **Don't** add a shadow, glow, blur, gradient, or gradient text anywhere. The previous identity was built from them and was replaced for it.

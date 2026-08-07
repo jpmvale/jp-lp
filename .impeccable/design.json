@@ -395,7 +395,12 @@
       },
       {
         "name": "The Borrowed Colour Rule",
-        "body": "Two things on this sheet carry colour that is not the system's: the portrait, and the product favicons at 24px. Both are borrowed identity, not decoration — they belong to something that exists outside this page. They stay small, they stay bounded, and nothing else earns the exemption. A company logo does not: those were studied and rejected, because two of the six organisations no longer publish a usable asset and a set with holes reads worse than no set at all. Organisations get initials in a hairline square instead.",
+        "body": "Exactly two things on this sheet carry colour that is not the system's: the portrait, and the product favicons at 24px. Both are borrowed identity, not decoration — they belong to something that exists outside this page, they stay small, they stay bounded, and nothing else earns the exemption.",
+        "section": "colors"
+      },
+      {
+        "name": "The Inked Mark Rule",
+        "body": "An organisation's logo is never borrowed colour. It ships as a CSS mask-image painted with currentColor, so it prints in whichever ink the plate is using and needs no second variant, no white knockout, and no chip behind it. That admits only real vectors: a raster cannot be masked, so an organisation with no published vector gets its initials instead.",
         "section": "colors"
       },
       {
@@ -438,7 +443,8 @@
       "Do give any new wide element its own overflow-x: auto container with a min-width.",
       "Do reach the dark scheme only by redefining the root custom properties, and re-measure contrast on the blue ground whenever one changes.",
       "Do ship photographs in their original colour on both plates, framed by a hairline and a mono caption.",
-      "Do copy a product's own favicon verbatim into public/logos/ when it earns a mark, and render it at 24px in full colour."
+      "Do copy a product's own favicon verbatim into public/logos/ when it earns a mark, and render it at 24px in full colour.",
+      "Do ink an organisation's logo through a CSS mask with currentColor so it prints in whichever plate's ink is active."
     ],
     "donts": [
       "Don't add a shadow, glow, blur, gradient, or gradient text anywhere. The previous identity was built from them and was replaced for it.",
@@ -450,7 +456,7 @@
       "Don't add a second animation. The diagram's travelling dash is the page's one motion.",
       "Don't render the dark scheme as neutral greys with a coloured accent. That is the identity this page replaced; the cyanotype exists so the dark plate cannot drift back into it.",
       "Don't ship a theme toggle. The plate follows prefers-color-scheme; the reader's system already answered.",
-      "Don't add third-party company logos. Two of the six organisations no longer publish a usable asset, so the set cannot be completed; initials in a hairline square carry the mark instead."
+      "Don't paint an organisation's logo in its brand colour, and don't reach for a raster when no vector exists — ink it through a mask with currentColor, or fall back to initials."
     ]
   }
 }

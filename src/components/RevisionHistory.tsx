@@ -92,12 +92,35 @@ const RevisionHistory = () => {
                     >
                       <div className="hidden md:block" aria-hidden />
                       <div className="self-start">
-                        {/* Manufacturer mark: the stamp a datasheet puts on the part. */}
+                        {/*
+                          Manufacturer mark: the stamp a datasheet puts on the part.
+                          A real logo where a usable vector exists, painted through a
+                          CSS mask so it takes the plate's own ink; initials otherwise.
+                        */}
                         <span
                           aria-hidden
-                          className="mono flex h-11 w-11 items-center justify-center border border-rule-strong text-[0.8125rem] tracking-[0.12em] text-ink"
+                          className="flex h-11 items-center justify-center border border-rule-strong px-2.5 text-ink"
+                          style={role.logo ? { width: `${44 * role.logo.aspect + 20}px` } : { width: "44px" }}
                         >
-                          {role.initials}
+                          {role.logo ? (
+                            <span
+                              className="block h-6 w-full bg-current"
+                              style={{
+                                maskImage: `url(${role.logo.src})`,
+                                WebkitMaskImage: `url(${role.logo.src})`,
+                                maskRepeat: "no-repeat",
+                                WebkitMaskRepeat: "no-repeat",
+                                maskPosition: "center",
+                                WebkitMaskPosition: "center",
+                                maskSize: "contain",
+                                WebkitMaskSize: "contain",
+                              }}
+                            />
+                          ) : (
+                            <span className="mono text-[0.8125rem] tracking-[0.12em]">
+                              {role.initials}
+                            </span>
+                          )}
                         </span>
                         <p className="mono mt-3 text-[0.6875rem] uppercase leading-relaxed tracking-[0.12em] text-graphite">
                           {role.location}
