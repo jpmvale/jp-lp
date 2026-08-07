@@ -50,13 +50,7 @@ const Applications = () => {
                 </div>
 
                 <div className="max-w-[62ch] lg:col-span-6">
-                  {/* The product's own pitch, quoted. It gets display weight and the
-                      sheet's widened Archivo so it reads as the thing being described
-                      talking, not as another line of the description around it. */}
-                  <p className="text-[1.375rem] font-medium leading-[1.3] text-ink [font-stretch:108%]">
-                    {copy.hook}
-                  </p>
-                  <p className="mt-3 text-[1.0625rem] leading-relaxed text-ink-2">{copy.summary}</p>
+                  <p className="text-[1.0625rem] leading-relaxed text-ink">{copy.summary}</p>
                   <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-2">{copy.note}</p>
                 </div>
 
