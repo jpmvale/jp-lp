@@ -394,6 +394,11 @@
         "section": "colors"
       },
       {
+        "name": "The Borrowed Colour Rule",
+        "body": "Two things on this sheet carry colour that is not the system's: the portrait, and the product favicons at 24px. Both are borrowed identity, not decoration — they belong to something that exists outside this page. They stay small, they stay bounded, and nothing else earns the exemption. A company logo does not: those were studied and rejected, because two of the six organisations no longer publish a usable asset and a set with holes reads worse than no set at all. Organisations get initials in a hairline square instead.",
+        "section": "colors"
+      },
+      {
         "name": "The One Stamp Rule",
         "body": "The stamp colour — red on whiteprint, amber on cyanotype — appears only on what is currently true. The moment it decorates, it stops meaning \"current\".",
         "section": "colors"
@@ -432,7 +437,8 @@
       "Do keep small mono metadata at Graphite (#5f6467 on whiteprint, #8ba3bd on cyanotype); those values are the 4.5:1 floor on their own ground.",
       "Do give any new wide element its own overflow-x: auto container with a min-width.",
       "Do reach the dark scheme only by redefining the root custom properties, and re-measure contrast on the blue ground whenever one changes.",
-      "Do ship photographs in their original colour on both plates, framed by a hairline and a mono caption."
+      "Do ship photographs in their original colour on both plates, framed by a hairline and a mono caption.",
+      "Do copy a product's own favicon verbatim into public/logos/ when it earns a mark, and render it at 24px in full colour."
     ],
     "donts": [
       "Don't add a shadow, glow, blur, gradient, or gradient text anywhere. The previous identity was built from them and was replaced for it.",
@@ -443,7 +449,8 @@
       "Don't use a Unicode glyph or emoji as an icon; draw it as inline SVG at hairline weight.",
       "Don't add a second animation. The diagram's travelling dash is the page's one motion.",
       "Don't render the dark scheme as neutral greys with a coloured accent. That is the identity this page replaced; the cyanotype exists so the dark plate cannot drift back into it.",
-      "Don't ship a theme toggle. The plate follows prefers-color-scheme; the reader's system already answered."
+      "Don't ship a theme toggle. The plate follows prefers-color-scheme; the reader's system already answered.",
+      "Don't add third-party company logos. Two of the six organisations no longer publish a usable asset, so the set cannot be completed; initials in a hairline square carry the mark instead."
     ]
   }
 }

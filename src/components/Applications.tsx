@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PROJECTS } from "@/lib/record";
 import SectionHeading from "@/components/SectionHeading";
@@ -29,7 +30,15 @@ const Applications = () => {
                   <p className="mono text-[0.75rem] tracking-[0.14em] text-graphite">
                     {project.code}
                   </p>
-                  <h3 className="mt-2 text-[1.375rem] font-semibold leading-tight text-ink [font-stretch:108%]">
+                  <h3 className="mt-2 flex items-center gap-2.5 text-[1.375rem] font-semibold leading-tight text-ink [font-stretch:108%]">
+                    <Image
+                      src={project.logo}
+                      alt=""
+                      width={24}
+                      height={24}
+                      unoptimized
+                      className="h-6 w-6 shrink-0"
+                    />
                     {project.name}
                   </h3>
                   <p className="mt-3 flex items-baseline gap-2">

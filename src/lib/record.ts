@@ -25,6 +25,14 @@ export type RoleId =
 export interface Role {
   id: RoleId;
   rev: string;
+  /**
+   * Manufacturer mark. Company logos were studied and rejected: two of the six
+   * organisations no longer publish a usable asset (EducVR's domain is gone,
+   * Senac Maranhao's site is down), and a set with holes reads worse than no
+   * set at all. Initials complete the set, survive both plates untouched, and
+   * are the datasheet's own way of stamping a maker.
+   */
+  initials: string;
   from: string;
   to: string | null;
   company: string;
@@ -35,6 +43,7 @@ export interface Role {
 export const ROLES: Role[] = [
   {
     id: "melhorEnvio",
+    initials: "ME",
     rev: "07",
     from: "2024-05",
     to: null,
@@ -44,6 +53,7 @@ export const ROLES: Role[] = [
   },
   {
     id: "tegra",
+    initials: "TG",
     rev: "06",
     from: "2023-05",
     to: "2024-05",
@@ -53,6 +63,7 @@ export const ROLES: Role[] = [
   },
   {
     id: "jazida",
+    initials: "JZ",
     rev: "05",
     from: "2021-05",
     to: "2023-05",
@@ -62,6 +73,7 @@ export const ROLES: Role[] = [
   },
   {
     id: "valeFullStack",
+    initials: "VS",
     rev: "04",
     from: "2020-01",
     to: "2021-05",
@@ -71,6 +83,7 @@ export const ROLES: Role[] = [
   },
   {
     id: "valeIntern",
+    initials: "VS",
     rev: "03",
     from: "2019-01",
     to: "2020-01",
@@ -80,6 +93,7 @@ export const ROLES: Role[] = [
   },
   {
     id: "senac",
+    initials: "SN",
     rev: "02",
     from: "2018-04",
     to: "2019-01",
@@ -89,6 +103,7 @@ export const ROLES: Role[] = [
   },
   {
     id: "educvr",
+    initials: "EV",
     rev: "01",
     from: "2017-03",
     to: "2018-11",
@@ -104,6 +119,8 @@ export interface Project {
   id: ProjectId;
   code: string;
   name: string;
+  /** The product's own favicon, copied from its repository. */
+  logo: string;
   stack: string[];
   /** Public repository, or null when the source is private. */
   repo: string | null;
@@ -116,6 +133,7 @@ export const PROJECTS: Project[] = [
     id: "coda",
     code: "APP-01",
     name: "coda",
+    logo: "/logos/coda.svg",
     stack: ["TypeScript", "NestJS", "Next.js", "Worker", "Docker", "Grafana Alloy", "MusicBrainz"],
     repo: null,
     url: "https://coda.imp-software.cloud",
@@ -124,6 +142,7 @@ export const PROJECTS: Project[] = [
     id: "kindred",
     code: "APP-02",
     name: "kindred",
+    logo: "/logos/kindred.svg",
     stack: ["TypeScript", "NestJS", "Prisma", "PostgreSQL", "React", "Vite"],
     repo: "https://github.com/jpmvale/kindred",
     url: "https://kindred.imp-software.cloud",
@@ -132,6 +151,7 @@ export const PROJECTS: Project[] = [
     id: "expenseAnalyzer",
     code: "APP-03",
     name: "expense-analyzer",
+    logo: "/logos/expense-analyzer.svg",
     stack: ["TypeScript", "NestJS", "MongoDB", "React", "Docker"],
     repo: "https://github.com/jpmvale/expense-analyzer",
     url: "https://expenses.imp-software.cloud",

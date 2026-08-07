@@ -91,9 +91,18 @@ const RevisionHistory = () => {
                       className="grid grid-cols-1 gap-x-4 gap-y-6 px-1 pb-8 pt-1 md:grid-cols-[3.5rem_11rem_1fr] md:pb-10"
                     >
                       <div className="hidden md:block" aria-hidden />
-                      <p className="mono self-start text-[0.6875rem] uppercase leading-relaxed tracking-[0.12em] text-graphite">
-                        {role.location}
-                      </p>
+                      <div className="self-start">
+                        {/* Manufacturer mark: the stamp a datasheet puts on the part. */}
+                        <span
+                          aria-hidden
+                          className="mono flex h-11 w-11 items-center justify-center border border-rule-strong text-[0.8125rem] tracking-[0.12em] text-ink"
+                        >
+                          {role.initials}
+                        </span>
+                        <p className="mono mt-3 text-[0.6875rem] uppercase leading-relaxed tracking-[0.12em] text-graphite">
+                          {role.location}
+                        </p>
+                      </div>
                       <div className="max-w-[62ch]">
                         <p className="text-[1.0625rem] leading-relaxed text-ink-2">{copy.summary}</p>
                         <p className="field-label mt-5">{d.s4.techLabel}</p>
