@@ -69,7 +69,8 @@ export interface Dict {
     sourceLabel: string;
     liveLabel: string;
     privateSource: string;
-    projects: Record<ProjectId, { summary: string; note: string }>;
+    /** hook: a frase que fisga; summary: o que é; note: como é feito. */
+    projects: Record<ProjectId, { hook: string; summary: string; note: string }>;
   };
   s3: {
     title: string;
@@ -185,18 +186,21 @@ const pt: Dict = {
     privateSource: "Fechado",
     projects: {
       coda: {
+        hook: "Você mudou de ideia. O coda lembra quando.",
         summary:
-          "Rede social de avaliação de mídias — um Letterboxd da música. Notas de 0,0 a 10,0, resenhas e o histórico de como a sua opinião sobre uma obra muda com o tempo, num feed do que quem você segue está avaliando.",
+          "Faça avaliações de mídias no coda enquanto interage com as de seus amigos.",
         note: "API e worker em NestJS compartilhando os mesmos módulos de domínio, front em Next.js. O catálogo é canônico e cresce guiado por interesse real: importa discografias da MusicBrainz sob demanda e enriquece com capas e biografias. Métricas e logs em Grafana Alloy.",
       },
       kindred: {
+        hook: "Ela é sua prima em 2º grau.",
         summary:
-          "Cadastro de pessoas e dos vínculos entre elas. A partir de uma pessoa central, calcula sozinho o grau de parentesco de todo mundo — avó, tio, primo em 2º grau —, desenha a árvore genealógica navegável e reúne os aniversários num calendário.",
+          "Visualize sua árvore genealógica e seja sempre lembrado dos aniversários.",
         note: "O cálculo de parentesco é o coração do domínio e roda sobre um grafo de vínculos em PostgreSQL. Monorepo com o schema e o contrato da API isolados em pacotes compartilhados entre a API e o front.",
       },
       expenseAnalyzer: {
+        hook: "O histórico do seu cartão, lido de ponta a ponta.",
         summary:
-          "Dashboard de gastos de cartão de crédito: as faturas em CSV viram um banco de compras, a API agrega por mês e por categoria, e o front mostra em tabelas e gráficos como o gasto evolui.",
+          "Visibilidade total do que você gasta no cartão, mês a mês e por categoria.",
         note: "O parser não é acoplado a nenhum emissor — lê qualquer CSV com data, descrição e valor. Extractor, API e front são aplicações separadas no mesmo monorepo, com a infraestrutura versionada junto.",
       },
     },
@@ -365,18 +369,21 @@ const en: Dict = {
     privateSource: "Closed",
     projects: {
       coda: {
+        hook: "You changed your mind. coda remembers when.",
         summary:
-          "A social network for rating media — a Letterboxd for music. Scores from 0.0 to 10.0, reviews, and the history of how your opinion on a work changes over time, in a feed of what the people you follow are rating.",
+          "Rate media on coda while keeping up with what your friends are rating.",
         note: "A NestJS API and worker sharing the same domain modules, with a Next.js front end. The catalogue is canonical and grows on real demand: it imports discographies from MusicBrainz on request and enriches them with covers and biographies. Metrics and logs through Grafana Alloy.",
       },
       kindred: {
+        hook: "She is your second cousin.",
         summary:
-          "A register of people and the ties between them. From one central person it works out everyone's degree of kinship on its own — grandmother, uncle, second cousin — draws the navigable family tree, and gathers every birthday into a calendar.",
+          "See your family tree, and never miss a birthday again.",
         note: "The kinship calculation is the heart of the domain and runs over a graph of relationships in PostgreSQL. A monorepo with the schema and the API contract isolated in packages shared by the API and the front end.",
       },
       expenseAnalyzer: {
+        hook: "Your card history, read end to end.",
         summary:
-          "A credit-card spending dashboard: CSV statements become a purchase database, the API aggregates by month and category, and the front end shows in tables and charts how the spending evolves.",
+          "Full visibility of what you spend on the card, month by month and by category.",
         note: "The parser is not coupled to any issuer — it reads any CSV with a date, a description and an amount. Extractor, API and front end are separate applications in one monorepo, with the infrastructure versioned alongside them.",
       },
     },
@@ -545,18 +552,21 @@ const es: Dict = {
     privateSource: "Cerrado",
     projects: {
       coda: {
+        hook: "Cambiaste de opinión. coda recuerda cuándo.",
         summary:
-          "Red social de evaluación de medios — un Letterboxd de la música. Notas de 0,0 a 10,0, reseñas y el historial de cómo tu opinión sobre una obra cambia con el tiempo, en un feed de lo que evalúa la gente que sigues.",
+          "Califica medios en coda mientras sigues lo que califican tus amigos.",
         note: "API y worker en NestJS compartiendo los mismos módulos de dominio, front en Next.js. El catálogo es canónico y crece guiado por interés real: importa discografías de MusicBrainz bajo demanda y las enriquece con portadas y biografías. Métricas y logs en Grafana Alloy.",
       },
       kindred: {
+        hook: "Ella es tu prima segunda.",
         summary:
-          "Registro de personas y de los vínculos entre ellas. A partir de una persona central calcula solo el grado de parentesco de todos — abuela, tío, primo en segundo grado —, dibuja el árbol genealógico navegable y reúne los cumpleaños en un calendario.",
+          "Visualiza tu árbol genealógico y no vuelvas a olvidar un cumpleaños.",
         note: "El cálculo de parentesco es el corazón del dominio y corre sobre un grafo de vínculos en PostgreSQL. Monorepo con el esquema y el contrato de la API aislados en paquetes compartidos entre la API y el front.",
       },
       expenseAnalyzer: {
+        hook: "El historial de tu tarjeta, leído de punta a punta.",
         summary:
-          "Panel de gastos de tarjeta de crédito: las facturas en CSV se convierten en una base de compras, la API agrega por mes y por categoría, y el front muestra en tablas y gráficos cómo evoluciona el gasto.",
+          "Visibilidad total de lo que gastas con la tarjeta, mes a mes y por categoría.",
         note: "El parser no está acoplado a ningún emisor — lee cualquier CSV con fecha, descripción e importe. Extractor, API y front son aplicaciones separadas en el mismo monorepo, con la infraestructura versionada junto a ellas.",
       },
     },
