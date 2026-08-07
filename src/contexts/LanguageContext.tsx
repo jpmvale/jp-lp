@@ -137,7 +137,7 @@ const pt: Dict = {
     title: "Descrição geral",
     body: [
       "Construo software profissionalmente desde 2017. Comecei montando cenários de realidade virtual no Maranhão e hoje trabalho em sistemas distribuídos que rastreiam milhões de entregas de e-commerce por dia: arquitetura orientada a eventos, integrações com APIs privadas de transportadoras e a disciplina chata de manter tudo isso de pé quando o volume não pede licença.",
-      "Passei por software house, produto de dados públicos, mineradora e logística. Isso me deixou confortável em lugares diferentes da stack — back end é onde moro, mas escrevo front end sem drama e desenho a arquitetura antes de escrever qualquer um dos dois.",
+      "Passei por software house, produto de dados públicos, mineradora e logística. Isso me deu repertório em diferentes camadas da stack — o back end é minha especialidade, o front end é terreno familiar, e a arquitetura vem antes de escrever qualquer um dos dois.",
     ],
     featuresTitle: "Características",
     features: [
@@ -317,7 +317,7 @@ const en: Dict = {
     title: "General description",
     body: [
       "I have been building software professionally since 2017. I started assembling virtual reality scenes in Maranhão and today I work on distributed systems that track millions of e-commerce deliveries a day: event-driven architecture, integrations with private carrier APIs, and the unglamorous discipline of keeping all of it standing when volume does not ask permission.",
-      "I have worked in a software house, a public-data product, a mining company and logistics. That left me comfortable in different parts of the stack — the back end is where I live, but I write front end without drama and design the architecture before writing either.",
+      "I have worked in a software house, a public-data product, a mining company and logistics. That gave me range across the stack — the back end is my specialism, the front end is familiar ground, and the architecture comes before writing either.",
     ],
     featuresTitle: "Features",
     features: [
@@ -497,7 +497,7 @@ const es: Dict = {
     title: "Descripción general",
     body: [
       "Construyo software profesionalmente desde 2017. Empecé montando escenarios de realidad virtual en Maranhão y hoy trabajo en sistemas distribuidos que rastrean millones de entregas de e-commerce por día: arquitectura orientada a eventos, integraciones con APIs privadas de transportistas y la disciplina poco glamorosa de mantener todo eso en pie cuando el volumen no pide permiso.",
-      "Pasé por una software house, un producto de datos públicos, una minera y logística. Eso me dejó cómodo en distintas partes del stack — el back end es donde vivo, pero escribo front end sin drama y diseño la arquitectura antes de escribir cualquiera de los dos.",
+      "Pasé por una software house, un producto de datos públicos, una minera y logística. Eso me dio recorrido en distintas capas del stack — el back end es mi especialidad, el front end es terreno conocido, y la arquitectura viene antes de escribir cualquiera de los dos.",
     ],
     featuresTitle: "Características",
     features: [
