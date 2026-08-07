@@ -4,9 +4,23 @@
  * Every entry is confirmed product truth (see PRODUCT.md).
  */
 
+/**
+ * `revision` and `lastRevision` are ONE fact in two fields: the sheet's own
+ * revision and the month it was cut. Never move one without the other — a
+ * revision number with a stale date is the drawing-office error the whole title
+ * block exists to prevent.
+ *
+ * The revision counts editions of THIS DOCUMENT, not jobs. It used to shadow the
+ * newest role (both read 07) and the two drifted apart the moment the sheet was
+ * revised without the career changing — which is exactly what happened in
+ * 08/2026. Roles keep their own `rev` (01–07) for the history rows; that
+ * sequence is unrelated to this one and they are meant to disagree.
+ *
+ * Bumping: next edit of substance is 09, and `lastRevision` moves to its month.
+ */
 export const PART = {
   designation: "JPMV-01",
-  revision: "07",
+  revision: "08",
   lastRevision: "2026-08",
   sheets: 6,
   location: "São Luís, MA — BR",

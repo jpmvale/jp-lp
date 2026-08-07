@@ -125,6 +125,8 @@ components:
 
 A hiring manager reading this page is doing what an engineer does with a data sheet: deciding whether a part fits their system. So the page *is* the data sheet. It carries a designation and a revision number, a ruled title block, numbered specification sections, a functional block diagram, a characteristics table, and a revision history. Nothing is decorative that could be informational instead.
 
+The title block's revision counts editions of **the sheet**, and `PART.revision` and `PART.lastRevision` move together as one fact — a revision number carrying a stale date is the drawing-office error a title block exists to prevent. It is deliberately *not* the same sequence as the `rev` on each history row: those number the roles (01–07). The two read alike and are meant to disagree, because the sheet gets revised without the career changing.
+
 The material is reprographic, and it exists as **two plates of the same drawing**. The default is whiteprint: the pale, cool-grey stock that engineering drawings were copied onto, printed in diazo blue-black line, read in daylight at a desk. Under `prefers-color-scheme: dark` the sheet reprints as cyanotype: Prussian blue ground, paper-white line, and the amber grease pencil that draughtsmen marked revisions with. Blue stops being the signal and becomes the ground.
 
 This is the load-bearing distinction: the dark scheme is **not an inverted theme**, it is the other printing process for the same document. Neither plate glows, gradients, or floats. Depth comes from hairline rules and tonal recesses, the way it does on paper.
