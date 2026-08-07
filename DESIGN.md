@@ -278,7 +278,7 @@ An inline SVG on a 5mm drafting grid, in two planes. The **data plane** is `1.5p
 
 ### Don't:
 - **Don't** add a shadow, glow, blur, gradient, or gradient text anywhere. The previous identity was built from them and was replaced for it.
-- **Don't** introduce a corner radius. Square is the form language; the call-out badge is the only circle.
+- **Don't** introduce a corner radius. Square is the form language; the call-out badge is the only circle. The three product marks in §3 are the standing exception and are **not** a mistake to correct: each is the product's own favicon, copied from its repository, and a round indigo, terracotta or emerald chip is what that product actually is out in the world. Redrawing them square would make this page the only place they look that way. Confirmed by the owner on 2026-08-07. Organisation logos in §4 are different — those are inked through a mask because they carry no colour obligation at 44px.
 - **Don't** fill a region with Diazo or Stamp. They mark; they do not cover.
 - **Don't** rebuild content as same-size icon-plus-heading-plus-text cards. Rows, tables and ruled blocks carry structure here.
 - **Don't** set prose in Chivo Mono, or use monospace to signal "technical".
