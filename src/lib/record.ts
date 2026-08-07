@@ -7,7 +7,7 @@
 export const PART = {
   designation: "JPMV-01",
   revision: "07",
-  lastRevision: "2024-05",
+  lastRevision: "2026-08",
   sheets: 6,
   location: "São Luís, MA — BR",
   since: 2017,
