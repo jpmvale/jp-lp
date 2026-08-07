@@ -193,6 +193,34 @@ body {
   animation: trace-flow 1.8s linear infinite;
 }
 
+/* The circuit's six legs, in path order. Each lags the one before it so the
+   signal reads as travelling round the diagram rather than every edge pulsing
+   in lockstep.
+   The stagger is a fraction of 0.9s, NOT of the 1.8s animation: the dash period
+   is 12 units (4 8) and the keyframe travels 24, so one animation covers two
+   periods and a delay of 0.9s is visually indistinguishable from none. Staggering
+   by sixths of 1.8s would put legs 1 and 4 in identical phase.
+   Delays are negative so every leg is already in motion on first paint — a
+   positive delay would hold the first legs still while the last one waited. */
+.trace-live:nth-child(1) {
+  animation-delay: -0.75s;
+}
+.trace-live:nth-child(2) {
+  animation-delay: -0.6s;
+}
+.trace-live:nth-child(3) {
+  animation-delay: -0.45s;
+}
+.trace-live:nth-child(4) {
+  animation-delay: -0.3s;
+}
+.trace-live:nth-child(5) {
+  animation-delay: -0.15s;
+}
+.trace-live:nth-child(6) {
+  animation-delay: 0s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -261,7 +261,7 @@ An inline SVG on a 5mm drafting grid, in two planes. The **data plane** is `1.5p
 
 ### Named Rules
 
-**The One Motion Rule.** The page has exactly one authored motion: a Diazo dash travelling the forward signal path of the block diagram (`stroke-dashoffset`, 1.8s linear). There are no scroll reveals, no entrance animations, no hover lifts. `prefers-reduced-motion` freezes the dash into a static dashed line.
+**The One Motion Rule.** The page has exactly one authored motion: a Diazo dash travelling the block diagram's full round trip — in from the intent, out to the systems, back to the result (`stroke-dashoffset`, 1.8s linear). The six legs are staggered so the signal reads as travelling rather than every edge pulsing at once; the stagger is a sixth of the 0.9s dash period, which puts exactly one wave on the circuit at a time. The model exchange stays static — it is a consultation off to the side, not a leg of the loop. There are no scroll reveals, no entrance animations, no hover lifts. `prefers-reduced-motion` freezes every leg into a static dashed line.
 
 ## Do's and Don'ts
 

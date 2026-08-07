@@ -123,11 +123,19 @@ const AgentDiagram = () => {
                 <path d="M364 104 V168" />
               </g>
 
-              {/* Live signal: the one authored motion on this page. */}
+              {/* Live signal: the one authored motion on this page. The six legs are
+                  one round trip — in from the input, out to the systems, back to the
+                  output — and they must stay in this order: the stagger that makes the
+                  flow read as travelling is keyed to sibling position, not to geometry.
+                  The model exchange is left static on purpose; it is a consultation off
+                  to the side, not a leg of the circuit. */}
               <g fill="none" stroke="var(--diazo)" strokeWidth={2.5}>
                 <path className="trace-live" d="M164 208 H252" />
                 <path className="trace-live" d="M448 196 H536" />
                 <path className="trace-live" d="M732 196 H820" />
+                <path className="trace-live" d="M820 220 H732" />
+                <path className="trace-live" d="M536 220 H448" />
+                <path className="trace-live" d="M252 232 H208 V362 H164" />
               </g>
 
               {/* Control plane */}
