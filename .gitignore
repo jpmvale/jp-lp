@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# impeccable: vendored agent tooling, reinstallable with `npx impeccable install`.
+# The design artifacts it produces (DESIGN.md, PRODUCT.md, .impeccable/design.json)
+# are committed; the ~10 MB of skill files and per-machine settings are not.
+.claude/skills/
+.claude/settings.local.json
+.cursor/
+.gemini/
+.impeccable/questions/

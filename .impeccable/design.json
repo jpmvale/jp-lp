@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-07T00:00:00Z",
+  "title": "Design System: JPMV-01",
+  "extensions": {
+    "colorMeta": {
+      "stock": {
+        "role": "neutral",
+        "displayName": "Whiteprint Stock",
+        "canonical": "#e7e6e0",
+        "tonalRamp": [
+          "#232320",
+          "#3a3a35",
+          "#54544d",
+          "#6f6f67",
+          "#8d8d84",
+          "#aeaea4",
+          "#cbcac2",
+          "#e7e6e0"
+        ]
+      },
+      "stock-sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Stock",
+        "canonical": "#dedcd4",
+        "tonalRamp": [
+          "#211f1a",
+          "#37342d",
+          "#514d44",
+          "#6c675c",
+          "#8a8578",
+          "#aaa598",
+          "#c6c2b8",
+          "#dedcd4"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#16181a",
+        "tonalRamp": [
+          "#16181a",
+          "#2b2e31",
+          "#43474a",
+          "#5d6165",
+          "#797d81",
+          "#989c9f",
+          "#bcbfc1",
+          "#e0e2e3"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#4a4f52",
+        "tonalRamp": [
+          "#14171a",
+          "#252a2d",
+          "#383d41",
+          "#4a4f52",
+          "#6b7175",
+          "#8f9498",
+          "#b5b9bc",
+          "#dcdedf"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#5f6467",
+        "tonalRamp": [
+          "#181b1d",
+          "#2a2e30",
+          "#3d4143",
+          "#4f5457",
+          "#5f6467",
+          "#868b8e",
+          "#adb1b3",
+          "#d5d7d9"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#c3c2ba",
+        "tonalRamp": [
+          "#1e1e1a",
+          "#33322d",
+          "#4b4a43",
+          "#65645b",
+          "#828176",
+          "#a2a196",
+          "#c3c2ba",
+          "#e4e3de"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#9a9993",
+        "tonalRamp": [
+          "#1b1b18",
+          "#2f2f2a",
+          "#45443e",
+          "#5c5b53",
+          "#77766d",
+          "#9a9993",
+          "#bfbeb9",
+          "#e2e1de"
+        ]
+      },
+      "diazo": {
+        "role": "primary",
+        "displayName": "Diazo Blue",
+        "canonical": "#23368f",
+        "tonalRamp": [
+          "#0a0f2b",
+          "#101748",
+          "#181f64",
+          "#23368f",
+          "#3a4cb0",
+          "#6675ca",
+          "#9aa4de",
+          "#ccd2ef"
+        ]
+      },
+      "stamp": {
+        "role": "secondary",
+        "displayName": "Revision Stamp",
+        "canonical": "#a33a26",
+        "tonalRamp": [
+          "#2c0f08",
+          "#481810",
+          "#66231a",
+          "#852e20",
+          "#a33a26",
+          "#c25c47",
+          "#db8f7f",
+          "#f0c7bd"
+        ]
+      },
+      "blueprint-stock": {
+        "role": "neutral",
+        "displayName": "Prussian Ground",
+        "canonical": "#0e2b4a",
+        "tonalRamp": [
+          "#050f1a",
+          "#081a2d",
+          "#0a2340",
+          "#0e2b4a",
+          "#17436f",
+          "#2a6099",
+          "#5b8fc4",
+          "#a8c4e2"
+        ]
+      },
+      "blueprint-stock-sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Ground",
+        "canonical": "#0a2340",
+        "tonalRamp": [
+          "#040c17",
+          "#07162a",
+          "#0a2340",
+          "#0d3057",
+          "#134476",
+          "#245f9c",
+          "#5589c0",
+          "#a3c0df"
+        ]
+      },
+      "blueprint-ink": {
+        "role": "neutral",
+        "displayName": "Paper Line",
+        "canonical": "#e9eef4",
+        "tonalRamp": [
+          "#161c24",
+          "#26303c",
+          "#3a4757",
+          "#516073",
+          "#6c7c90",
+          "#8f9dae",
+          "#bcc7d3",
+          "#e9eef4"
+        ]
+      },
+      "blueprint-ink-secondary": {
+        "role": "neutral",
+        "displayName": "Soft Line",
+        "canonical": "#b9c8da",
+        "tonalRamp": [
+          "#131b24",
+          "#22303e",
+          "#33465a",
+          "#475e77",
+          "#5f7995",
+          "#8298b3",
+          "#b9c8da",
+          "#e2e9f1"
+        ]
+      },
+      "blueprint-graphite": {
+        "role": "neutral",
+        "displayName": "Blue Graphite",
+        "canonical": "#8ba3bd",
+        "tonalRamp": [
+          "#101820",
+          "#1d2a37",
+          "#2c3f52",
+          "#3e566f",
+          "#54718f",
+          "#6d8aa8",
+          "#8ba3bd",
+          "#c0d0de"
+        ]
+      },
+      "blueprint-diazo": {
+        "role": "primary",
+        "displayName": "Chalk Cyan",
+        "canonical": "#a8dcf7",
+        "tonalRamp": [
+          "#08222e",
+          "#0e3849",
+          "#155066",
+          "#1e6c88",
+          "#2b8cae",
+          "#4fb0d3",
+          "#7fc9e8",
+          "#a8dcf7"
+        ]
+      },
+      "blueprint-stamp": {
+        "role": "secondary",
+        "displayName": "Grease Pencil Amber",
+        "canonical": "#f2a950",
+        "tonalRamp": [
+          "#2b1a05",
+          "#452a08",
+          "#613d0c",
+          "#82530f",
+          "#a66b14",
+          "#cb8929",
+          "#f2a950",
+          "#f8cd97"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name, once, at the top of sheet 1. Archivo widened to wdth 118."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Specification section titles, preceded on the same baseline by their mono section number."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose, held to a 68ch measure, and the expanded summary inside a revision row."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Table row headers, feature-list items, the position line in a revision row, application notes."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "The figure note beside the portrait, footer prose, the base size of table cells."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Chivo Mono on buttons and symbol codes."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "Chivo Mono table column headers; the smallest type on the sheet."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Chivo Mono with tabular figures: table values, dates, stacks, addresses, part numbers."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Chivo Mono uppercase field labels, column headers and figure captions."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "trace-flow",
+        "value": "stroke-dashoffset -24 over 1.8s linear infinite, stroke-dasharray 4 8",
+        "purpose": "The page's single authored motion: a diazo dash travelling the forward signal path of the block diagram. Frozen static under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "sheet",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The stamped primary action. Square, diazo fill, mono uppercase.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#contato\">FALAR COMIGO</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: var(--diazo, #23368f); color: var(--stock, #e7e6e0); font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.16em; text-decoration: none; padding: 0.75rem 1.25rem; border: none; border-radius: 0; transition: background 0.2s; } .ds-btn-primary:hover { background: var(--ink, #16181a); } .ds-btn-primary:focus-visible { outline: 2px solid var(--diazo, #23368f); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hairline-bounded alternate action. Never competes with the diazo fill.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"/cv.pdf\">BAIXAR CV</a>",
+      "css": ".ds-btn-secondary { display: inline-block; background: transparent; color: var(--ink, #16181a); font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.16em; text-decoration: none; padding: 0.75rem 1.25rem; border: 1px solid var(--rule-strong, #9a9993); border-radius: 0; transition: border-color 0.2s, background 0.2s; } .ds-btn-secondary:hover { border-color: var(--ink, #16181a); background: var(--stock-sunk, #dedcd4); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--diazo, #23368f); outline-offset: 2px; }"
+    },
+    {
+      "name": "Title Block Field",
+      "kind": "custom",
+      "refersTo": "field-cell",
+      "description": "One ruled cell of the drawing title block: mono label above a mono value.",
+      "html": "<div class=\"ds-field\"><span class=\"ds-field-label\">REVISÃO</span><span class=\"ds-field-value ds-field-value--stamp\">07</span></div>",
+      "css": ".ds-field { border-right: 1px solid var(--rule, #c3c2ba); border-bottom: 1px solid var(--rule, #c3c2ba); padding: 0.625rem 1rem; display: block; } .ds-field-label { display: block; font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.6875rem; line-height: 1.2; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2, #4a4f52); } .ds-field-value { display: block; margin-top: 0.25rem; font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; color: var(--ink, #16181a); } .ds-field-value--stamp { color: var(--stamp, #a33a26); }"
+    },
+    {
+      "name": "Specification Table",
+      "kind": "custom",
+      "refersTo": "spec-table",
+      "description": "The system's workhorse container. Replaces cards entirely.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>Parâmetro</th><th>Símb.</th><th>Valores</th></tr></thead><tbody><tr><th scope=\"row\">Back end</th><td class=\"ds-sym\">BE</td><td class=\"ds-val\">Node.js · NestJS · Golang</td></tr><tr><th scope=\"row\">IA e agentes</th><td class=\"ds-sym\">AI</td><td class=\"ds-val\">MCP · Tool calling · Evals</td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--ink, #16181a); } .ds-table thead th { font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2, #4a4f52); text-align: left; font-weight: 500; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule-strong, #9a9993); white-space: nowrap; } .ds-table tbody th { text-align: left; font-weight: 500; font-size: 0.9375rem; } .ds-table tbody th, .ds-table td { padding: 0.75rem; border-bottom: 1px solid var(--rule, #c3c2ba); vertical-align: baseline; } .ds-table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--stock-sunk, #dedcd4) 55%, transparent); } .ds-sym { font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--graphite, #5f6467); } .ds-val { font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.8125rem; line-height: 1.6; }"
+    },
+    {
+      "name": "Sheet Index Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky ruled strip. Active item carries a diazo bottom border and a diazo section number.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item ds-nav-item--active\" href=\"#descricao\"><span class=\"ds-nav-n\">1.0</span><span>Descrição</span></a><a class=\"ds-nav-item\" href=\"#agentes\"><span class=\"ds-nav-n\">2.0</span><span>Agentes</span></a></nav>",
+      "css": ".ds-nav { display: flex; align-items: stretch; border-bottom: 1px solid var(--rule-strong, #9a9993); background: var(--stock, #e7e6e0); } .ds-nav-item { display: flex; align-items: center; gap: 0.375rem; padding: 0.75rem; font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; color: var(--ink-2, #4a4f52); border-bottom: 2px solid transparent; transition: color 0.2s; } .ds-nav-item:hover { color: var(--ink, #16181a); } .ds-nav-item--active { color: var(--ink, #16181a); border-bottom-color: var(--diazo, #23368f); } .ds-nav-n { color: var(--graphite, #5f6467); } .ds-nav-item--active .ds-nav-n { color: var(--diazo, #23368f); }"
+    },
+    {
+      "name": "Bounded Figure",
+      "kind": "card",
+      "refersTo": "figure",
+      "description": "The system's only container: a strong hairline with corner registration ticks and a mono caption. There is no card.",
+      "html": "<figure class=\"ds-figure\"><div class=\"ds-figure-body\">FIG. BODY</div><figcaption class=\"ds-figure-caption\">FIG. 2 — TOPOLOGIA TÍPICA</figcaption></figure>",
+      "css": ".ds-figure { position: relative; border: 1px solid var(--rule-strong, #9a9993); border-radius: 0; background: var(--stock, #e7e6e0); margin: 0; } .ds-figure::before, .ds-figure::after { content: ''; position: absolute; width: 10px; height: 10px; border-color: var(--rule-strong, #9a9993); pointer-events: none; } .ds-figure::before { top: -1px; left: -1px; border-top: 1px solid; border-left: 1px solid; } .ds-figure::after { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; } .ds-figure-body { padding: 2.5rem 1rem; text-align: center; font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--graphite, #5f6467); } .ds-figure-caption { border-top: 1px solid var(--rule-strong, #9a9993); padding: 0.75rem 1rem; font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink, #16181a); }"
+    },
+    {
+      "name": "Call-out Badge",
+      "kind": "chip",
+      "refersTo": "callout-badge",
+      "description": "The only circle in the system. Keys a diagram block to its numbered application note.",
+      "html": "<span class=\"ds-callout\">1</span>",
+      "css": ".ds-callout { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 9999px; background: var(--diazo, #23368f); color: var(--stock, #e7e6e0); font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.6875rem; }"
+    },
+    {
+      "name": "Disclosure Row",
+      "kind": "custom",
+      "refersTo": "revision-row",
+      "description": "A revision-history row that expands in place. The toggle is drawn SVG at hairline weight, never a glyph.",
+      "html": "<button class=\"ds-row\" aria-expanded=\"false\"><span class=\"ds-row-rev\">06</span><span class=\"ds-row-period\">05/2023 — 05/2024</span><span class=\"ds-row-company\">Tegra</span><span class=\"ds-row-role\">Desenvolvedor Back End</span><span class=\"ds-row-toggle\"><svg width=\"11\" height=\"11\" viewBox=\"0 0 11 11\" fill=\"none\"><path d=\"M0.5 5.5H10.5\" stroke=\"currentColor\" stroke-width=\"1.25\"/><path d=\"M5.5 0.5V10.5\" stroke=\"currentColor\" stroke-width=\"1.25\"/></svg></span></button>",
+      "css": ".ds-row { display: grid; grid-template-columns: 3.5rem 11rem 1fr 1fr 2rem; align-items: baseline; gap: 0 1rem; width: 100%; padding: 1rem 0.25rem; text-align: left; background: transparent; border: none; border-bottom: 1px solid var(--rule, #c3c2ba); cursor: pointer; transition: background 0.2s; } .ds-row:hover { background: var(--stock-sunk, #dedcd4); } .ds-row:focus-visible { outline: 2px solid var(--diazo, #23368f); outline-offset: 2px; } .ds-row-rev, .ds-row-period { font-family: 'Chivo Mono', ui-monospace, monospace; font-size: 0.8125rem; color: var(--graphite, #5f6467); } .ds-row-period { color: var(--ink-2, #4a4f52); white-space: nowrap; } .ds-row-company { font-size: 1.0625rem; font-weight: 500; color: var(--ink, #16181a); } .ds-row-role { font-size: 0.9375rem; color: var(--ink-2, #4a4f52); } .ds-row-toggle { justify-self: end; color: var(--graphite, #5f6467); } .ds-row:hover .ds-row-toggle { color: var(--diazo, #23368f); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Component Data Sheet",
+    "overview": "A hiring manager reading this page is doing what an engineer does with a data sheet: deciding whether a part fits their system. So the page is the data sheet. It carries a designation and a revision number, a ruled title block, numbered specification sections, a functional block diagram, a characteristics table, and a revision history. Nothing is decorative that could be informational instead.\n\nThe material is reprographic, and it exists as two plates of the same drawing. The default is whiteprint: the pale, cool-grey stock that engineering drawings were copied onto, printed in diazo blue-black line, read in daylight at a desk. Under prefers-color-scheme: dark the sheet reprints as cyanotype: Prussian blue ground, paper-white line, and the amber grease pencil that draughtsmen marked revisions with. Blue stops being the signal and becomes the ground.\n\nThis is the load-bearing distinction: the dark scheme is not an inverted theme, it is the other printing process for the same document. Neither plate glows, gradients, or floats. Depth comes from hairline rules and tonal recesses, the way it does on paper.\n\nThis world was chosen as a replacement for, and anti-reference to, two things: the near-black portfolio with a neon accent and glowing card edges that this project shipped before, and the warm-cream serif-display portfolio that is its predictable opposite. Neither may return — and the cyanotype plate exists precisely so the dark scheme never drifts back into the first one.",
+    "keyCharacteristics": [
+      "Two plates of one drawing: whiteprint by day, cyanotype under a dark scheme, chosen by the OS with no toggle",
+      "One ground, one line colour, one signal colour, one stamp colour — per plate",
+      "Zero corner radius on every surface; only the numbered call-out badge is round",
+      "Hairline rules do the work that cards and shadows do elsewhere",
+      "Monospace is reserved for data: part numbers, dates, stacks, table values, field labels",
+      "Section numbers (1–5) are navigation, not ornament; there are no sub-sections, so no decimal"
+    ],
+    "rules": [
+      {
+        "name": "The Marking Rule",
+        "body": "Diazo and Stamp mark; they never fill. No coloured panel, no coloured section background, no tinted card. If a colour is covering area rather than pointing at something, it is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Stamp Rule",
+        "body": "The stamp colour — red on whiteprint, amber on cyanotype — appears only on what is currently true. The moment it decorates, it stops meaning \"current\".",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Plates Rule",
+        "body": "A new colour is not a colour until it exists on both plates and both values have been measured against their own ground. The dark scheme is reached only by redefining the nine root custom properties; a dark: utility or a second component variant means the plate metaphor has been abandoned.",
+        "section": "colors"
+      },
+      {
+        "name": "The Measurement Rule",
+        "body": "Monospace is for things that are measured, counted, coded, or dated. It is never used for prose, and never as a costume for \"technical\".",
+        "section": "typography"
+      },
+      {
+        "name": "The Numbered Heading Rule",
+        "body": "Every specification heading is a plain integer in mono diazo followed by the title on the same baseline, rendered by the shared SectionHeading component and numbered from the SECTIONS record. The number is a cross-reference, so it is never stacked above the heading as a label.",
+        "section": "typography"
+      },
+      {
+        "name": "The Drawn-Depth Rule",
+        "body": "If an element needs separating, draw a line or sink the tone. Never add a shadow, a glow, a blur, or a gradient. A box-shadow anywhere in this project is a defect.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Motion Rule",
+        "body": "The page has exactly one authored motion: a Diazo dash travelling the forward signal path of the block diagram. There are no scroll reveals, no entrance animations, no hover lifts. prefers-reduced-motion freezes the dash into a static dashed line.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do carry every new value in a ruled table or a title-block field cell; the table is this system's card.",
+      "Do bound a new figure with a strong hairline plus corner-ticks, and caption it Fig. N — Title in a mono label.",
+      "Do widen Archivo (font-stretch 112–118%) for display and headline weight instead of introducing a second display family.",
+      "Do keep body prose inside the 68ch measure and set every measured value in Chivo Mono with tabular figures.",
+      "Do keep small mono metadata at Graphite (#5f6467 on whiteprint, #8ba3bd on cyanotype); those values are the 4.5:1 floor on their own ground.",
+      "Do give any new wide element its own overflow-x: auto container with a min-width.",
+      "Do reach the dark scheme only by redefining the root custom properties, and re-measure contrast on the blue ground whenever one changes.",
+      "Do ship photographs in their original colour on both plates, framed by a hairline and a mono caption."
+    ],
+    "donts": [
+      "Don't add a shadow, glow, blur, gradient, or gradient text anywhere. The previous identity was built from them and was replaced for it.",
+      "Don't introduce a corner radius. Square is the form language; the call-out badge is the only circle.",
+      "Don't fill a region with Diazo or Stamp. They mark; they do not cover.",
+      "Don't rebuild content as same-size icon-plus-heading-plus-text cards. Rows, tables and ruled blocks carry structure here.",
+      "Don't set prose in Chivo Mono, or use monospace to signal \"technical\".",
+      "Don't use a Unicode glyph or emoji as an icon; draw it as inline SVG at hairline weight.",
+      "Don't add a second animation. The diagram's travelling dash is the page's one motion.",
+      "Don't render the dark scheme as neutral greys with a coloured accent. That is the identity this page replaced; the cyanotype exists so the dark plate cannot drift back into it.",
+      "Don't ship a theme toggle. The plate follows prefers-color-scheme; the reader's system already answered."
+    ]
+  }
+}
