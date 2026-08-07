@@ -26,18 +26,26 @@ export interface Role {
   id: RoleId;
   rev: string;
   /**
-   * Manufacturer mark. Company logos were studied and rejected: two of the six
-   * organisations no longer publish a usable asset (EducVR's domain is gone,
-   * Senac Maranhao's site is down), and a set with holes reads worse than no
-   * set at all. Initials complete the set, survive both plates untouched, and
-   * are the datasheet's own way of stamping a maker.
+   * Manufacturer mark, used wherever no vector exists. Only EducVR falls back
+   * here now: its domain is gone, so there is nothing left to fetch.
    */
   initials: string;
   /**
    * Organisation mark, used as a CSS mask and painted with currentColor, so it
-   * prints in the plate's own ink on both schemes. Null where no usable vector
-   * exists — Vale publishes only a 128px raster, Jazida publishes none, and
-   * EducVR's domain is gone. Those fall back to `initials`.
+   * prints in the plate's own ink on both schemes. Null only for EducVR.
+   *
+   * Vale and Jazida were both written off as "publishes no vector" — wrongly.
+   * The search had looked for a *file*: asset paths, the JS bundle, Wikimedia.
+   * Both sites inline the logo as `<svg>` in the DOM, so no path exists to
+   * return 200 and none returns 404 either; the vector is there, rendered, and
+   * invisible to a search for files. Read the rendered DOM before concluding an
+   * organisation publishes nothing.
+   *
+   * Masking flattens every path to one colour, which is safe here only because
+   * neither mark uses a white shape to knock a counter out of a darker one —
+   * Vale's yellow stroke sits *over* the teal V rather than cutting into it, so
+   * flattened it gives the solid V of Vale's own monochrome lockup. Check that
+   * before adding a mark: a knockout survives as a blob.
    */
   logo: { src: string; aspect: number } | null;
   from: string;
@@ -73,7 +81,7 @@ export const ROLES: Role[] = [
   {
     id: "jazida",
     initials: "JZ",
-    logo: null,
+    logo: { src: "/logos/orgs/jazida.svg", aspect: 0.94 },
     rev: "05",
     from: "2021-05",
     to: "2023-05",
@@ -84,7 +92,7 @@ export const ROLES: Role[] = [
   {
     id: "valeFullStack",
     initials: "VS",
-    logo: null,
+    logo: { src: "/logos/orgs/vale.svg", aspect: 1.96 },
     rev: "04",
     from: "2020-01",
     to: "2021-05",
@@ -95,7 +103,7 @@ export const ROLES: Role[] = [
   {
     id: "valeIntern",
     initials: "VS",
-    logo: null,
+    logo: { src: "/logos/orgs/vale.svg", aspect: 1.96 },
     rev: "03",
     from: "2019-01",
     to: "2020-01",
