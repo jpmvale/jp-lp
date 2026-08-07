@@ -1,18 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Background circle -->
-  <circle cx="16" cy="16" r="15" fill="url(#grad1)" stroke="#1f2937" stroke-width="1"/>
-  
-  <!-- Code brackets -->
-  <path d="M10 12l-3 4 3 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M22 12l3 4-3 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  
-  <!-- Code slash -->
-  <path d="M18 10l-4 12" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
-</svg> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    JPMV-01 — a component block with its input and output leads: the page's own
+    premise reduced to one glyph. The sheet is a component data sheet and the
+    block diagram is its signature figure; this is that figure at one block.
+
+    It reprints like the sheet does. The two plates are the same tokens the page
+    uses — whiteprint stock with ink line, cyanotype ground with paper-white
+    line — so the tab icon follows the reader's system alongside the page itself.
+
+    Square, hairline, flat. No gradient, no radius, no bracket glyph: those three
+    are what the redesign removed, and this file was the last place they survived.
+
+    Drawn on the 32-unit grid at stroke 2.5 so the leads still read at 16px. Do
+    not thin them for elegance at 32px — the tab is the 16px case.
+  -->
+  <style>
+    :root { --stock: #e7e6e0; --ink: #16181a; }
+    @media (prefers-color-scheme: dark) {
+      :root { --stock: #0e2b4a; --ink: #e9eef4; }
+    }
+  </style>
+
+  <rect width="32" height="32" fill="var(--stock, #e7e6e0)"/>
+
+  <g fill="none" stroke="var(--ink, #16181a)" stroke-width="2.5">
+    <!-- the block -->
+    <rect x="9.25" y="9.25" width="13.5" height="13.5"/>
+    <!-- leads: in from the left, out to the right -->
+    <path d="M1.5 16 H9.25"/>
+    <path d="M22.75 16 H30.5"/>
+  </g>
+</svg>
