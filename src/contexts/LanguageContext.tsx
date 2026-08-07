@@ -188,7 +188,7 @@ const pt: Dict = {
       coda: {
         hook: "Você mudou de ideia. O coda lembra quando.",
         summary:
-          "Faça avaliações de mídias no coda enquanto interage com as de seus amigos.",
+          "Um Letterboxd da música. Faça avaliações de mídias no coda enquanto interage com as de seus amigos.",
         note: "API e worker em NestJS compartilhando os mesmos módulos de domínio, front em Next.js. O catálogo é canônico e cresce guiado por interesse real: importa discografias da MusicBrainz sob demanda e enriquece com capas e biografias. Métricas e logs em Grafana Alloy.",
       },
       kindred: {
@@ -371,7 +371,7 @@ const en: Dict = {
       coda: {
         hook: "You changed your mind. coda remembers when.",
         summary:
-          "Rate media on coda while keeping up with what your friends are rating.",
+          "A Letterboxd for music. Rate media on coda while keeping up with what your friends are rating.",
         note: "A NestJS API and worker sharing the same domain modules, with a Next.js front end. The catalogue is canonical and grows on real demand: it imports discographies from MusicBrainz on request and enriches them with covers and biographies. Metrics and logs through Grafana Alloy.",
       },
       kindred: {
@@ -554,7 +554,7 @@ const es: Dict = {
       coda: {
         hook: "Cambiaste de opinión. coda recuerda cuándo.",
         summary:
-          "Califica medios en coda mientras sigues lo que califican tus amigos.",
+          "Un Letterboxd de la música. Califica medios en coda mientras sigues lo que califican tus amigos.",
         note: "API y worker en NestJS compartiendo los mismos módulos de dominio, front en Next.js. El catálogo es canónico y crece guiado por interés real: importa discografías de MusicBrainz bajo demanda y las enriquece con portadas y biografías. Métricas y logs en Grafana Alloy.",
       },
       kindred: {
