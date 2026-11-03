@@ -100,7 +100,14 @@ const RevisionHistory = () => {
                         <span
                           aria-hidden
                           className="flex h-11 items-center justify-center border border-rule-strong px-2.5 text-ink"
-                          style={role.logo ? { width: `${44 * role.logo.aspect + 20}px` } : { width: "44px" }}
+                          style={
+                            role.logo
+                              ? // Capped at the 11rem column: a long wordmark (Trafilea, 4.3:1)
+                                // would otherwise push the plate past it. The mask is
+                                // `contain`, so the mark keeps its 24px height either way.
+                                { width: `${Math.min(44 * role.logo.aspect + 20, 176)}px` }
+                              : { width: "44px" }
+                          }
                         >
                           {role.logo ? (
                             <span

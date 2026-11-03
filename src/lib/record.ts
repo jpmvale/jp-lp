@@ -42,16 +42,13 @@ export interface Role {
   id: RoleId;
   rev: string;
   /**
-   * Manufacturer mark, used wherever no vector exists. EducVR falls back here
-   * because its domain is gone; Trafilea, LWSA and Alergocenter until their
-   * marks are lifted from their own sites (see the note on `logo`). LWSA is
-   * listed by the group's name, so the Melhor Envio mark no longer fits it.
+   * Manufacturer mark, used wherever no vector exists. Only EducVR falls back
+   * here now: its domain is gone, so there is nothing left to fetch.
    */
   initials: string;
   /**
    * Organisation mark, used as a CSS mask and painted with currentColor, so it
-   * prints in the plate's own ink on both schemes. Null for EducVR, and for
-   * Trafilea, LWSA and Alergocenter until their vectors are added.
+   * prints in the plate's own ink on both schemes. Null only for EducVR.
    *
    * Vale and Jazida were both written off as "publishes no vector" — wrongly.
    * The search had looked for a *file*: asset paths, the JS bundle, Wikimedia.
@@ -78,7 +75,7 @@ export const ROLES: Role[] = [
   {
     id: "trafilea",
     initials: "TF",
-    logo: null,
+    logo: { src: "/logos/orgs/trafilea.svg", aspect: 4.3 },
     rev: "09",
     from: "2026-03",
     to: null,
@@ -89,7 +86,7 @@ export const ROLES: Role[] = [
   {
     id: "alergocenter",
     initials: "AC",
-    logo: null,
+    logo: { src: "/logos/orgs/alergocenter.svg", aspect: 0.94 },
     rev: "08",
     from: "2025-09",
     to: "2026-02",
@@ -100,7 +97,7 @@ export const ROLES: Role[] = [
   {
     id: "melhorEnvio",
     initials: "LW",
-    logo: null,
+    logo: { src: "/logos/orgs/lwsa.svg", aspect: 2.76 },
     rev: "07",
     from: "2024-05",
     to: "2026-03",
