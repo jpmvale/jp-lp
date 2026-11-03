@@ -141,7 +141,7 @@ const pt: Dict = {
     ],
     featuresTitle: "Características",
     features: [
-      "Arquitetura orientada a eventos em escala de milhões de eventos por dia",
+      "Arquitetura orientada a eventos em escala de dezenas de milhões de eventos por mês",
       "Agentes de IA em produção: MCP, tool calling e orquestração",
       "Back end em Node.js/NestJS, Golang, Python, PHP e C#",
       "Coleta e extração de dados de fontes públicas em larga escala",
@@ -229,7 +229,7 @@ const pt: Dict = {
       trafilea: {
         title: "AI Expert",
         summary:
-          "Atuação na Trafiflow, a plataforma SaaS multi-tenant de e-commerce da Trafilea. Responsável pelo provisionamento automatizado de lojas — da infraestrutura isolada de cada tenant, via Terraform/Terragrunt e GitHub Actions, até o bind com CloudFront SaaS Manager, ALB, ECS e autenticação — e pelos microsserviços do core: orquestração de onboarding com padrão Outbox e workers assíncronos, carrinho e precificação, autenticação com Cognito + RBAC e integração OAuth com a Shopify.",
+          "Trafiflow, a plataforma SaaS multi-tenant de e-commerce da Trafilea. Provisionamento automatizado de lojas, do cadastro à loja publicada com infraestrutura isolada via Terraform, e os microsserviços do core: onboarding, carrinho, precificação e autenticação.",
       },
       alergocenter: {
         title: "Consultor de Software Sênior",
@@ -239,7 +239,7 @@ const pt: Dict = {
       melhorEnvio: {
         title: "Desenvolvedor Sênior",
         summary:
-          "Responsável pelo rastreamento de milhões de entregas de e-commerce por dia. Arquitetura orientada a eventos para comunicação assíncrona e serviços robustos de integração com as APIs privadas das transportadoras, dentro de um sistema de alta disponibilidade.",
+          "Motor de rastreio da Melhor Envio, com mais de 25 milhões de atualizações de entregas por mês. Integrações com 8 grandes transportadoras e um dicionário de eventos que normaliza as mensagens de cada uma em status únicos, sobre uma arquitetura orientada a eventos em AWS.",
       },
       tegra: {
         title: "Desenvolvedor Back End",
@@ -331,7 +331,7 @@ const en: Dict = {
     ],
     featuresTitle: "Features",
     features: [
-      "Event-driven architecture at a scale of millions of events per day",
+      "Event-driven architecture at a scale of tens of millions of events a month",
       "AI agents in production: MCP, tool calling and orchestration",
       "Back end in Node.js/NestJS, Golang, Python, PHP and C#",
       "Large-scale collection and extraction of public data",
@@ -419,7 +419,7 @@ const en: Dict = {
       trafilea: {
         title: "AI Expert",
         summary:
-          "Working on Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform. Responsible for automated store provisioning — from each tenant's isolated infrastructure, through Terraform/Terragrunt and GitHub Actions, to the bind with CloudFront SaaS Manager, ALB, ECS and authentication — and for the core microservices: onboarding orchestration with the Outbox pattern and asynchronous workers, cart and pricing, Cognito + RBAC authentication and OAuth integration with Shopify.",
+          "Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform. Automated store provisioning, from sign-up to a live store on isolated infrastructure via Terraform, and the core microservices: onboarding, cart, pricing and authentication.",
       },
       alergocenter: {
         title: "Senior Software Consultant",
@@ -429,7 +429,7 @@ const en: Dict = {
       melhorEnvio: {
         title: "Senior Developer",
         summary:
-          "Responsible for tracking millions of e-commerce deliveries a day. Event-driven architecture for asynchronous communication and robust services integrating private carrier APIs, inside a high-availability system.",
+          "Melhor Envio's tracking engine, processing more than 25 million shipment updates a month. Integrations with 8 major carriers and an event dictionary that normalises each one's messages into shared statuses, on an event-driven architecture on AWS.",
       },
       tegra: {
         title: "Backend Developer",
@@ -521,7 +521,7 @@ const es: Dict = {
     ],
     featuresTitle: "Características",
     features: [
-      "Arquitectura orientada a eventos a escala de millones de eventos por día",
+      "Arquitectura orientada a eventos a escala de decenas de millones de eventos al mes",
       "Agentes de IA en producción: MCP, tool calling y orquestación",
       "Back end en Node.js/NestJS, Golang, Python, PHP y C#",
       "Recolección y extracción de datos públicos a gran escala",
@@ -609,7 +609,7 @@ const es: Dict = {
       trafilea: {
         title: "AI Expert",
         summary:
-          "Trabajo en Trafiflow, la plataforma SaaS multi-tenant de e-commerce de Trafilea. Responsable del aprovisionamiento automatizado de tiendas — desde la infraestructura aislada de cada tenant, con Terraform/Terragrunt y GitHub Actions, hasta el bind con CloudFront SaaS Manager, ALB, ECS y autenticación — y de los microservicios del core: orquestación del onboarding con patrón Outbox y workers asíncronos, carrito y precios, autenticación con Cognito + RBAC e integración OAuth con Shopify.",
+          "Trafiflow, la plataforma SaaS multi-tenant de e-commerce de Trafilea. Aprovisionamiento automatizado de tiendas, del registro a la tienda publicada con infraestructura aislada vía Terraform, y los microservicios del core: onboarding, carrito, precios y autenticación.",
       },
       alergocenter: {
         title: "Consultor de Software Senior",
@@ -619,7 +619,7 @@ const es: Dict = {
       melhorEnvio: {
         title: "Desarrollador Senior",
         summary:
-          "Responsable del rastreo de millones de entregas de e-commerce por día. Arquitectura orientada a eventos para comunicación asíncrona y servicios robustos de integración con las APIs privadas de los transportistas, dentro de un sistema de alta disponibilidad.",
+          "Motor de rastreo de Melhor Envio, con más de 25 millones de actualizaciones de envíos al mes. Integraciones con 8 grandes transportistas y un diccionario de eventos que normaliza los mensajes de cada uno en estados únicos, sobre una arquitectura orientada a eventos en AWS.",
       },
       tegra: {
         title: "Desarrollador Back End",
