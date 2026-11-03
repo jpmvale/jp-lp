@@ -1,0 +1,161 @@
+\documentclass[a4paper,8pt]{article}
+
+\usepackage{parskip} 
+\usepackage{hologo}
+\usepackage{fontspec}
+
+% Pacotes de formatação
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9, top=.4in, bottom=.4in]{geometry}
+
+% Ambiente tabularx
+\usepackage{tabularx}
+
+% Listas dentro da seção de experiência
+\usepackage{enumitem}
+
+% Tipo de coluna 'C' centralizada
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+\usepackage{supertabular}
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{1pt}{2pt}{2pt}
+
+% Hyperref para links
+\usepackage[unicode, draft=false]{hyperref}
+\color[HTML]{110223}
+
+% Ícones sociais
+\usepackage{fontawesome5}
+
+% Sublinhado
+\usepackage[normalem]{ulem}
+
+\setmainfont{Arial} 
+
+\begin{document}
+
+\pagestyle{empty} 
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\color[HTML]{1C033C} \Huge{João Pedro Vale} \\[6pt]
+\\
+\textcolor[HTML]{371e77}{{{{\faEnvelope} jpmvale@gmail.com}} $|$}
+\textcolor[HTML]{371e77}{{{\faMobile} +55 (98) 99245-1236}}
+
+\textcolor[HTML]{371e77}{\underline{{\raisebox{-0.05\height}{\faGithub} github.com/jpmvale}} $|$}
+\textcolor[HTML]{371e77}{\underline{{\raisebox{-0.05\height}{\faLinkedin} linkedin.com/in/joao-pedro-vale}}}
+\end{tabularx}
+
+\section{Skills}
+\color[HTML]{1C033C}\textbf{Languages:} TypeScript, C\#, Python, Golang, PHP, SQL \\[3pt]
+\color[HTML]{1C033C}\textbf{Technologies \& Tools:} Node.js, NestJS, React (Vite/Next), .NET Core, AWS (SQS, SNS, EC2/ECS, S3, RDS), GraphQL, DataDog, Redis/Valkey, MongoDB, PostgreSQL \\[3pt]
+
+\section{Work Experience}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{LWSA} \hfill \color[HTML]{371e77} May 2024 - Present \\[4pt]
+\color[HTML]{371e77}\textbf{\textit{Senior Backend Engineer}}\ \hfill \color[HTML]{4B28A4} \\[5pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
+        \item Engineered a mission-critical tracking engine processing \textbf{25M+ package updates monthly} with a 99.9\% uptime target.
+        \item Orchestrated API integrations for \textbf{8 major logistics carriers}, reducing data inconsistency by 15\% through a unified event normalization layer.
+        \item Optimized event-driven workflows using AWS SQS/SNS, facilitating a 10\% improvement in notification delivery speed to end customers.
+        \item NestJS, GraphQL, AWS (SQS, SNS, ECS, RDS), Redis, Valkey, DataDog, Keycloak, PostgreSQL.
+    \end{itemize}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Alergocenter} \hfill \color[HTML]{371e77} Sept 2025 - Feb 2026 \\[4pt]
+\color[HTML]{371e77}\textbf{\textit{Senior Software Consultant}}\ \hfill \color[HTML]{4B28A4} \\[5pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
+        \item Architected 3 custom full-stack systems from scratch, \textbf{automating 50\% of manual administrative workflows} previously unaddressed by legacy software.
+        \item Led the full SDLC for 30+ internal users, resulting in a \textbf{10\% decrease in software-related support tickets} through intuitive UI/UX and robust backend logic.
+        \item Reduced budgeting response time by 50\% by implementing an automated PDF generation and management tool.
+        \item NestJS, React, Cursor IDE, PostgreSQL, Docker, Software Architecture.
+    \end{itemize}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Tegra} \hfill \color[HTML]{371e77} May 2023 - May 2024 \\[4pt]
+\color[HTML]{371e77}\textbf{\textit{Senior Full Stack Developer}}\ \hfill \color[HTML]{4B28A4} \\[5pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
+        \item Delivered 8+ high-impact projects for major clients like \textbf{Stix (10M+ active users)}, maintaining a 90\% on-time delivery rate in a fast-paced environment.
+        \item Optimized data extraction processes by developing crawlers that handled \textbf{150k+ daily records}, increasing data availability for BI by 50\%.
+        \item Reduced technical debt by 15\% through the implementation of automated testing and code review standards across cross-functional teams.
+        \item NestJS, React, AWS (ECS, S3, SQS, SNS), MongoDB, PostgreSQL.
+    \end{itemize}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Jazida.com} \hfill \color[HTML]{371e77} May 2021 - May 2023 \\[4pt]
+\color[HTML]{371e77}\textbf{\textit{Backend Developer}}\ \hfill \color[HTML]{4B28A4} \\[5pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
+        \item Engineered an NLP pipeline processing \textbf{1,000+ daily gazette pages}, achieving 90\% classification accuracy and reducing manual review time by 70\%.
+        \item Developed a human-in-the-loop training system that increased AI model performance by 15\% within the first 6 months of deployment.
+        \item Managed high-volume data pipelines, extracting structured data from \textbf{10k+ complex PDF documents monthly}.
+        \item Node.js, NLP, Machine Learning, Web Crawlers, MongoDB, PostgreSQL.
+    \end{itemize}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Vale S/A} \hfill \color[HTML]{371e77} Jan 2019 - May 2021 \\[4pt]
+\color[HTML]{371e77}\textbf{\textit{Software Developer}}\ \hfill \color[HTML]{4B28A4} \\[5pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
+        \item Developed a telemetry system monitoring \textbf{100+ critical railway assets}, enabling predictive maintenance that reduced operational downtime by 15\%.
+        \item Automated inventory management for 5,000+ spare parts, decreasing stock discrepancy by 10\% through real-time tracking tools.
+        \item .NET Core, Node.js, React, Python (Pandas), PowerBI, Predictive Analytics.
+    \end{itemize}
+}
+\end{tabularx}
+
+\section{Education}
+\begin{tabularx}{\linewidth}{ @{}X r@{} }
+\color[HTML]{1C033C} \textbf{PUC-Rio (Pontifícia Universidade Católica do Rio de Janeiro)} & \hfill \color[HTML]{371e77} 2020 - 2022 \\
+\color[HTML]{371e77} M.Sc. in Informatics (Incomplete) & \hfill \color[HTML]{4B28A4} \\
+\multicolumn{2}{@{}X@{}}{Advanced studies in Machine Learning and Artificial Intelligence.}
+\end{tabularx}\\[3pt]
+
+\begin{tabularx}{\linewidth}{ @{}X r@{} }
+\color[HTML]{1C033C} \textbf{Universidade Estadual do Maranhão (UEMA)} & \hfill \color[HTML]{371e77} 2016 - 2020 \\
+\color[HTML]{1C033C} B.S. in Computer Engineering & \hfill \color[HTML]{4B28A4} \\
+\end{tabularx}
+
+\section{Languages}
+\begin{tabularx}{\linewidth}{ @{}X r@{} }
+\color[HTML]{1C033C} \textbf{Portuguese} & \hfill \color[HTML]{371e77} Native \\
+\color[HTML]{1C033C} \textbf{English} & \hfill \color[HTML]{371e77} Advanced (C1) \\
+\color[HTML]{1C033C} \textbf{Spanish} & \hfill \color[HTML]{371e77} Basic \\
+\end{tabularx}
+
+\section{Awards, Publications \& Certifications}
+\begin{tabularx}{\linewidth}{ @{}X @{} }
+    \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
+        \item \textbf{1st Place Award - SECTI-MA (2020)\textsuperscript{\href{https://www.uema.br/2020/11/projeto-sistema-de-monitoramento-e-previsao-de-falhas-de-ativos-em-ferrovias-e-premiado-na-17a-semana-nacional-de-ciencia-e-tecnologia-do-maranhao/}{[1]}}:} Best research work at the National Science and Technology Week.
+        \item \textbf{Software Intellectual Property (INPI)\textsuperscript{\href{https://busca.inpi.gov.br/pePI/servlet/ProgramaServletController?Action=detail\&CodPedido=23317}{[2]}}:} Registered author of "Pininga" (Registration: BR512018000815-1).
+        \item \textbf{Academic Publication\textsuperscript{\href{https://scholarsjournal.net/index.php/ijier/article/view/2292}{[3]}}:} "Epilepsy Detection Using Artificial Neural Networks".
+        \item \textbf{Technical Certifications:}
+        \vspace{2pt}
+        \begin{itemize}[label={}, leftmargin=1em, nosep]
+            \item Web \& Mobile Dev (React/Node/React Native) \hfill \color[HTML]{371e77} Mindworks
+            \item NestJS Zero to Hero $|$ Algorithms Masterclass \hfill \color[HTML]{371e77} Udemy
+            \item Advanced C\# OOP $|$ Data Science \& Extraction \hfill \color[HTML]{371e77} Udemy
+        \end{itemize}
+    \end{itemize}
+\end{tabularx}
+
+\end{document}
