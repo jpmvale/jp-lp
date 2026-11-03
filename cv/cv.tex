@@ -37,7 +37,8 @@
 % Sublinhado
 \usepackage[normalem]{ulem}
 
-\setmainfont{Arial} 
+% Arial no Windows/Mac; Liberation Sans (métrica idêntica) em Linux e CI
+\IfFontExistsTF{Arial}{\setmainfont{Arial}}{\setmainfont{Liberation Sans}}
 
 \begin{document}
 
@@ -54,13 +55,26 @@
 \end{tabularx}
 
 \section{Skills}
-\color[HTML]{1C033C}\textbf{Languages:} TypeScript, C\#, Python, Golang, PHP, SQL \\[3pt]
-\color[HTML]{1C033C}\textbf{Technologies \& Tools:} Node.js, NestJS, React (Vite/Next), .NET Core, AWS (SQS, SNS, EC2/ECS, S3, RDS), GraphQL, DataDog, Redis/Valkey, MongoDB, PostgreSQL \\[3pt]
+\color[HTML]{1C033C}\textbf{Languages:} Golang, TypeScript, Python, C\#, PHP, SQL \\[3pt]
+\color[HTML]{1C033C}\textbf{Technologies \& Tools:} Node.js, NestJS, gRPC, GraphQL, React (Vite/Next), .NET Core, AWS (ECS, CloudFront, Cognito, SQS, SNS, S3, RDS), Terraform/Terragrunt, GitHub Actions, DataDog, Redis/Valkey, MongoDB, PostgreSQL \\[3pt]
 
 \section{Work Experience}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{LWSA} \hfill \color[HTML]{371e77} May 2024 - Present \\[4pt]
+\textbf{Trafilea} \hfill \color[HTML]{371e77} Mar 2026 - Present \\[4pt]
+\color[HTML]{371e77}\textbf{\textit{AI Expert}}\ \hfill \color[HTML]{4B28A4} \\[5pt]
+\multicolumn{2}{@{}X@{}}{
+    \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
+        \item Own \textbf{automated store provisioning} for Trafiflow, a multi-tenant e-commerce SaaS platform: isolated per-tenant infrastructure via GitHub Actions + Terraform/Terragrunt, bound end to end across CloudFront SaaS Manager, ALB, ECS and auth.
+        \item Built the \textbf{tenancy orchestration service} for self-serve onboarding, using the Outbox pattern, async workers, concurrency control and a pool of pre-provisioned environments for fast store creation.
+        \item Develop core domain microservices: cart and pricing rules (BOGO, volume discounts, promotion priority), \textbf{Cognito + RBAC} authentication and Shopify OAuth integration.
+        \item Go, TypeScript/Node.js, gRPC, AWS (ECS, CloudFront, Cognito, SQS, RDS), Terraform/Terragrunt, PostgreSQL, DataDog.
+    \end{itemize}
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{LWSA} \hfill \color[HTML]{371e77} May 2024 - Mar 2026 \\[4pt]
 \color[HTML]{371e77}\textbf{\textit{Senior Backend Engineer}}\ \hfill \color[HTML]{4B28A4} \\[5pt]
 \multicolumn{2}{@{}X@{}}{
     \begin{itemize}[nosep, leftmargin=2em, itemsep=2pt]
