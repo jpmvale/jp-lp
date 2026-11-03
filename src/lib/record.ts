@@ -13,21 +13,22 @@
  * The revision counts editions of THIS DOCUMENT, not jobs. It used to shadow the
  * newest role (both read 07) and the two drifted apart the moment the sheet was
  * revised without the career changing — which is exactly what happened in
- * 08/2026. Roles keep their own `rev` (01–07) for the history rows; that
+ * 08/2026. Roles keep their own `rev` (01–08) for the history rows; that
  * sequence is unrelated to this one and they are meant to disagree.
  *
- * Bumping: next edit of substance is 09, and `lastRevision` moves to its month.
+ * Bumping: next edit of substance is 10, and `lastRevision` moves to its month.
  */
 export const PART = {
   designation: "JPMV-01",
-  revision: "08",
-  lastRevision: "2026-08",
+  revision: "09",
+  lastRevision: "2026-11",
   sheets: 6,
   location: "São Luís, MA — BR",
   since: 2017,
 } as const;
 
 export type RoleId =
+  | "trafilea"
   | "melhorEnvio"
   | "tegra"
   | "jazida"
@@ -40,13 +41,15 @@ export interface Role {
   id: RoleId;
   rev: string;
   /**
-   * Manufacturer mark, used wherever no vector exists. Only EducVR falls back
-   * here now: its domain is gone, so there is nothing left to fetch.
+   * Manufacturer mark, used wherever no vector exists. EducVR falls back here
+   * because its domain is gone; Trafilea only until its mark is lifted from
+   * the live DOM of trafilea.com (see the note on `logo`).
    */
   initials: string;
   /**
    * Organisation mark, used as a CSS mask and painted with currentColor, so it
-   * prints in the plate's own ink on both schemes. Null only for EducVR.
+   * prints in the plate's own ink on both schemes. Null for EducVR, and for
+   * Trafilea until its vector is added.
    *
    * Vale and Jazida were both written off as "publishes no vector" — wrongly.
    * The search had looked for a *file*: asset paths, the JS bundle, Wikimedia.
@@ -71,12 +74,23 @@ export interface Role {
 
 export const ROLES: Role[] = [
   {
+    id: "trafilea",
+    initials: "TF",
+    logo: null,
+    rev: "08",
+    from: "2026-03",
+    to: null,
+    company: "Trafilea",
+    location: "Montevidéu, UY — remoto",
+    tech: ["Golang", "TypeScript", "gRPC", "AWS", "Terraform", "Terragrunt", "PostgreSQL", "Datadog", "Event-driven"],
+  },
+  {
     id: "melhorEnvio",
     initials: "ME",
     logo: { src: "/logos/orgs/melhor-envio.svg", aspect: 2.17 },
     rev: "07",
     from: "2024-05",
-    to: null,
+    to: "2026-03",
     company: "Melhor Envio",
     location: "Pelotas, RS",
     tech: ["NestJS", "Golang", "MongoDB", "AWS", "Laravel", "Event-driven"],
@@ -222,7 +236,7 @@ export const CHARACTERISTICS: { id: CharacteristicId; symbol: string; values: st
   {
     id: "infra",
     symbol: "OPS",
-    values: ["AWS", "Azure", "GCP", "Docker", "CI/CD", "Kafka"],
+    values: ["AWS", "Terraform", "Azure", "GCP", "Docker", "CI/CD", "Kafka"],
   },
   {
     id: "agents",

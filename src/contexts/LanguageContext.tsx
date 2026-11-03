@@ -126,7 +126,7 @@ const pt: Dict = {
     sheetValue: "1 de 6",
     location: "Local",
     lastRevision: "Últ. revisão",
-    lastRevisionValue: "Ago 2026",
+    lastRevisionValue: "Nov 2026",
     role: "Engenheiro e arquiteto de software",
     contact: "Falar comigo",
     downloadCv: "Baixar CV",
@@ -136,8 +136,8 @@ const pt: Dict = {
   s1: {
     title: "Descrição geral",
     body: [
-      "Construo software profissionalmente desde 2017. Comecei montando cenários de realidade virtual no Maranhão e hoje trabalho em sistemas distribuídos que rastreiam milhões de entregas de e-commerce por dia: arquitetura orientada a eventos, integrações com APIs privadas de transportadoras e a disciplina chata de manter tudo isso de pé quando o volume não pede licença.",
-      "Passei por software house, produto de dados públicos, mineradora e logística. Isso me deu repertório em diferentes camadas da stack — o back end é minha especialidade, o front end é terreno familiar, e a arquitetura vem antes de escrever qualquer um dos dois.",
+      "Construo software profissionalmente desde 2017. Comecei montando cenários de realidade virtual no Maranhão e hoje trabalho numa plataforma SaaS multi-tenant de e-commerce: infraestrutura isolada provisionada automaticamente para cada loja, microsserviços em Go e TypeScript sobre AWS e a disciplina chata de manter tudo isso de pé, do ambiente de desenvolvimento até a produção.",
+      "Passei por software house, produto de dados públicos, mineradora, logística e e-commerce. Isso me deu repertório em diferentes camadas da stack — o back end é minha especialidade, o front end é terreno familiar, e a arquitetura vem antes de escrever qualquer um dos dois.",
     ],
     featuresTitle: "Características",
     features: [
@@ -145,7 +145,7 @@ const pt: Dict = {
       "Agentes de IA em produção: MCP, tool calling e orquestração",
       "Back end em Node.js/NestJS, Golang, Python, PHP e C#",
       "Coleta e extração de dados de fontes públicas em larga escala",
-      "Sete posições em seis organizações desde 2017",
+      "Oito posições em sete organizações desde 2017",
       "Português nativo, inglês fluente, espanhol intermediário",
     ],
   },
@@ -219,13 +219,18 @@ const pt: Dict = {
   },
   s4: {
     title: "Histórico de revisões",
-    lead: "Sete posições desde 2017. Abra uma linha para ver o que ela envolveu.",
+    lead: "Oito posições desde 2017. Abra uma linha para ver o que ela envolveu.",
     columns: { rev: "Rev.", period: "Período", company: "Organização", role: "Posição" },
     present: "atual",
     expand: "Abrir detalhes",
     collapse: "Fechar detalhes",
     techLabel: "Stack",
     roles: {
+      trafilea: {
+        title: "AI Expert",
+        summary:
+          "Atuação na Trafiflow, a plataforma SaaS multi-tenant de e-commerce da Trafilea. Responsável pelo provisionamento automatizado de lojas — da infraestrutura isolada de cada tenant, via Terraform/Terragrunt e GitHub Actions, até o bind com CloudFront SaaS Manager, ALB, ECS e autenticação — e pelos microsserviços do core: orquestração de onboarding com padrão Outbox e workers assíncronos, carrinho e precificação, autenticação com Cognito + RBAC e integração OAuth com a Shopify.",
+      },
       melhorEnvio: {
         title: "Desenvolvedor Sênior",
         summary:
@@ -306,7 +311,7 @@ const en: Dict = {
     sheetValue: "1 of 6",
     location: "Location",
     lastRevision: "Last revision",
-    lastRevisionValue: "Aug 2026",
+    lastRevisionValue: "Nov 2026",
     role: "Software engineer and architect",
     contact: "Get in touch",
     downloadCv: "Download CV",
@@ -316,8 +321,8 @@ const en: Dict = {
   s1: {
     title: "General description",
     body: [
-      "I have been building software professionally since 2017. I started assembling virtual reality scenes in Maranhão and today I work on distributed systems that track millions of e-commerce deliveries a day: event-driven architecture, integrations with private carrier APIs, and the unglamorous discipline of keeping all of it standing when volume does not ask permission.",
-      "I have worked in a software house, a public-data product, a mining company and logistics. That gave me range across the stack — the back end is my specialism, the front end is familiar ground, and the architecture comes before writing either.",
+      "I have been building software professionally since 2017. I started assembling virtual reality scenes in Maranhão and today I work on a multi-tenant e-commerce SaaS platform: isolated infrastructure provisioned automatically for every store, Go and TypeScript microservices on AWS, and the unglamorous discipline of keeping all of it standing, from the development environment to production.",
+      "I have worked in a software house, a public-data product, a mining company, logistics and e-commerce. That gave me range across the stack — the back end is my specialism, the front end is familiar ground, and the architecture comes before writing either.",
     ],
     featuresTitle: "Features",
     features: [
@@ -325,7 +330,7 @@ const en: Dict = {
       "AI agents in production: MCP, tool calling and orchestration",
       "Back end in Node.js/NestJS, Golang, Python, PHP and C#",
       "Large-scale collection and extraction of public data",
-      "Seven positions across six organisations since 2017",
+      "Eight positions across seven organisations since 2017",
       "Native Portuguese, fluent English, intermediate Spanish",
     ],
   },
@@ -399,13 +404,18 @@ const en: Dict = {
   },
   s4: {
     title: "Revision history",
-    lead: "Seven positions since 2017. Open a row to see what it involved.",
+    lead: "Eight positions since 2017. Open a row to see what it involved.",
     columns: { rev: "Rev.", period: "Period", company: "Organisation", role: "Position" },
     present: "present",
     expand: "Open details",
     collapse: "Close details",
     techLabel: "Stack",
     roles: {
+      trafilea: {
+        title: "AI Expert",
+        summary:
+          "Working on Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform. Responsible for automated store provisioning — from each tenant's isolated infrastructure, through Terraform/Terragrunt and GitHub Actions, to the bind with CloudFront SaaS Manager, ALB, ECS and authentication — and for the core microservices: onboarding orchestration with the Outbox pattern and asynchronous workers, cart and pricing, Cognito + RBAC authentication and OAuth integration with Shopify.",
+      },
       melhorEnvio: {
         title: "Senior Developer",
         summary:
@@ -486,7 +496,7 @@ const es: Dict = {
     sheetValue: "1 de 6",
     location: "Ubicación",
     lastRevision: "Últ. revisión",
-    lastRevisionValue: "Ago 2026",
+    lastRevisionValue: "Nov 2026",
     role: "Ingeniero y arquitecto de software",
     contact: "Hablemos",
     downloadCv: "Descargar CV",
@@ -496,8 +506,8 @@ const es: Dict = {
   s1: {
     title: "Descripción general",
     body: [
-      "Construyo software profesionalmente desde 2017. Empecé montando escenarios de realidad virtual en Maranhão y hoy trabajo en sistemas distribuidos que rastrean millones de entregas de e-commerce por día: arquitectura orientada a eventos, integraciones con APIs privadas de transportistas y la disciplina poco glamorosa de mantener todo eso en pie cuando el volumen no pide permiso.",
-      "Pasé por una software house, un producto de datos públicos, una minera y logística. Eso me dio recorrido en distintas capas del stack — el back end es mi especialidad, el front end es terreno conocido, y la arquitectura viene antes de escribir cualquiera de los dos.",
+      "Construyo software profesionalmente desde 2017. Empecé montando escenarios de realidad virtual en Maranhão y hoy trabajo en una plataforma SaaS multi-tenant de e-commerce: infraestructura aislada aprovisionada automáticamente para cada tienda, microservicios en Go y TypeScript sobre AWS y la disciplina poco glamorosa de mantener todo eso en pie, del entorno de desarrollo hasta producción.",
+      "Pasé por una software house, un producto de datos públicos, una minera, logística y e-commerce. Eso me dio recorrido en distintas capas del stack — el back end es mi especialidad, el front end es terreno conocido, y la arquitectura viene antes de escribir cualquiera de los dos.",
     ],
     featuresTitle: "Características",
     features: [
@@ -505,7 +515,7 @@ const es: Dict = {
       "Agentes de IA en producción: MCP, tool calling y orquestación",
       "Back end en Node.js/NestJS, Golang, Python, PHP y C#",
       "Recolección y extracción de datos públicos a gran escala",
-      "Siete posiciones en seis organizaciones desde 2017",
+      "Ocho posiciones en siete organizaciones desde 2017",
       "Portugués nativo, inglés fluido, español intermedio",
     ],
   },
@@ -579,13 +589,18 @@ const es: Dict = {
   },
   s4: {
     title: "Historial de revisiones",
-    lead: "Siete posiciones desde 2017. Abre una fila para ver qué implicó.",
+    lead: "Ocho posiciones desde 2017. Abre una fila para ver qué implicó.",
     columns: { rev: "Rev.", period: "Período", company: "Organización", role: "Posición" },
     present: "actual",
     expand: "Abrir detalles",
     collapse: "Cerrar detalles",
     techLabel: "Stack",
     roles: {
+      trafilea: {
+        title: "AI Expert",
+        summary:
+          "Trabajo en Trafiflow, la plataforma SaaS multi-tenant de e-commerce de Trafilea. Responsable del aprovisionamiento automatizado de tiendas — desde la infraestructura aislada de cada tenant, con Terraform/Terragrunt y GitHub Actions, hasta el bind con CloudFront SaaS Manager, ALB, ECS y autenticación — y de los microservicios del core: orquestación del onboarding con patrón Outbox y workers asíncronos, carrito y precios, autenticación con Cognito + RBAC e integración OAuth con Shopify.",
+      },
       melhorEnvio: {
         title: "Desarrollador Senior",
         summary:
