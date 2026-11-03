@@ -47,7 +47,8 @@ Real, verified facts (from the owner's own site content):
 
 **Employment history**
 - Trafilea — AI Expert, remote (Montevideo/UY, foreign company), Mar 2026 – present (confirmed by the owner 2026-11-02). Works on Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform: automated store provisioning (per-store Resource Groups via GitHub Actions + Terraform/Terragrunt, readiness checks, bind integrating CloudFront SaaS Manager, ALB, ECS and auth); tenancy/onboarding orchestration service (Outbox pattern, async workers, concurrency control, pool of pre-provisioned RGs); core domain microservices (carts, pricing — BOGO, volume discounts, promotion priority —, auth with Cognito + RBAC, Shopify OAuth connector); Terraform platform stacks, ECS deploys, AWS quotas, go-live readiness; observability with Datadog/CloudWatch. Stack: Go, TypeScript/Node.js, gRPC (Buf/Protobuf), AWS, Terraform/Terragrunt, GitHub Actions, PostgreSQL, Shopify API, Datadog, EDA. Internal repository/service names are not published on the site.
-- Melhor Envio (LWSA) — Senior Developer, remote (Pelotas/RS), May 2024 – Mar 2026. Tracking of millions of daily e-commerce deliveries; event-driven architecture for asynchronous communication; robust services integrating private carrier APIs; highly scalable system. Stack: NestJS, MongoDB, AWS, Golang, Laravel, event-driven, async.
+- Alergocenter — Senior Software Consultant, Sep 2025 – Feb 2026 (added to the site by the owner 2026-11-02). Three full-stack systems built from scratch automating administrative workflows the legacy software did not cover; full SDLC for 30+ internal users; automated PDF quote generation and management tool. Stack: NestJS, React, PostgreSQL, Docker.
+- LWSA (Melhor Envio) — Senior Developer, remote (Pelotas/RS), May 2024 – Mar 2026. Listed on the site and CV as "LWSA" only, by the owner's decision (2026-11-02). Tracking of millions of daily e-commerce deliveries; event-driven architecture for asynchronous communication; robust services integrating private carrier APIs; highly scalable system. Stack: NestJS, MongoDB, AWS, Golang, Laravel, event-driven, async.
 - Tegra — Backend Developer, remote (São Paulo/SP), May 2023 – May 2024. Software house; projects from scratch; crawlers, APIs, microservices, monoliths, serverless; frontend when needed. Stack: NestJS, AWS, PostgreSQL, MongoDB, React, web scraping.
 - Jazida — Backend Developer, remote (Brasília/DF), May 2021 – May 2023. Product centralizing Brazil's public mining data; Node.js monolith plus microservices; scrapers for the Diário Oficial da União; extraction of mining-process records from government sources. Stack: Node.js, Python, Golang, Azure, web scraping, data mining.
 - Vale S/A — Full Stack Developer, São Luís/MA, Jan 2020 – May 2021. Management systems for railway engineers; railway data analysis with Python/Pandas; Node.js + React; maintenance of .NET Framework/Core systems.
@@ -58,7 +59,7 @@ Real, verified facts (from the owner's own site content):
 **Background**
 - Self-taught developer; started Computer Engineering at UEMA in 2016; first languages C and Java; participated in game-development labs.
 - 7+ years of professional experience; 7 years of undergraduate and master's study.
-- Languages: Portuguese (native), English (fluent), Spanish (intermediate).
+- Languages: Portuguese (native), English (advanced), Spanish (intermediate) — standardized across site and CV by the owner on 2026-11-02.
 
 **AI agent engineering** — confirmed by the owner in the redesign interview:
 - Has built and operates agents running in production at work.

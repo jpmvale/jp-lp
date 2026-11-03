@@ -13,7 +13,7 @@
  * The revision counts editions of THIS DOCUMENT, not jobs. It used to shadow the
  * newest role (both read 07) and the two drifted apart the moment the sheet was
  * revised without the career changing — which is exactly what happened in
- * 08/2026. Roles keep their own `rev` (01–08) for the history rows; that
+ * 08/2026. Roles keep their own `rev` (01–09) for the history rows; that
  * sequence is unrelated to this one and they are meant to disagree.
  *
  * Bumping: next edit of substance is 10, and `lastRevision` moves to its month.
@@ -29,6 +29,7 @@ export const PART = {
 
 export type RoleId =
   | "trafilea"
+  | "alergocenter"
   | "melhorEnvio"
   | "tegra"
   | "jazida"
@@ -42,14 +43,15 @@ export interface Role {
   rev: string;
   /**
    * Manufacturer mark, used wherever no vector exists. EducVR falls back here
-   * because its domain is gone; Trafilea only until its mark is lifted from
-   * the live DOM of trafilea.com (see the note on `logo`).
+   * because its domain is gone; Trafilea, LWSA and Alergocenter until their
+   * marks are lifted from their own sites (see the note on `logo`). LWSA is
+   * listed by the group's name, so the Melhor Envio mark no longer fits it.
    */
   initials: string;
   /**
    * Organisation mark, used as a CSS mask and painted with currentColor, so it
    * prints in the plate's own ink on both schemes. Null for EducVR, and for
-   * Trafilea until its vector is added.
+   * Trafilea, LWSA and Alergocenter until their vectors are added.
    *
    * Vale and Jazida were both written off as "publishes no vector" — wrongly.
    * The search had looked for a *file*: asset paths, the JS bundle, Wikimedia.
@@ -77,7 +79,7 @@ export const ROLES: Role[] = [
     id: "trafilea",
     initials: "TF",
     logo: null,
-    rev: "08",
+    rev: "09",
     from: "2026-03",
     to: null,
     company: "Trafilea",
@@ -85,13 +87,24 @@ export const ROLES: Role[] = [
     tech: ["Golang", "TypeScript", "gRPC", "AWS", "Terraform", "Terragrunt", "PostgreSQL", "Datadog", "Event-driven"],
   },
   {
+    id: "alergocenter",
+    initials: "AC",
+    logo: null,
+    rev: "08",
+    from: "2025-09",
+    to: "2026-02",
+    company: "Alergocenter",
+    location: "São Luís, MA",
+    tech: ["NestJS", "React", "PostgreSQL", "Docker"],
+  },
+  {
     id: "melhorEnvio",
-    initials: "ME",
-    logo: { src: "/logos/orgs/melhor-envio.svg", aspect: 2.17 },
+    initials: "LW",
+    logo: null,
     rev: "07",
     from: "2024-05",
     to: "2026-03",
-    company: "Melhor Envio",
+    company: "LWSA",
     location: "Pelotas, RS",
     tech: ["NestJS", "Golang", "MongoDB", "AWS", "Laravel", "Event-driven"],
   },

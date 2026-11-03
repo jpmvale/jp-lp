@@ -145,8 +145,8 @@ const pt: Dict = {
       "Agentes de IA em produção: MCP, tool calling e orquestração",
       "Back end em Node.js/NestJS, Golang, Python, PHP e C#",
       "Coleta e extração de dados de fontes públicas em larga escala",
-      "Oito posições em sete organizações desde 2017",
-      "Português nativo, inglês fluente, espanhol intermediário",
+      "Nove posições em oito organizações desde 2017",
+      "Português nativo, inglês avançado, espanhol intermediário",
     ],
   },
   s2: {
@@ -215,11 +215,11 @@ const pt: Dict = {
       extraction: "Extração de dados",
     },
     languagesRow: "Idiomas",
-    languagesValue: ["Português (nativo)", "Inglês (fluente)", "Espanhol (intermediário)"],
+    languagesValue: ["Português (nativo)", "Inglês (avançado)", "Espanhol (intermediário)"],
   },
   s4: {
     title: "Histórico de revisões",
-    lead: "Oito posições desde 2017. Abra uma linha para ver o que ela envolveu.",
+    lead: "Nove posições desde 2017. Abra uma linha para ver o que ela envolveu.",
     columns: { rev: "Rev.", period: "Período", company: "Organização", role: "Posição" },
     present: "atual",
     expand: "Abrir detalhes",
@@ -230,6 +230,11 @@ const pt: Dict = {
         title: "AI Expert",
         summary:
           "Atuação na Trafiflow, a plataforma SaaS multi-tenant de e-commerce da Trafilea. Responsável pelo provisionamento automatizado de lojas — da infraestrutura isolada de cada tenant, via Terraform/Terragrunt e GitHub Actions, até o bind com CloudFront SaaS Manager, ALB, ECS e autenticação — e pelos microsserviços do core: orquestração de onboarding com padrão Outbox e workers assíncronos, carrinho e precificação, autenticação com Cognito + RBAC e integração OAuth com a Shopify.",
+      },
+      alergocenter: {
+        title: "Consultor de Software Sênior",
+        summary:
+          "Consultoria para uma clínica: três sistemas full stack projetados do zero para automatizar os fluxos administrativos que o software legado não cobria, incluindo uma ferramenta de geração e gestão de orçamentos em PDF. Ciclo completo, do levantamento com os usuários internos até o deploy.",
       },
       melhorEnvio: {
         title: "Desenvolvedor Sênior",
@@ -330,8 +335,8 @@ const en: Dict = {
       "AI agents in production: MCP, tool calling and orchestration",
       "Back end in Node.js/NestJS, Golang, Python, PHP and C#",
       "Large-scale collection and extraction of public data",
-      "Eight positions across seven organisations since 2017",
-      "Native Portuguese, fluent English, intermediate Spanish",
+      "Nine positions across eight organisations since 2017",
+      "Native Portuguese, advanced English, intermediate Spanish",
     ],
   },
   s2: {
@@ -400,11 +405,11 @@ const en: Dict = {
       extraction: "Data extraction",
     },
     languagesRow: "Languages",
-    languagesValue: ["Portuguese (native)", "English (fluent)", "Spanish (intermediate)"],
+    languagesValue: ["Portuguese (native)", "English (advanced)", "Spanish (intermediate)"],
   },
   s4: {
     title: "Revision history",
-    lead: "Eight positions since 2017. Open a row to see what it involved.",
+    lead: "Nine positions since 2017. Open a row to see what it involved.",
     columns: { rev: "Rev.", period: "Period", company: "Organisation", role: "Position" },
     present: "present",
     expand: "Open details",
@@ -415,6 +420,11 @@ const en: Dict = {
         title: "AI Expert",
         summary:
           "Working on Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform. Responsible for automated store provisioning — from each tenant's isolated infrastructure, through Terraform/Terragrunt and GitHub Actions, to the bind with CloudFront SaaS Manager, ALB, ECS and authentication — and for the core microservices: onboarding orchestration with the Outbox pattern and asynchronous workers, cart and pricing, Cognito + RBAC authentication and OAuth integration with Shopify.",
+      },
+      alergocenter: {
+        title: "Senior Software Consultant",
+        summary:
+          "Consulting for a clinic: three full-stack systems designed from scratch to automate the administrative workflows the legacy software never covered, including a tool that generates and manages quotes as PDFs. The full cycle, from gathering requirements with internal users to the deploy.",
       },
       melhorEnvio: {
         title: "Senior Developer",
@@ -515,8 +525,8 @@ const es: Dict = {
       "Agentes de IA en producción: MCP, tool calling y orquestación",
       "Back end en Node.js/NestJS, Golang, Python, PHP y C#",
       "Recolección y extracción de datos públicos a gran escala",
-      "Ocho posiciones en siete organizaciones desde 2017",
-      "Portugués nativo, inglés fluido, español intermedio",
+      "Nueve posiciones en ocho organizaciones desde 2017",
+      "Portugués nativo, inglés avanzado, español intermedio",
     ],
   },
   s2: {
@@ -585,11 +595,11 @@ const es: Dict = {
       extraction: "Extracción de datos",
     },
     languagesRow: "Idiomas",
-    languagesValue: ["Portugués (nativo)", "Inglés (fluido)", "Español (intermedio)"],
+    languagesValue: ["Portugués (nativo)", "Inglés (avanzado)", "Español (intermedio)"],
   },
   s4: {
     title: "Historial de revisiones",
-    lead: "Ocho posiciones desde 2017. Abre una fila para ver qué implicó.",
+    lead: "Nueve posiciones desde 2017. Abre una fila para ver qué implicó.",
     columns: { rev: "Rev.", period: "Período", company: "Organización", role: "Posición" },
     present: "actual",
     expand: "Abrir detalles",
@@ -600,6 +610,11 @@ const es: Dict = {
         title: "AI Expert",
         summary:
           "Trabajo en Trafiflow, la plataforma SaaS multi-tenant de e-commerce de Trafilea. Responsable del aprovisionamiento automatizado de tiendas — desde la infraestructura aislada de cada tenant, con Terraform/Terragrunt y GitHub Actions, hasta el bind con CloudFront SaaS Manager, ALB, ECS y autenticación — y de los microservicios del core: orquestación del onboarding con patrón Outbox y workers asíncronos, carrito y precios, autenticación con Cognito + RBAC e integración OAuth con Shopify.",
+      },
+      alergocenter: {
+        title: "Consultor de Software Senior",
+        summary:
+          "Consultoría para una clínica: tres sistemas full stack diseñados desde cero para automatizar los flujos administrativos que el software heredado no cubría, incluida una herramienta de generación y gestión de presupuestos en PDF. Ciclo completo, del relevamiento con los usuarios internos hasta el deploy.",
       },
       melhorEnvio: {
         title: "Desarrollador Senior",
