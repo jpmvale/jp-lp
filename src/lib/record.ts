@@ -173,7 +173,17 @@ export const ROLES: Role[] = [
   },
 ];
 
-export type ProjectId = "coda" | "kindred" | "expenseAnalyzer";
+export type ProjectId =
+  | "coda"
+  | "veiculos"
+  | "imoveis"
+  | "expenseAnalyzer"
+  | "kindred"
+  | "fdp"
+  | "domino"
+  | "omiBomba"
+  | "piano"
+  | "gas";
 
 export interface Project {
   id: ProjectId;
@@ -188,6 +198,11 @@ export interface Project {
   url: string | null;
 }
 
+/**
+ * Ordered by importance, as ranked by the owner (2026-11-02): the first page of
+ * the section shows the top five, the rest are paginated. `code` follows the
+ * same order, so APP-01 is always the headline product.
+ */
 export const PROJECTS: Project[] = [
   {
     id: "coda",
@@ -199,8 +214,35 @@ export const PROJECTS: Project[] = [
     url: "https://coda.imp-software.cloud",
   },
   {
-    id: "kindred",
+    id: "veiculos",
     code: "APP-02",
+    name: "veiculos",
+    logo: "/logos/veiculos.svg",
+    stack: ["TypeScript", "NestJS", "Next.js", "BullMQ", "Redis", "PostgreSQL", "Drizzle"],
+    repo: null,
+    url: "https://veiculos.imp-software.cloud",
+  },
+  {
+    id: "imoveis",
+    code: "APP-03",
+    name: "imoveis",
+    logo: "/logos/imoveis.svg",
+    stack: ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Drizzle", "Tailwind"],
+    repo: null,
+    url: "https://imoveis.imp-software.cloud",
+  },
+  {
+    id: "expenseAnalyzer",
+    code: "APP-04",
+    name: "expense-analyzer",
+    logo: "/logos/expense-analyzer.svg",
+    stack: ["TypeScript", "NestJS", "MongoDB", "React", "Docker"],
+    repo: "https://github.com/jpmvale/expense-analyzer",
+    url: "https://expenses.imp-software.cloud",
+  },
+  {
+    id: "kindred",
+    code: "APP-05",
     name: "kindred",
     logo: "/logos/kindred.svg",
     stack: ["TypeScript", "NestJS", "Prisma", "PostgreSQL", "React", "Vite"],
@@ -208,15 +250,54 @@ export const PROJECTS: Project[] = [
     url: "https://kindred.imp-software.cloud",
   },
   {
-    id: "expenseAnalyzer",
-    code: "APP-03",
-    name: "expense-analyzer",
-    logo: "/logos/expense-analyzer.svg",
-    stack: ["TypeScript", "NestJS", "MongoDB", "React", "Docker"],
-    repo: "https://github.com/jpmvale/expense-analyzer",
-    url: "https://expenses.imp-software.cloud",
+    id: "fdp",
+    code: "APP-06",
+    name: "fdp",
+    logo: "/logos/fdp.svg",
+    stack: ["TypeScript", "Node.js", "WebSocket", "React", "Vite", "Redis", "PostgreSQL"],
+    repo: "https://github.com/jpmvale/fdp",
+    url: "https://fdp.imp-software.cloud",
+  },
+  {
+    id: "domino",
+    code: "APP-07",
+    name: "domino",
+    logo: "/logos/domino.svg",
+    stack: ["TypeScript", "Hono", "WebSocket", "React", "Vite", "Redis"],
+    repo: "https://github.com/jpmvale/domino",
+    url: "https://domino.imp-software.cloud",
+  },
+  {
+    id: "omiBomba",
+    code: "APP-08",
+    name: "omi-bomba",
+    logo: "/logos/omi-bomba.svg",
+    stack: ["TypeScript", "Node.js", "WebSocket", "React", "Vite", "Redis"],
+    repo: "https://github.com/jpmvale/omi-bomba",
+    url: "https://omi-bomba.imp-software.cloud",
+  },
+  {
+    id: "piano",
+    code: "APP-09",
+    name: "piano",
+    logo: "/logos/piano.svg",
+    stack: ["TypeScript", "Vite", "Canvas 2D", "Web MIDI", "Python", "Transkun"],
+    repo: "https://github.com/jpmvale/piano",
+    url: "https://piano.imp-software.cloud",
+  },
+  {
+    id: "gas",
+    code: "APP-10",
+    name: "gas-individualizado",
+    logo: "/logos/gas.svg",
+    stack: ["TypeScript", "NestJS", "Next.js", "BullMQ", "PostgreSQL", "Drizzle"],
+    repo: "https://github.com/jpmvale/gas-individualizado",
+    url: "https://gas.imp-software.cloud",
   },
 ];
+
+/** Products per page in the section; the first page is the owner's top five. */
+export const PROJECTS_PER_PAGE = 5;
 
 export type CharacteristicId =
   | "backend"
