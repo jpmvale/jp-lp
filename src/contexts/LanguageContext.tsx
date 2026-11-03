@@ -69,6 +69,7 @@ export interface Dict {
     sourceLabel: string;
     liveLabel: string;
     privateSource: string;
+    pager: { label: string; prev: string; next: string; page: string; of: string };
     projects: Record<ProjectId, { summary: string; note: string }>;
   };
   s3: {
@@ -126,7 +127,7 @@ const pt: Dict = {
     sheetValue: "1 de 6",
     location: "Local",
     lastRevision: "Últ. revisão",
-    lastRevisionValue: "Ago 2026",
+    lastRevisionValue: "Nov 2026",
     role: "Engenheiro e arquiteto de software",
     contact: "Falar comigo",
     downloadCv: "Baixar CV",
@@ -136,17 +137,17 @@ const pt: Dict = {
   s1: {
     title: "Descrição geral",
     body: [
-      "Construo software profissionalmente desde 2017. Comecei montando cenários de realidade virtual no Maranhão e hoje trabalho em sistemas distribuídos que rastreiam milhões de entregas de e-commerce por dia: arquitetura orientada a eventos, integrações com APIs privadas de transportadoras e a disciplina chata de manter tudo isso de pé quando o volume não pede licença.",
-      "Passei por software house, produto de dados públicos, mineradora e logística. Isso me deu repertório em diferentes camadas da stack — o back end é minha especialidade, o front end é terreno familiar, e a arquitetura vem antes de escrever qualquer um dos dois.",
+      "Construo software profissionalmente desde 2017. Comecei montando cenários de realidade virtual no Maranhão e hoje trabalho numa plataforma SaaS multi-tenant de e-commerce: infraestrutura isolada provisionada automaticamente para cada loja, microsserviços em Go e TypeScript sobre AWS e a disciplina chata de manter tudo isso de pé, do ambiente de desenvolvimento até a produção.",
+      "Passei por software house, produto de dados públicos, mineradora, logística e e-commerce. Isso me deu repertório em diferentes camadas da stack — o back end é minha especialidade, o front end é terreno familiar, e a arquitetura vem antes de escrever qualquer um dos dois.",
     ],
     featuresTitle: "Características",
     features: [
-      "Arquitetura orientada a eventos em escala de milhões de eventos por dia",
+      "Arquitetura orientada a eventos em escala de dezenas de milhões de eventos por mês",
       "Agentes de IA em produção: MCP, tool calling e orquestração",
       "Back end em Node.js/NestJS, Golang, Python, PHP e C#",
       "Coleta e extração de dados de fontes públicas em larga escala",
-      "Sete posições em seis organizações desde 2017",
-      "Português nativo, inglês fluente, espanhol intermediário",
+      "Nove posições em oito organizações desde 2017",
+      "Português nativo, inglês avançado, espanhol intermediário",
     ],
   },
   s2: {
@@ -183,6 +184,13 @@ const pt: Dict = {
     sourceLabel: "Código",
     liveLabel: "No ar",
     privateSource: "Fechado",
+    pager: {
+      label: "Páginas de projetos",
+      prev: "Anterior",
+      next: "Próxima",
+      page: "Página",
+      of: "de",
+    },
     projects: {
       coda: {
         summary:
@@ -198,6 +206,41 @@ const pt: Dict = {
         summary:
           "Dashboard de gastos de cartão de crédito: as faturas em CSV viram um banco de compras, a API agrega por mês e por categoria, e o front mostra em tabelas e gráficos como o gasto evolui.",
         note: "O parser não é acoplado a nenhum emissor — lê qualquer CSV com data, descrição e valor. Extractor, API e front são aplicações separadas no mesmo monorepo, com a infraestrutura versionada junto.",
+      },
+      veiculos: {
+        summary:
+          "Dados de carros do mercado de massa brasileiro num lugar só: preço FIPE e sua variação, consumo do PBEV/Inmetro e ficha técnica, cruzados em métricas como autonomia por tanque, custo por km e quais modelos seguram valor gastando pouco.",
+        note: "Um worker em BullMQ coleta a FIPE todo dia e o PBEV toda semana, com 36 meses de histórico. O leitor do PDF do Inmetro e o casamento do mesmo carro entre as três fontes vivem num pacote de domínio compartilhado pela API e pelo worker.",
+      },
+      imoveis: {
+        summary:
+          "Centralizador de imóveis à venda em São Luís: cadastro, tabela com busca e ordenação, e um mapa com cada imóvel plotado pela sua coordenada.",
+        note: "API em NestJS e front em Next.js sobre Postgres com Drizzle, no mesmo formato de monorepo dos projetos irmãos. O cadastro é manual hoje e o modelo de dados já foi desenhado para receber um crawler depois.",
+      },
+      fdp: {
+        summary:
+          "Jogo de cartas de vazas, aposta e blefe para 2 a 8 pessoas, cada uma no próprio aparelho, numa sala com código de convite. Da família do Fodinha: a soma das apostas nunca fecha com as vazas, então alguém sempre se dá mal.",
+        note: "O servidor é a única autoridade: motor de regras puro e determinístico, salas em Redis que atravessam um reinício exatamente onde estavam, bots em quatro dificuldades e contas com SSO e histórico em Postgres.",
+      },
+      domino: {
+        summary:
+          "Dominó com os amigos no navegador, de 2 a 4 pessoas, em dupla ou cada um por si, nos modos Batida e Múltiplo de 5. Sala com link de convite que chega no WhatsApp como cartão.",
+        note: "Mesma arquitetura do FDP: HTTP e WebSocket num processo só, bots em três níveis decidindo com a mesma visão do jogador, reconexão sozinha e um bot que assume o assento de quem sai no meio da mão.",
+      },
+      omiBomba: {
+        summary:
+          "Jogo de bombas em arena para 2 a 5 pessoas no navegador: solte bombas, quebre caixas, pegue itens e seja o último em pé. Oito personagens próprios, arena nova a cada rodada e controle por teclado ou toque.",
+        note: "O servidor simula a arena a 20 quadros por segundo e transmite pelo WebSocket. O motor é puro e determinístico, e os bots enxergam exatamente o que a pessoa enxerga.",
+      },
+      piano: {
+        summary:
+          "Um \"Guitar Hero do piano\" para iniciantes: as notas caem sobre o teclado, com controle total da linha do tempo, modo espera e entrada pelo teclado do computador, pela tela ou por um teclado MIDI.",
+        note: "Músicas novas entram por arquivo .mid ou por áudio de piano solo, transcrito no servidor com Transkun. O jogo desenha tudo em Canvas 2D e toca com amostras reais de piano.",
+      },
+      gas: {
+        summary:
+          "Medição individualizada de gás para condomínios: cada morador acompanha o próprio consumo e o síndico vê o prédio inteiro.",
+        note: "As leituras vêm dos medidores da Aépio; enquanto a API deles não está documentada, uma fonte simulada alimenta o sistema. Um worker em BullMQ sincroniza as leituras, e as regras de medição e consumo vivem num pacote de domínio.",
       },
     },
   },
@@ -215,21 +258,31 @@ const pt: Dict = {
       extraction: "Extração de dados",
     },
     languagesRow: "Idiomas",
-    languagesValue: ["Português (nativo)", "Inglês (fluente)", "Espanhol (intermediário)"],
+    languagesValue: ["Português (nativo)", "Inglês (avançado)", "Espanhol (intermediário)"],
   },
   s4: {
     title: "Histórico de revisões",
-    lead: "Sete posições desde 2017. Abra uma linha para ver o que ela envolveu.",
+    lead: "Nove posições desde 2017. Abra uma linha para ver o que ela envolveu.",
     columns: { rev: "Rev.", period: "Período", company: "Organização", role: "Posição" },
     present: "atual",
     expand: "Abrir detalhes",
     collapse: "Fechar detalhes",
     techLabel: "Stack",
     roles: {
+      trafilea: {
+        title: "AI Expert",
+        summary:
+          "Trafiflow, a plataforma SaaS multi-tenant de e-commerce da Trafilea. Provisionamento automatizado de lojas, do cadastro à loja publicada com infraestrutura isolada via Terraform, e os microsserviços do core: onboarding, carrinho, precificação e autenticação.",
+      },
+      alergocenter: {
+        title: "Consultor de Software Sênior",
+        summary:
+          "Consultoria para uma clínica: três sistemas full stack projetados do zero para automatizar os fluxos administrativos que o software legado não cobria, incluindo uma ferramenta de geração e gestão de orçamentos em PDF. Ciclo completo, do levantamento com os usuários internos até o deploy.",
+      },
       melhorEnvio: {
         title: "Desenvolvedor Sênior",
         summary:
-          "Responsável pelo rastreamento de milhões de entregas de e-commerce por dia. Arquitetura orientada a eventos para comunicação assíncrona e serviços robustos de integração com as APIs privadas das transportadoras, dentro de um sistema de alta disponibilidade.",
+          "Motor de rastreio da Melhor Envio, com mais de 25 milhões de atualizações de entregas por mês. Integrações com 8 grandes transportadoras e um dicionário de eventos que normaliza as mensagens de cada uma em status únicos, sobre uma arquitetura orientada a eventos em AWS.",
       },
       tegra: {
         title: "Desenvolvedor Back End",
@@ -306,7 +359,7 @@ const en: Dict = {
     sheetValue: "1 of 6",
     location: "Location",
     lastRevision: "Last revision",
-    lastRevisionValue: "Aug 2026",
+    lastRevisionValue: "Nov 2026",
     role: "Software engineer and architect",
     contact: "Get in touch",
     downloadCv: "Download CV",
@@ -316,17 +369,17 @@ const en: Dict = {
   s1: {
     title: "General description",
     body: [
-      "I have been building software professionally since 2017. I started assembling virtual reality scenes in Maranhão and today I work on distributed systems that track millions of e-commerce deliveries a day: event-driven architecture, integrations with private carrier APIs, and the unglamorous discipline of keeping all of it standing when volume does not ask permission.",
-      "I have worked in a software house, a public-data product, a mining company and logistics. That gave me range across the stack — the back end is my specialism, the front end is familiar ground, and the architecture comes before writing either.",
+      "I have been building software professionally since 2017. I started assembling virtual reality scenes in Maranhão and today I work on a multi-tenant e-commerce SaaS platform: isolated infrastructure provisioned automatically for every store, Go and TypeScript microservices on AWS, and the unglamorous discipline of keeping all of it standing, from the development environment to production.",
+      "I have worked in a software house, a public-data product, a mining company, logistics and e-commerce. That gave me range across the stack — the back end is my specialism, the front end is familiar ground, and the architecture comes before writing either.",
     ],
     featuresTitle: "Features",
     features: [
-      "Event-driven architecture at a scale of millions of events per day",
+      "Event-driven architecture at a scale of tens of millions of events a month",
       "AI agents in production: MCP, tool calling and orchestration",
       "Back end in Node.js/NestJS, Golang, Python, PHP and C#",
       "Large-scale collection and extraction of public data",
-      "Seven positions across six organisations since 2017",
-      "Native Portuguese, fluent English, intermediate Spanish",
+      "Nine positions across eight organisations since 2017",
+      "Native Portuguese, advanced English, intermediate Spanish",
     ],
   },
   s2: {
@@ -363,6 +416,13 @@ const en: Dict = {
     sourceLabel: "Source",
     liveLabel: "Live",
     privateSource: "Closed",
+    pager: {
+      label: "Project pages",
+      prev: "Previous",
+      next: "Next",
+      page: "Page",
+      of: "of",
+    },
     projects: {
       coda: {
         summary:
@@ -378,6 +438,41 @@ const en: Dict = {
         summary:
           "A credit-card spending dashboard: CSV statements become a purchase database, the API aggregates by month and category, and the front end shows in tables and charts how the spending evolves.",
         note: "The parser is not coupled to any issuer — it reads any CSV with a date, a description and an amount. Extractor, API and front end are separate applications in one monorepo, with the infrastructure versioned alongside them.",
+      },
+      veiculos: {
+        summary:
+          "Data on Brazil's mass-market cars in one place: FIPE prices and how they move, PBEV/Inmetro fuel economy and spec sheets, crossed into metrics such as range per tank, cost per km and which models hold their value while spending little.",
+        note: "A BullMQ worker collects FIPE daily and PBEV weekly, with 36 months of history. The Inmetro PDF reader and the matching of the same car across all three sources live in a domain package shared by the API and the worker.",
+      },
+      imoveis: {
+        summary:
+          "A hub for properties for sale in São Luís: listings, a table with search and sorting, and a map with every property plotted at its coordinates.",
+        note: "NestJS API and Next.js front end over Postgres with Drizzle, in the same monorepo shape as its sibling projects. Listings are entered by hand today, and the data model was designed to take a crawler later.",
+      },
+      fdp: {
+        summary:
+          "A trick-taking card game of bidding and bluffing for 2 to 8 players, each on their own device, in a room joined by invite code. From the Fodinha family: the bids can never add up to the tricks, so someone always loses.",
+        note: "The server is the only authority: a pure, deterministic rules engine, Redis-backed rooms that survive a restart exactly where they were, bots at four difficulty levels, and accounts with SSO and history in Postgres.",
+      },
+      domino: {
+        summary:
+          "Dominoes with friends in the browser, 2 to 4 players, in pairs or every player for themselves, in Batida and Multiples-of-5 modes. Rooms share an invite link that unfurls as a card on WhatsApp.",
+        note: "The same architecture as FDP: HTTP and WebSocket in a single process, bots at three levels deciding from the player's own view, automatic reconnection, and a bot that takes over the seat of anyone who leaves mid-hand.",
+      },
+      omiBomba: {
+        summary:
+          "A bomb arena game for 2 to 5 players in the browser: drop bombs, break crates, grab power-ups and be the last one standing. Eight original characters, a fresh arena every round, keyboard or touch controls.",
+        note: "The server simulates the arena at 20 ticks a second and streams it over WebSocket. The engine is pure and deterministic, and the bots see exactly what a person sees.",
+      },
+      piano: {
+        summary:
+          "A \"Guitar Hero for piano\" for beginners: notes fall onto the keyboard, with full timeline control, a wait mode, and input from the computer keyboard, the screen or a MIDI keyboard.",
+        note: "New songs come in as .mid files or as solo-piano audio, transcribed on the server with Transkun. The game draws everything in Canvas 2D and plays real piano samples.",
+      },
+      gas: {
+        summary:
+          "Per-unit gas metering for apartment buildings: each resident follows their own consumption and the building manager sees the whole building.",
+        note: "Readings come from Aépio meters; until their API is documented, a simulated source feeds the system. A BullMQ worker syncs the readings, and the metering and consumption rules live in a domain package.",
       },
     },
   },
@@ -395,21 +490,31 @@ const en: Dict = {
       extraction: "Data extraction",
     },
     languagesRow: "Languages",
-    languagesValue: ["Portuguese (native)", "English (fluent)", "Spanish (intermediate)"],
+    languagesValue: ["Portuguese (native)", "English (advanced)", "Spanish (intermediate)"],
   },
   s4: {
     title: "Revision history",
-    lead: "Seven positions since 2017. Open a row to see what it involved.",
+    lead: "Nine positions since 2017. Open a row to see what it involved.",
     columns: { rev: "Rev.", period: "Period", company: "Organisation", role: "Position" },
     present: "present",
     expand: "Open details",
     collapse: "Close details",
     techLabel: "Stack",
     roles: {
+      trafilea: {
+        title: "AI Expert",
+        summary:
+          "Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform. Automated store provisioning, from sign-up to a live store on isolated infrastructure via Terraform, and the core microservices: onboarding, cart, pricing and authentication.",
+      },
+      alergocenter: {
+        title: "Senior Software Consultant",
+        summary:
+          "Consulting for a clinic: three full-stack systems designed from scratch to automate the administrative workflows the legacy software never covered, including a tool that generates and manages quotes as PDFs. The full cycle, from gathering requirements with internal users to the deploy.",
+      },
       melhorEnvio: {
         title: "Senior Developer",
         summary:
-          "Responsible for tracking millions of e-commerce deliveries a day. Event-driven architecture for asynchronous communication and robust services integrating private carrier APIs, inside a high-availability system.",
+          "Melhor Envio's tracking engine, processing more than 25 million shipment updates a month. Integrations with 8 major carriers and an event dictionary that normalises each one's messages into shared statuses, on an event-driven architecture on AWS.",
       },
       tegra: {
         title: "Backend Developer",
@@ -486,7 +591,7 @@ const es: Dict = {
     sheetValue: "1 de 6",
     location: "Ubicación",
     lastRevision: "Últ. revisión",
-    lastRevisionValue: "Ago 2026",
+    lastRevisionValue: "Nov 2026",
     role: "Ingeniero y arquitecto de software",
     contact: "Hablemos",
     downloadCv: "Descargar CV",
@@ -496,17 +601,17 @@ const es: Dict = {
   s1: {
     title: "Descripción general",
     body: [
-      "Construyo software profesionalmente desde 2017. Empecé montando escenarios de realidad virtual en Maranhão y hoy trabajo en sistemas distribuidos que rastrean millones de entregas de e-commerce por día: arquitectura orientada a eventos, integraciones con APIs privadas de transportistas y la disciplina poco glamorosa de mantener todo eso en pie cuando el volumen no pide permiso.",
-      "Pasé por una software house, un producto de datos públicos, una minera y logística. Eso me dio recorrido en distintas capas del stack — el back end es mi especialidad, el front end es terreno conocido, y la arquitectura viene antes de escribir cualquiera de los dos.",
+      "Construyo software profesionalmente desde 2017. Empecé montando escenarios de realidad virtual en Maranhão y hoy trabajo en una plataforma SaaS multi-tenant de e-commerce: infraestructura aislada aprovisionada automáticamente para cada tienda, microservicios en Go y TypeScript sobre AWS y la disciplina poco glamorosa de mantener todo eso en pie, del entorno de desarrollo hasta producción.",
+      "Pasé por una software house, un producto de datos públicos, una minera, logística y e-commerce. Eso me dio recorrido en distintas capas del stack — el back end es mi especialidad, el front end es terreno conocido, y la arquitectura viene antes de escribir cualquiera de los dos.",
     ],
     featuresTitle: "Características",
     features: [
-      "Arquitectura orientada a eventos a escala de millones de eventos por día",
+      "Arquitectura orientada a eventos a escala de decenas de millones de eventos al mes",
       "Agentes de IA en producción: MCP, tool calling y orquestación",
       "Back end en Node.js/NestJS, Golang, Python, PHP y C#",
       "Recolección y extracción de datos públicos a gran escala",
-      "Siete posiciones en seis organizaciones desde 2017",
-      "Portugués nativo, inglés fluido, español intermedio",
+      "Nueve posiciones en ocho organizaciones desde 2017",
+      "Portugués nativo, inglés avanzado, español intermedio",
     ],
   },
   s2: {
@@ -543,6 +648,13 @@ const es: Dict = {
     sourceLabel: "Código",
     liveLabel: "En línea",
     privateSource: "Cerrado",
+    pager: {
+      label: "Páginas de proyectos",
+      prev: "Anterior",
+      next: "Siguiente",
+      page: "Página",
+      of: "de",
+    },
     projects: {
       coda: {
         summary:
@@ -558,6 +670,41 @@ const es: Dict = {
         summary:
           "Panel de gastos de tarjeta de crédito: las facturas en CSV se convierten en una base de compras, la API agrega por mes y por categoría, y el front muestra en tablas y gráficos cómo evoluciona el gasto.",
         note: "El parser no está acoplado a ningún emisor — lee cualquier CSV con fecha, descripción e importe. Extractor, API y front son aplicaciones separadas en el mismo monorepo, con la infraestructura versionada junto a ellas.",
+      },
+      veiculos: {
+        summary:
+          "Datos de los autos del mercado masivo brasileño en un solo lugar: precio FIPE y su variación, consumo del PBEV/Inmetro y ficha técnica, cruzados en métricas como autonomía por tanque, costo por km y qué modelos conservan valor gastando poco.",
+        note: "Un worker en BullMQ recolecta la FIPE cada día y el PBEV cada semana, con 36 meses de historial. El lector del PDF del Inmetro y el emparejamiento del mismo auto entre las tres fuentes viven en un paquete de dominio compartido por la API y el worker.",
+      },
+      imoveis: {
+        summary:
+          "Centralizador de inmuebles en venta en São Luís: registro, tabla con búsqueda y orden, y un mapa con cada inmueble ubicado por su coordenada.",
+        note: "API en NestJS y front en Next.js sobre Postgres con Drizzle, con el mismo formato de monorepo que sus proyectos hermanos. El registro hoy es manual y el modelo de datos ya está pensado para recibir un crawler más adelante.",
+      },
+      fdp: {
+        summary:
+          "Juego de cartas de bazas, apuestas y blufeo para 2 a 8 personas, cada una en su propio dispositivo, en una sala con código de invitación. De la familia del Fodinha: la suma de las apuestas nunca cierra con las bazas, así que siempre alguien pierde.",
+        note: "El servidor es la única autoridad: motor de reglas puro y determinista, salas en Redis que sobreviven a un reinicio exactamente donde estaban, bots en cuatro dificultades y cuentas con SSO e historial en Postgres.",
+      },
+      domino: {
+        summary:
+          "Dominó con amigos en el navegador, de 2 a 4 personas, en parejas o cada uno por su cuenta, en los modos Batida y Múltiplo de 5. Sala con enlace de invitación que llega a WhatsApp como tarjeta.",
+        note: "La misma arquitectura que FDP: HTTP y WebSocket en un solo proceso, bots en tres niveles que deciden con la misma vista del jugador, reconexión automática y un bot que ocupa el asiento de quien sale a mitad de la mano.",
+      },
+      omiBomba: {
+        summary:
+          "Juego de bombas en arena para 2 a 5 personas en el navegador: suelta bombas, rompe cajas, toma ítems y sé el último en pie. Ocho personajes propios, arena nueva en cada ronda y control por teclado o táctil.",
+        note: "El servidor simula la arena a 20 ciclos por segundo y la transmite por WebSocket. El motor es puro y determinista, y los bots ven exactamente lo que ve la persona.",
+      },
+      piano: {
+        summary:
+          "Un \"Guitar Hero del piano\" para principiantes: las notas caen sobre el teclado, con control total de la línea de tiempo, modo espera y entrada por el teclado de la computadora, la pantalla o un teclado MIDI.",
+        note: "Las canciones nuevas entran como archivo .mid o como audio de piano solo, transcrito en el servidor con Transkun. El juego dibuja todo en Canvas 2D y suena con muestras reales de piano.",
+      },
+      gas: {
+        summary:
+          "Medición individual de gas para edificios: cada residente sigue su propio consumo y el administrador ve todo el edificio.",
+        note: "Las lecturas vienen de los medidores de Aépio; mientras su API no esté documentada, una fuente simulada alimenta el sistema. Un worker en BullMQ sincroniza las lecturas, y las reglas de medición y consumo viven en un paquete de dominio.",
       },
     },
   },
@@ -575,21 +722,31 @@ const es: Dict = {
       extraction: "Extracción de datos",
     },
     languagesRow: "Idiomas",
-    languagesValue: ["Portugués (nativo)", "Inglés (fluido)", "Español (intermedio)"],
+    languagesValue: ["Portugués (nativo)", "Inglés (avanzado)", "Español (intermedio)"],
   },
   s4: {
     title: "Historial de revisiones",
-    lead: "Siete posiciones desde 2017. Abre una fila para ver qué implicó.",
+    lead: "Nueve posiciones desde 2017. Abre una fila para ver qué implicó.",
     columns: { rev: "Rev.", period: "Período", company: "Organización", role: "Posición" },
     present: "actual",
     expand: "Abrir detalles",
     collapse: "Cerrar detalles",
     techLabel: "Stack",
     roles: {
+      trafilea: {
+        title: "AI Expert",
+        summary:
+          "Trafiflow, la plataforma SaaS multi-tenant de e-commerce de Trafilea. Aprovisionamiento automatizado de tiendas, del registro a la tienda publicada con infraestructura aislada vía Terraform, y los microservicios del core: onboarding, carrito, precios y autenticación.",
+      },
+      alergocenter: {
+        title: "Consultor de Software Senior",
+        summary:
+          "Consultoría para una clínica: tres sistemas full stack diseñados desde cero para automatizar los flujos administrativos que el software heredado no cubría, incluida una herramienta de generación y gestión de presupuestos en PDF. Ciclo completo, del relevamiento con los usuarios internos hasta el deploy.",
+      },
       melhorEnvio: {
         title: "Desarrollador Senior",
         summary:
-          "Responsable del rastreo de millones de entregas de e-commerce por día. Arquitectura orientada a eventos para comunicación asíncrona y servicios robustos de integración con las APIs privadas de los transportistas, dentro de un sistema de alta disponibilidad.",
+          "Motor de rastreo de Melhor Envio, con más de 25 millones de actualizaciones de envíos al mes. Integraciones con 8 grandes transportistas y un diccionario de eventos que normaliza los mensajes de cada uno en estados únicos, sobre una arquitectura orientada a eventos en AWS.",
       },
       tegra: {
         title: "Desarrollador Back End",

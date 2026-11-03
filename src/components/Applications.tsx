@@ -1,13 +1,33 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PROJECTS } from "@/lib/record";
+import { PROJECTS, PROJECTS_PER_PAGE } from "@/lib/record";
 import SectionHeading from "@/components/SectionHeading";
 
 const Applications = () => {
   const { d } = useLanguage();
   const s = d.sProjects;
+  const [page, setPage] = useState(0);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  const pages = Math.ceil(PROJECTS.length / PROJECTS_PER_PAGE);
+  const visible = PROJECTS.slice(page * PROJECTS_PER_PAGE, (page + 1) * PROJECTS_PER_PAGE);
+  const pad = (n: number) => String(n).padStart(2, "0");
+
+  /*
+   * Turning the page keeps the reader on the list: if its top has scrolled out of
+   * view (the pager sits at the bottom of five tall rows), bring it back, so the
+   * new first product is what they see rather than the middle of the next page.
+   */
+  const goTo = (next: number) => {
+    setPage(next);
+    const top = listRef.current?.getBoundingClientRect().top ?? 0;
+    if (top < 0) {
+      listRef.current?.scrollIntoView({ block: "start" });
+    }
+  };
 
   return (
     <section id="aplicacoes" className="scroll-mt-14 border-t border-rule-strong">
@@ -17,8 +37,12 @@ const Applications = () => {
           {s.lead}
         </p>
 
-        <ul className="mt-10 border-t border-rule-strong">
-          {PROJECTS.map((project) => {
+        <ul
+          ref={listRef}
+          id="aplicacoes-lista"
+          className="mt-10 scroll-mt-20 border-t border-rule-strong"
+        >
+          {visible.map((project) => {
             const copy = s.projects[project.id];
 
             return (
@@ -100,6 +124,52 @@ const Applications = () => {
             );
           })}
         </ul>
+
+        {pages > 1 && (
+          <nav
+            aria-label={s.pager.label}
+            className="mt-6 flex flex-wrap items-center justify-between gap-4"
+          >
+            <p className="mono text-[0.75rem] uppercase tracking-[0.14em] text-graphite" aria-live="polite">
+              {s.pager.page} {pad(page + 1)} {s.pager.of} {pad(pages)}
+            </p>
+            <div className="flex items-center">
+              <button
+                type="button"
+                onClick={() => goTo(page - 1)}
+                disabled={page === 0}
+                aria-controls="aplicacoes-lista"
+                className="mono h-9 border border-rule-strong px-3 text-[0.75rem] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-stock-sunk disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:text-graphite disabled:opacity-50"
+              >
+                ← {s.pager.prev}
+              </button>
+              {Array.from({ length: pages }, (_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-current={i === page ? "page" : undefined}
+                  aria-controls="aplicacoes-lista"
+                  aria-label={`${s.pager.page} ${i + 1}`}
+                  className={`mono -ml-px h-9 w-10 border border-rule-strong text-[0.75rem] tracking-[0.14em] transition-colors ${
+                    i === page ? "bg-diazo text-stock" : "text-ink hover:bg-stock-sunk"
+                  }`}
+                >
+                  {pad(i + 1)}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => goTo(page + 1)}
+                disabled={page === pages - 1}
+                aria-controls="aplicacoes-lista"
+                className="mono -ml-px h-9 border border-rule-strong px-3 text-[0.75rem] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-stock-sunk disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:text-graphite disabled:opacity-50"
+              >
+                {s.pager.next} →
+              </button>
+            </div>
+          </nav>
+        )}
       </div>
     </section>
   );

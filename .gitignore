@@ -48,3 +48,7 @@ next-env.d.ts
 .cursor/
 .gemini/
 .impeccable/questions/
+cv/*.aux
+cv/*.log
+cv/*.out
+cv/*.pdf

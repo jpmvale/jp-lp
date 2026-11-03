@@ -13,21 +13,23 @@
  * The revision counts editions of THIS DOCUMENT, not jobs. It used to shadow the
  * newest role (both read 07) and the two drifted apart the moment the sheet was
  * revised without the career changing — which is exactly what happened in
- * 08/2026. Roles keep their own `rev` (01–07) for the history rows; that
+ * 08/2026. Roles keep their own `rev` (01–09) for the history rows; that
  * sequence is unrelated to this one and they are meant to disagree.
  *
- * Bumping: next edit of substance is 09, and `lastRevision` moves to its month.
+ * Bumping: next edit of substance is 10, and `lastRevision` moves to its month.
  */
 export const PART = {
   designation: "JPMV-01",
-  revision: "08",
-  lastRevision: "2026-08",
+  revision: "09",
+  lastRevision: "2026-11",
   sheets: 6,
   location: "São Luís, MA — BR",
   since: 2017,
 } as const;
 
 export type RoleId =
+  | "trafilea"
+  | "alergocenter"
   | "melhorEnvio"
   | "tegra"
   | "jazida"
@@ -71,13 +73,35 @@ export interface Role {
 
 export const ROLES: Role[] = [
   {
+    id: "trafilea",
+    initials: "TF",
+    logo: { src: "/logos/orgs/trafilea.svg", aspect: 4.3 },
+    rev: "09",
+    from: "2026-03",
+    to: null,
+    company: "Trafilea",
+    location: "Montevidéu, UY — remoto",
+    tech: ["Golang", "TypeScript", "gRPC", "AWS", "Terraform", "Terragrunt", "PostgreSQL", "Datadog", "Event-driven"],
+  },
+  {
+    id: "alergocenter",
+    initials: "AC",
+    logo: { src: "/logos/orgs/alergocenter.svg", aspect: 0.94 },
+    rev: "08",
+    from: "2025-09",
+    to: "2026-02",
+    company: "Alergocenter",
+    location: "São Luís, MA",
+    tech: ["NestJS", "React", "PostgreSQL", "Docker"],
+  },
+  {
     id: "melhorEnvio",
-    initials: "ME",
-    logo: { src: "/logos/orgs/melhor-envio.svg", aspect: 2.17 },
+    initials: "LW",
+    logo: { src: "/logos/orgs/lwsa.svg", aspect: 2.76 },
     rev: "07",
     from: "2024-05",
-    to: null,
-    company: "Melhor Envio",
+    to: "2026-03",
+    company: "LWSA",
     location: "Pelotas, RS",
     tech: ["NestJS", "Golang", "MongoDB", "AWS", "Laravel", "Event-driven"],
   },
@@ -149,7 +173,17 @@ export const ROLES: Role[] = [
   },
 ];
 
-export type ProjectId = "coda" | "kindred" | "expenseAnalyzer";
+export type ProjectId =
+  | "coda"
+  | "veiculos"
+  | "imoveis"
+  | "expenseAnalyzer"
+  | "kindred"
+  | "fdp"
+  | "domino"
+  | "omiBomba"
+  | "piano"
+  | "gas";
 
 export interface Project {
   id: ProjectId;
@@ -164,6 +198,11 @@ export interface Project {
   url: string | null;
 }
 
+/**
+ * Ordered by importance, as ranked by the owner (2026-11-02): the first page of
+ * the section shows the top five, the rest are paginated. `code` follows the
+ * same order, so APP-01 is always the headline product.
+ */
 export const PROJECTS: Project[] = [
   {
     id: "coda",
@@ -175,8 +214,35 @@ export const PROJECTS: Project[] = [
     url: "https://coda.imp-software.cloud",
   },
   {
-    id: "kindred",
+    id: "veiculos",
     code: "APP-02",
+    name: "veiculos",
+    logo: "/logos/veiculos.svg",
+    stack: ["TypeScript", "NestJS", "Next.js", "BullMQ", "Redis", "PostgreSQL", "Drizzle"],
+    repo: null,
+    url: "https://veiculos.imp-software.cloud",
+  },
+  {
+    id: "imoveis",
+    code: "APP-03",
+    name: "imoveis",
+    logo: "/logos/imoveis.svg",
+    stack: ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Drizzle", "Tailwind"],
+    repo: null,
+    url: "https://imoveis.imp-software.cloud",
+  },
+  {
+    id: "expenseAnalyzer",
+    code: "APP-04",
+    name: "expense-analyzer",
+    logo: "/logos/expense-analyzer.svg",
+    stack: ["TypeScript", "NestJS", "MongoDB", "React", "Docker"],
+    repo: "https://github.com/jpmvale/expense-analyzer",
+    url: "https://expenses.imp-software.cloud",
+  },
+  {
+    id: "kindred",
+    code: "APP-05",
     name: "kindred",
     logo: "/logos/kindred.svg",
     stack: ["TypeScript", "NestJS", "Prisma", "PostgreSQL", "React", "Vite"],
@@ -184,15 +250,54 @@ export const PROJECTS: Project[] = [
     url: "https://kindred.imp-software.cloud",
   },
   {
-    id: "expenseAnalyzer",
-    code: "APP-03",
-    name: "expense-analyzer",
-    logo: "/logos/expense-analyzer.svg",
-    stack: ["TypeScript", "NestJS", "MongoDB", "React", "Docker"],
-    repo: "https://github.com/jpmvale/expense-analyzer",
-    url: "https://expenses.imp-software.cloud",
+    id: "fdp",
+    code: "APP-06",
+    name: "fdp",
+    logo: "/logos/fdp.svg",
+    stack: ["TypeScript", "Node.js", "WebSocket", "React", "Vite", "Redis", "PostgreSQL"],
+    repo: "https://github.com/jpmvale/fdp",
+    url: "https://fdp.imp-software.cloud",
+  },
+  {
+    id: "domino",
+    code: "APP-07",
+    name: "domino",
+    logo: "/logos/domino.svg",
+    stack: ["TypeScript", "Hono", "WebSocket", "React", "Vite", "Redis"],
+    repo: "https://github.com/jpmvale/domino",
+    url: "https://domino.imp-software.cloud",
+  },
+  {
+    id: "omiBomba",
+    code: "APP-08",
+    name: "omi-bomba",
+    logo: "/logos/omi-bomba.svg",
+    stack: ["TypeScript", "Node.js", "WebSocket", "React", "Vite", "Redis"],
+    repo: "https://github.com/jpmvale/omi-bomba",
+    url: "https://omi-bomba.imp-software.cloud",
+  },
+  {
+    id: "piano",
+    code: "APP-09",
+    name: "piano",
+    logo: "/logos/piano.svg",
+    stack: ["TypeScript", "Vite", "Canvas 2D", "Web MIDI", "Python", "Transkun"],
+    repo: "https://github.com/jpmvale/piano",
+    url: "https://piano.imp-software.cloud",
+  },
+  {
+    id: "gas",
+    code: "APP-10",
+    name: "gas-individualizado",
+    logo: "/logos/gas.svg",
+    stack: ["TypeScript", "NestJS", "Next.js", "BullMQ", "PostgreSQL", "Drizzle"],
+    repo: "https://github.com/jpmvale/gas-individualizado",
+    url: "https://gas.imp-software.cloud",
   },
 ];
+
+/** Products per page in the section; the first page is the owner's top five. */
+export const PROJECTS_PER_PAGE = 5;
 
 export type CharacteristicId =
   | "backend"
@@ -222,7 +327,7 @@ export const CHARACTERISTICS: { id: CharacteristicId; symbol: string; values: st
   {
     id: "infra",
     symbol: "OPS",
-    values: ["AWS", "Azure", "GCP", "Docker", "CI/CD", "Kafka"],
+    values: ["AWS", "Terraform", "Azure", "GCP", "Docker", "CI/CD", "Kafka"],
   },
   {
     id: "agents",
