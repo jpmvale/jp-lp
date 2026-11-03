@@ -270,9 +270,9 @@ const pt: Dict = {
     techLabel: "Stack",
     roles: {
       trafilea: {
-        title: "AI Expert",
+        title: "Engenheiro de Software Sênior",
         summary:
-          "Trafiflow, a plataforma SaaS multi-tenant de e-commerce da Trafilea. Provisionamento automatizado de lojas, do cadastro à loja publicada com infraestrutura isolada via Terraform, e os microsserviços do core: onboarding, carrinho, precificação e autenticação.",
+          "Trafiflow, a plataforma SaaS multi-tenant de e-commerce da Trafilea, em fase final antes do lançamento. Provisionamento automatizado de lojas em infraestrutura isolada via Terraform, que levou o onboarding de 2 horas para 25 minutos, e mais de 30 microsserviços do core, de produtos e checkout a frete e cupons.",
       },
       alergocenter: {
         title: "Consultor de Software Sênior",
@@ -502,9 +502,9 @@ const en: Dict = {
     techLabel: "Stack",
     roles: {
       trafilea: {
-        title: "AI Expert",
+        title: "Senior Software Engineer",
         summary:
-          "Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform. Automated store provisioning, from sign-up to a live store on isolated infrastructure via Terraform, and the core microservices: onboarding, cart, pricing and authentication.",
+          "Trafiflow, Trafilea's multi-tenant e-commerce SaaS platform, now in its final stretch before launch. Automated store provisioning on isolated infrastructure via Terraform, which cut onboarding from 2 hours to 25 minutes, and 30+ core microservices, from products and checkout to shipping and coupons.",
       },
       alergocenter: {
         title: "Senior Software Consultant",
@@ -734,9 +734,9 @@ const es: Dict = {
     techLabel: "Stack",
     roles: {
       trafilea: {
-        title: "AI Expert",
+        title: "Ingeniero de Software Senior",
         summary:
-          "Trafiflow, la plataforma SaaS multi-tenant de e-commerce de Trafilea. Aprovisionamiento automatizado de tiendas, del registro a la tienda publicada con infraestructura aislada vía Terraform, y los microservicios del core: onboarding, carrito, precios y autenticación.",
+          "Trafiflow, la plataforma SaaS multi-tenant de e-commerce de Trafilea, en la recta final antes del lanzamiento. Aprovisionamiento automatizado de tiendas en infraestructura aislada vía Terraform, que llevó el onboarding de 2 horas a 25 minutos, y más de 30 microservicios del core, de productos y checkout a envíos y cupones.",
       },
       alergocenter: {
         title: "Consultor de Software Senior",
